@@ -11,17 +11,17 @@
 % - If you write your thesis in English (remark: only possible after getting
 %   explicit approval!), remove the option "dutch," or replace with "english".
 
-\usepackage{lipsum} % For blind text, can be removed after adding actual content
+%%\usepackage{lipsum} % For blind text, can be removed after adding actual content
 
 %% Pictures to include in the text can be put in the graphics/ folder
 \graphicspath{{../graphics/}}
 
 %% For source code highlighting, requires pygments to be installed
 %% Compile with the -shell-escape flag!
-%% \usepackage[chapter]{minted}
+\usepackage[chapter]{minted}
 %% If you compile with the make_thesis.{bat,sh} script, use the following
 %% import instead:
-\usepackage[chapter,outputdir=../output]{minted}
+%% \usepackage[chapter,outputdir=../output]{minted}
 \usemintedstyle{solarized-light}
 
 %% Formatting for minted environments.
@@ -49,13 +49,13 @@
 
 %%---------- Document metadata -------------------------------------------------
 % TODO: Replace this with your own information
-\author{Ernst Aarden}
-\supervisor{Dhr. F. Van Houte}
-\cosupervisor{Mevr. S. Beeckman}
-\title[Optionele ondertitel]%
-    {Titel van de bachelorproef}
+\author{Jan De Somviele}
+\supervisor{Mevr. L. De Mol}
+\cosupervisor{Mevr. G. Vercauteren}
+\title[]%
+    {De impact van mobiele netwerken op facilitair beheer: een vergelijkende studie van 4G, privaat 5G en publiek 5G voor HOGENT}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
-\examperiod{1}
+\examperiod{2}
 \degreesought{\IfLanguageName{dutch}{Professionele bachelor in de toegepaste informatica}{Bachelor of applied computer science}}
 \partialthesis{false} %% To display 'in partial fulfilment'
 %\institution{Internshipcompany BVBA.}
@@ -129,7 +129,6 @@
 % Aarzel niet om een meer beschrijvende titel aan deze hoofdstukken te geven of
 % om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
 % te verspreiden!
-
 \input{inleiding}
 \input{standvanzaken}
 \input{methodologie}
