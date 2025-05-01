@@ -1,0 +1,49 @@
+28/03 workshop
+
+private 5G > dedicated spectrum
+
+nokia flexi zone small cell - core nuc intel
+open 5GS -> voor test setups
+librespeed -> php server ook voor tests
+5g core: draaien de functies (back-end/api) dataverwerking devices, registratie sims, verbinding tsn antennas
+open 5GS (open source 5gcore/...), elke functie = docker container
+nuc intel
+srsran: voor project
+
+
+ disrtibuted unit-> ran lokaal
+
+emf, upf
+
+cu en du
+
+metric: dbm
+open5GS quickstart foto
+
+10 GBit uplink
+
+latency -> apparatuur, ping   <1 ms latency (theo)
+rrsp welke antenna is het beste
+rrsq quality
+signal to noise (interference) ?sinr
+
+download/upload frames
+indoor 60-70 mbit upload
+outdoor 
+ttd -> meer upload/download
+!! sdr -> radio -> veel frequenties tot 6 Ghz -> software welke frequentie (ook 4G) !!
+pico cel -> beperkt # frequenties
+bandbreedte -> throughput
+als sim niet in netwerk = geen connectie
+APN -> vlan op sim niveau vs slice groepering users
+WSL:
+UERANSIM -> github (fake antenne)
+open5gs functies:
+localhost:9999
+AMF krijgt connectie
+UPF devices connected
+SMF -> handover tsn masten
+MME -> 4G mast met 5G core
+
+test cases -> deeltje verlichting/HVAC al maken voor PoC 
+modum voor PoC

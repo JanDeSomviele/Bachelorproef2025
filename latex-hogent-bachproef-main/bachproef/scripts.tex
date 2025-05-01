@@ -1,0 +1,86 @@
+\chapter{\IfLanguageName{dutch}{scripts}{}}%
+\label{ch:scripts}
+
+\section*{Testscripts en validatie van de meetomgeving}
+
+Om een objectieve vergelijking te kunnen maken tussen de prestaties van 4G- en 5G-netwerken in de context van gebouwbeheersystemen, werd er een reeks testscripts ontwikkeld in Python en Bash. Deze scripts dienen om op systematische wijze netwerkstatistieken te verzamelen, protocollaire communicatie te simuleren en de betrouwbaarheid van de verbinding tussen controlemodules en serveromgevingen te meten. In dit hoofdstuk wordt toegelicht welke scripts werden opgesteld, wat hun doel is binnen de testopstelling, hoe ze werken en hoe ze initieel gevalideerd werden op een lokaal wifinetwerk.
+
+\section{Overzicht van de scripts}
+
+De scripts zijn opgedeeld in twee hoofdcategorieën: netwerkdiagnose en protocolsimulatie.
+
+\subsection*{Netwerkdiagnose (Bash-script)}
+
+Het eerste script focust op algemene netwerkmetingen. Dit script voert periodiek ping-opdrachten uit naar de testrouter of controller en registreert daarbij de round-trip time (RTT), pakketverlies en jitter. Daarnaast worden iperf3-metingen uitgevoerd voor het analyseren van de beschikbare bandbreedte. De resultaten worden gelogd in een CSV-bestand voor latere analyse.
+
+\textbf{Het script:}
+% TO DO: script
+%\begin{lstlisting}[language=bash]
+%    #!/bin/bash
+%    HOST="192.168.1.1"
+%    LOG="ping_test.csv"
+%    
+%    echo "timestamp,rtt_min,rtt_avg,rtt_max,packet_loss" > $LOG
+%    while true; do
+%    OUT=$(ping -c 5 $HOST)
+%    RTT=$(echo "$OUT" | tail -1 | awk -F '/' '{print $5","$6","$7}')
+%    LOSS=$(echo "$OUT" | grep -oP '\d+(?=% packet loss)')
+%    echo "$(date),$RTT,$LOSS" >> $LOG
+%    sleep 60
+%    done
+%\end{lstlisting}
+
+\subsection*{Modbus-communicatie test (Python-script)}
+
+Het tweede script is gericht op het testen van industriële communicatie via het Modbus TCP-protocol. Dit script maakt gebruik van de \texttt{pymodbus}-bibliotheek om op geregelde tijdstippen waarden op te vragen bij een Xenta-module die met een AS-P controller verbonden is. Het meet de responstijd en controleert op fouten in de transmissie. Zo wordt nagegaan in welke mate netwerkvertragingen een impact hebben op de communicatie tussen veldmodules en beheersystemen.
+
+\textbf{Het script:}
+% TO DO: script
+%\begin{lstlisting}[language=Python]
+%    from pymodbus.client import ModbusTcpClient
+%    import time, csv, datetime
+%    
+%    client = ModbusTcpClient('192.168.1.10', port=502)
+%    with open("modbus_results.csv", "w", newline='') as file:
+%    writer = csv.writer(file)
+%    writer.writerow(["timestamp", "response_time_ms", "success"])
+%    
+%    while True:
+%    start = time.time()
+%    result = client.read_holding_registers(0, 1, unit=1)
+%    end = time.time()
+%    delta = round((end - start) * 1000, 2)
+%    status = "OK" if result.isError() == False else "FAIL"
+%    writer.writerow([datetime.datetime.now(), delta, status])
+%    time.sleep(10)
+%\end{lstlisting}
+
+\section{Testdoelstellingen}
+
+De scripts dienen meerdere doelen binnen de testopstelling:
+\begin{itemize}
+    \item Het verzamelen van relevante netwerkstatistieken, zoals latency, bandbreedte, jitter en pakketverlies.
+    \item Het analyseren van de betrouwbaarheid van Modbus-communicatie over mobiele netwerken, wat representatief is voor het gedrag van HVAC- en verlichtingssystemen in realistische scenario’s.
+    \item Het opsporen van storingen of onverwacht gedrag in de verbinding tussen modules via het mobiele netwerk.
+    \item Het creëren van een reproduceerbare en geautomatiseerde testmethode voor consistente evaluaties.
+\end{itemize}
+
+\section{Eerste validatie op lokaal wifi-netwerk}
+
+Voordat de scripts worden ingezet in de volledige testopstelling met 4G en 5G, worden ze eerst uitvoerig getest op het lokale wifi-netwerk. Deze validatiefase dient om mogelijke bugs in de scripts op te sporen, de logs te controleren op correcte structuur, en na te gaan of de scripts robuust functioneren bij langdurige uitvoering.
+
+De gebruikte testomgeving bestond uit:
+\begin{itemize}
+    \item Een AS-P controller verbonden via ethernet met een router.
+    \item Een PC of server verbonden via hetzelfde netwerk.
+    \item De scripts werden uitgevoerd op de server die tegelijkertijd dienst deed als logger.
+\end{itemize}
+
+Tijdens deze validatiefase werd onder andere bevestigd dat:
+\begin{itemize}
+    \item De ping- en iperf3-metingen een correct verloop kenden en reproduceerbare resultaten gaven.
+    \item De Modbus-simulatie foutloos opstartte, verbinding kon maken met de AS-P controller, en systematisch correcte registerwaarden ontving.
+    \item CSV-bestanden correct en overzichtelijk werden opgebouwd voor latere verwerking in Excel of Python-analyse.
+\end{itemize}
+
+Deze validatiefase is van groot belang om zeker te zijn dat de scripts in latere fases waar netwerkverstoringen of bereikproblemen reëler zijn betrouwbaar blijven functioneren. Het beperkt de foutmarge en verhoogt de reproduceerbaarheid van de tests.
