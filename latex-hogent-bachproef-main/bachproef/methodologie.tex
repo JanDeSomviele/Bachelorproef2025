@@ -29,11 +29,30 @@
 \section{Literatuuronderzoek en probleemdefinitie}
 Het doel van deze fase is om inzicht te krijgen in de huidige situatie en de technische vereisten van de systemen voor verwarming en verlichting op HOGENT-locaties. Hiervoor wordt een literatuurstudie uitgevoerd om de technische mogelijkheden en beperkingen van 4G, privaat 5G en publiek 5G te analyseren voor verwarming en verlichting. Ook worden veiligheidsrisico's bij het gebruik van mobiele netwerken onderzocht en hoe deze kunnen vermeden worden. Daarnaast worden gesprekken gevoerd met belanghebbenden bij HOGENT, zoals technisch personeel en de IT-afdeling, om een requirementsanalyse op te stellen die inzicht biedt in de huidige netwerkvereisten en mogelijke aanpassingen voor de bestaande systemen. De data voor deze fase wordt verzameld uit academische literatuur via Google Scholar, technische documentatie van HOGENT en input van interne belanghebbenden. De deliverable is een rapport waarin de technische vereisten en veiligheidsrisico’s worden gedefinieerd, en de benodigde aanpassingen om de huidige systemen compatibel te maken met mobiele netwerken.
 
-\section{Vergelijkende studie van netwerktechnologieën}
-In deze fase wordt een vergelijkende studie uitgevoerd om te beoordelen welke netwerktechnologie het meest geschikt is voor de diensten verwarming en verlichting op HOGENT. Dit omvat een evaluatie van de technische eisen die de apparaten en applicaties momenteel van het netwerk vragen. Daarnaast gebeurt een analyse van de gevolgen van een overstap naar een mobiel netwerk voor operationele continuïteit, onderhoud en beheer voor de gekozen toepassingen. Data voor deze fase wordt verzameld uit literatuur, simulaties met tools zoals Cisco Packet Tracer en experimentele data uit de 5G-omgeving van de campus Schoonmeersen. De deliverable is een rapport met een uitgebreide analyse van de geschiktheid van 4G, privaat 5G en publiek 5G, inclusief aanbevelingen voor locatiespecifieke netwerkmogelijkheden.
 
-\section{Simulaties en proof of concept}
-Deze fase richt zich op het valideren van de theoretische bevindingen door middel van simulaties en praktische tests. Netwerkprestaties worden gesimuleerd in scenario's zoals bijvoorbeeld het aansturen van slimme thermostaten en dynamische verlichting op verschillende campuslocaties. Hierbij wordt de operationele continuïteit van de diensten onderzocht en worden de vereisten voor onderhoud en beheer geëvalueerd. Daarnaast wordt een proof of concept uitgevoerd in de 5G-omgeving van de campus Schoonmeersen, waarbij IoT-apparaten voor verwarming en verlichting worden getest op compatibiliteit en prestaties in mobiele netwerken. De benodigde data omvat simulatiegegevens, resultaten van de proof of concept en specificaties van de gebruikte apparaten. De deliverable van deze fase is een analyse van de resultaten van de simulaties en de proof of concept voor de haalbaarheid en impact van de overstap naar mobiele netwerken.
+\subsection{Basisopstelling en functionele tests}
 
-\section{Data-analyse en aanbevelingen}
-De laatste fase beantwoordt de overkoepelende onderzoeksvraag en de deelvragen. De verzamelde data uit de eerdere fasen wordt geanalyseerd om concrete aanbevelingen te formuleren over welke netwerktechnologie het meest geschikt is voor verwarming en verlichting op HOGENT. De deliverable van deze fase is een eindrapport met gedetailleerde aanbevelingen en implementatiestrategieën waarmee HOGENT een geïnformeerde beslissing kan nemen over de netwerkkeuzes voor haar facilitaire diensten.
+De eerste stap bestaat uit het opzetten van een functionele testomgeving waarin de communicatie tussen HVAC/lighting modules en de netwerkcontroller gecontroleerd wordt via een stabiele Wi-Fi-verbinding. Dit gebeurt met een eenvoudige basisopstelling: een Schneider Electric SpaceLogic AS-P controller is verbonden met één of meerdere TAC Xenta 401-modules via Modbus. Deze opstelling wordt lokaal getest op een eigen laptop of pc, zonder externe netwerkinfrastructuur.
+
+Om de connectiviteit en betrouwbaarheid van het systeem te beoordelen, worden Python-scripts ingezet die regelmatig Modbus-polling uitvoeren naar de Xenta-modules. Tegelijkertijd verzamelen deze scripts netwerkstatistieken zoals latency, packet loss en responstijd. Deze metingen worden lokaal bewaard voor latere analyse. Door de scripts eerst op Wi-Fi uit te voeren, wordt een referentiewaarde bepaald in een gecontroleerde en storingsvrije omgeving.
+
+\subsection{Mobiele netwerken en testinfrastructuur}
+
+Nadat de functionele werking via Wi-Fi bevestigd is, wordt de basisopstelling uitgebreid met connectiviteit via mobiele netwerken. De AS-P controller of een tussenliggende laptop wordt via een industriële 5G-router verbonden met het private 4G- of 5G-netwerk op campus Schoonmeersen. Zowel de privaat beheerde 4G-infrastructuur als de aanwezige 5G standalone-infrastructuur van het project 5Gblue worden benut.
+
+De scripts worden opnieuw ingezet, nu met verkeer dat loopt via de mobiele netwerken. De latency, jitter en packet loss worden onder deze omstandigheden gemeten en vergeleken met de referentiewaarden van de Wi-Fi-tests. Op deze manier kan de impact van netwerkvertragingen en verbindingskwaliteit op HVAC- en verlichtingssturing objectief beoordeeld worden.
+
+\subsection{Uitgebreide testopstelling en uitbreidbaarheid}
+
+Naast de basisopstelling is er een optionele uitbreiding voorzien met Arduino- en radiosoftware om extra sensoren of sturingen te simuleren. Deze modules worden aangesloten via USB op een laptop en simuleren inkomende data- of commandoverkeer. Dit laat toe om de AS-P controller te testen onder realistische werklastscenario’s, zoals simultane metingen of commando's van meerdere zones in een gebouw.
+
+Bij complexe setups of intensieve logging wordt ook een kleine server gebruikt in het netwerk. Deze server vervult meerdere rollen: centrale datalogger, visualisatiepunt, en simultane traffic generator. De server draait naast de scripts ook services voor netwerkmonitoring, zoals ping-tracing of logging van verkeer via tools als Wireshark of iPerf3.
+
+\subsection{Analyse en evaluatie}
+
+Alle meetdata wordt opgeslagen in CSV-formaat en verwerkt via Python voor grafische analyse. Vergelijkingen tussen 4G, 5G en Wi-Fi worden gemaakt op basis van gemiddelde responstijden, maximale vertragingen en stabiliteit van de verbinding. Tevens wordt nagegaan of netwerkvertragingen invloed hebben op de correcte werking van de HVAC- en lichtmodules. Bijvoorbeeld, worden opdrachten vertraagd uitgevoerd of niet correct verwerkt?
+
+De resultaten van deze analyses worden samengebracht in het eindrapport, waarin ook aanbevelingen worden geformuleerd voor mogelijke implementatie van mobiele netwerken voor gebouwsturing op HOGENT. Zowel functionele als prestatiegerichte criteria worden hierbij in rekening gebracht.
+
+
+
