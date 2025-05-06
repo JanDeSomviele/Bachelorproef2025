@@ -7,7 +7,7 @@ import logging
 
 logging.basicConfig()
 store = ModbusSlaveContext(
-    hr=ModbusSequentialDataBlock(0, [10]*100)  # Holding Registers
+    hr=ModbusSequentialDataBlock(0, [50]*100)  # Holding Registers
 )
 context = ModbusServerContext(slaves=store, single=True)
 

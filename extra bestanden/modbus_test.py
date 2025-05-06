@@ -33,7 +33,7 @@ client = ModbusTcpClient(MODBUS_IP, port=MODBUS_PORT)
 connection = client.connect()
 
 if connection:
-    result = client.read_holding_registers(1, count=10)
+    result = client.read_holding_registers(1, count=50)
     print(f"Registers uitgelezen: {result.registers}")
     client.close()
 else:

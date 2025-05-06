@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # TARGET_IP="192.168.1.50"    # <-- Vul hier het IP-adres in van je controller
-TARGET_IP="8.8.8.8"
+TARGET_IP="192.168.1.7"
 OUTPUT="wifi_ping_results.csv"
 i=1
 echo "Tijd(ms);TTL;Verlies" > $OUTPUT
