@@ -53,7 +53,7 @@
 Facilitair beheer (FM) is een interdisciplinair vakgebied dat de coördinatie van mensen, processen en ruimtes omvat om welzijn en efficiëntie binnen organisaties te verbeteren (ISO 41011:2018) \autocite{jaouhari2023we}. 
 
 \section{facilitaire diensten van HOGENT}
-Het centrale punt voor het beheer van facilitaire diensten op HOGENT heeft als locatie de campus Mercator. Hier wordt de informatie verzameld en gemonitord van alle campusen binnen het gebouwbeheersysteem. Voor deze bachelorproef wordt er dieper ingegaan op de campus Schoonmeersen.
+Het centrale punt voor het beheer van facilitaire diensten op HOGENT heeft als locatie de campus Mercator. Hier wordt de informatie verzameld en gemonitord van alle campussen binnen het gebouwbeheersysteem. Voor deze bachelorproef wordt er dieper ingegaan op de campus Schoonmeersen.
 
 \subsection{Campus Schoonmeersen}
 Op de campus Schoonmeersen zijn er 2 platformen om de informatie te verzamelen van de facilitaire diensten. Deze platformen zijn Johnson controls Metasys en Schneider's Schneider Electric. Metasys is in gebruik in gebouw D (GSCHD) zie figuur 2.1 en Scneider Electric is in gebruik in de gebouwen B (GSCHB), C (GSCHC), P (GSCHP) en de HOGENT Sporthal zie figuur 2.2 \autocite{Venneman2019}.
@@ -70,7 +70,7 @@ Op de campus Schoonmeersen zijn er 2 platformen om de informatie te verzamelen v
 \end{figure}
 
 \subsection{Xenta modules}
-In de gebouwen wordt er gebruik gemaakt van Xenta modules. Xenta module 401 is telkens de hoofdregelaar voor de systemen. Hieraan zijn dan telkens maximaal 10 input output apparaten verbonden en deze staan dan in voor het verzamelen van de gegevens van de diverse metingen. Er zijn verschillende soorten van input output apparaten zoals te zien in figuur 2.3. Digitale input en output apparaten hebben 2 vaste staten zoals uit en aan. Een thermistor is een weerstandsthermometer, of een resistor waarvan de weerstand afhankelijk is van de temperatuur. Analoge apparaten gebruiken continue signalen die variëren in grootte, zoals spanning, stroom of weerstand. Universele apparaten zijn apparaten die zowel kunnen dienen als digitale input en output en als analoge output.
+In de gebouwen wordt er gebruik gemaakt van Xenta modules. Xenta module 401 is telkens de hoofdregelaar voor de systemen. Hieraan zijn dan telkens maximaal 10 input output apparaten verbonden en deze staan dan in voor het verzamelen van de gegevens van de diverse metingen. Er zijn verschillende soorten van input/output apparaten zoals te zien in figuur 2.3. Digitale input en output apparaten hebben 2 vaste staten zoals uit en aan. Een thermistor is een weerstandsthermometer, of een resistor waarvan de weerstand afhankelijk is van de temperatuur. Analoge apparaten gebruiken continue signalen die variëren in grootte, zoals spanning, stroom of weerstand. Universele apparaten zijn apparaten die zowel kunnen dienen als digitale input en output en als analoge output.
 
 \begin{figure}
   \centering
@@ -78,9 +78,9 @@ In de gebouwen wordt er gebruik gemaakt van Xenta modules. Xenta module 401 is t
   \caption[Xenta modules. bron. Schneider Electric documenten]{\label{fig:xentamodules}Xenta modules. bron. Schneider Electric documenten}
 \end{figure}
 
+\subsection{Spacelogic}
+Een Spacelogic AS-P controller wordt in elk gebouw gebruikt om het gebouwbeheersysteem een ip adres te geven.
 
-%\subsection{Spacelogic}
-%De gebouwen op de campus Schoonmeersen maken gebruik van een Spacelogic controller AS-P om te communiceren via een toegewezen ip adres.
 
 % TO DO: foto's bijzetten
 \subsection{Verlichting}
@@ -98,26 +98,24 @@ Voor de buitenverlichting geldt een iets ruimer tijdschema:
     \item \textbf{Zaterdag:} 07:20 -- 19:20
 \end{itemize}
 
-Naast tijdsinstellingen wordt ook de helderheid gemeten om te bepalen of verlichting noodzakelijk is. Voor binnenverlichting geldt een drempelwaarde van $60.000$ lux, terwijl deze voor buitenverlichting op $60$ lux ligt. Wanneer de helderheid onder deze grenswaarden komt, kan de verlichting worden ingeschakeld.
-
-Voor gebouwen waarbij de verlichting niet vanuit Mercator kan worden aangestuurd, gebeurt de bediening handmatig.
+Naast tijdsinstellingen wordt ook de helderheid gemeten om te bepalen of verlichting noodzakelijk is. Voor binnenverlichting geldt een drempelwaarde van 60,000 lux, terwijl deze voor buitenverlichting op 60 lux ligt. Wanneer de helderheid onder deze grenswaarden komt, wordt de verlichting ingeschakeld. Voor gebouwen waarbij de verlichting niet vanuit Mercator kan worden aangestuurd, gebeurt de bediening handmatig.
 
 \subsection{HVAC (Heating, Ventilation, and Air Conditioning)}
 Gebouw T beschikt over het meest geavanceerde HVAC-systeem op de campus Schoonmeersen en dient als referentie voor de overige gebouwen. De warmteproductie binnen de gebouwen wordt voornamelijk verzorgd door ketels. In Gebouw T is daarnaast een warmtepomp geïnstalleerd, wat zorgt voor een efficiëntere en flexibelere regeling.
 
-De werking van de ketels is gebaseerd op het aantal draaiuren, wat vooral van belang is voor onderhoudsplanning. Wanneer een warmtepomp aanwezig is, fungeert deze als \textbf{primaire} warmtebron, terwijl de ketels als \textbf{secundaire} warmtevoorziening dienen.
+De werking van de ketels is gebaseerd op het aantal draaiuren, wat vooral van belang is voor onderhoudsplanning. Wanneer een warmtepomp aanwezig is, fungeert deze als primaire warmtebron, terwijl de ketels als secundaire warmtevoorziening dienen.
 
 De warmtepomp hanteert specifieke temperatuursinstellingen:
 
 \begin{itemize}
-    \item \textbf{Verwarming (heating):} Ingeschakeld bij een temperatuur onder $16°C$
-    \item \textbf{Neutrale stand:} Tussen $16°C$ en $18°C$
-    \item \textbf{Koeling (cooling):} Geactiveerd bij temperaturen boven $18°C$
-    \item \textbf{Vorstbescherming:} In de winter schakelt het systeem automatisch over op verwarming wanneer de temperatuur onder $5°C$ daalt
+    \item \textbf{Verwarming (heating):} Ingeschakeld bij een temperatuur onder 16°C
+    \item \textbf{Neutrale stand:} Tussen 16°C en 18°C
+    \item \textbf{Koeling (cooling):} Geactiveerd bij temperaturen boven 18°C
+    \item \textbf{Vorstbescherming:} In de winter schakelt het systeem automatisch over op verwarming wanneer de temperatuur onder 5°C daalt
 \end{itemize}
 
 \subsubsection{Zone-indeling en temperatuurregeling}
-De gebouwen zijn opgedeeld in verschillende verwarmingskringen, waarbij een kring een verzameling radiatoren omvat. In oudere gebouwen vormen deze kringen het eindpunt van de regeling, terwijl Gebouw T daarnaast nog extra \textbf{zoneregelaars} per lokaal heeft. Hierdoor is een meer gedetailleerde temperatuurregeling mogelijk.
+De gebouwen zijn opgedeeld in verschillende verwarmingskringen, waarbij een kring een verzameling radiatoren omvat. In oudere gebouwen vormen deze kringen het eindpunt van de regeling, terwijl Gebouw T daarnaast nog extra zoneregelaars per lokaal heeft. Hierdoor is een meer gedetailleerde temperatuurregeling mogelijk.
 
 De verwarmingskringen werken volgens een \textbf{tijdsschema}:
 
@@ -137,17 +135,17 @@ Dankzij de zoneregelaars kan de temperatuur per lokaal worden aangepast. Hierbij
 \end{itemize}
 
 \subsubsection{Ventilatie}
-De ventilatie wordt geregeld per luchtgroep. Buitenlucht wordt via een warmtewiel en een warmtebatterij (kleine warmtekring) gefilterd en opgewarmd voordat het via ventilatoren naar binnen wordt gebracht. De ventilatie werkt op basis van zowel een tijdsklok als een \textbf{drukregeling}, waarbij de druk binnen de waarden van $400$ Pa tot $500$ Pa blijft.
+De ventilatie wordt geregeld per luchtgroep. Buitenlucht wordt via een warmtewiel en een warmtebatterij (kleine warmtekring) gefilterd en opgewarmd voordat het via ventilatoren naar binnen wordt gebracht. De ventilatie werkt op basis van zowel een tijdsklok als een drukregeling, waarbij de druk binnen de waarden van 400 Pa tot 500 Pa blijft.
 
-In Gebouw T kunnen de zoneregelaars ook de ventilatie aansturen. Dit gebeurt op basis van \textbf{CO$_2$-concentratie}. Wanneer de CO$_2$-waarde de drempel van $800$ ppm overschrijdt, worden de regelkleppen automatisch meer geopend om extra ventilatie toe te laten.
+In Gebouw T kunnen de zoneregelaars ook de ventilatie aansturen. Dit gebeurt op basis van CO$_2$-concentratie. Wanneer de CO$_2$-waarde de drempel van 800 ppm (parts per million) overschrijdt, worden de regelkleppen automatisch meer geopend om extra ventilatie toe te laten.
 
 Elk van deze regelmodules verzamelt en logt verschillende meetwaarden, waardoor temperatuur- en ventilatiegegevens grafisch kunnen worden weergegeven.
 
 \subsubsection{Verwarmingsperiode}
-Het stookseizoen loopt doorgaans van \textbf{oktober tot april/mei}, afhankelijk van de buitentemperaturen en de verwarmingsbehoefte.
+Het stookseizoen loopt doorgaans van oktober tot april/mei, afhankelijk van de buitentemperaturen en de verwarmingsbehoefte.
 
 \subsection{Storingen en Monitoring}
-Storingen worden in \textbf{realtime} geregistreerd en weergegeven in Mercator via een overzichtelijke lijst. Hierdoor kunnen bekende problemen direct worden gemonitord en kunnen storingen snel worden opgelost voordat ze een impact hebben op het comfort binnen de gebouwen.
+Storingen worden in realtime geregistreerd en weergegeven in Mercator via een overzichtelijke lijst. Hierdoor kunnen bekende problemen direct worden gemonitord en kunnen storingen snel worden opgelost voordat ze een impact hebben op het comfort binnen de gebouwen.
 
 \section{Vergelijking 4G en 5G}
 Het verschil tussen 4G en 5G in facilitair beheer ligt in de infrastructuur en middelenbeheer. 5G biedt flexibelere en efficiëntere infrastructuur dankzij virtualisatie wat zorgt voor schaalbaarheid en minder handmatige interventie \autocite{degambur2021resource}. 5G introduceert een verbeterde netwerkcapaciteit, betrouwbaarheid en efficiëntie, met lagere latentie en lager energieverbruik ten opzichte van 4G. De nadruk ligt op hoge snelheden en het verbinden van meerdere apparaten tegelijkertijd \autocite{mihret20214g}. De integratie van 5G technologie in het facilitair beheer van slimme gebouwen biedt voordelen voor efficiëntie, connectiviteit en veiligheid. Hoewel uitdagingen zoals hoge investeringskosten en complexe integratie bestaan, maar de voordelen van verbeterde duurzaamheid, efficiëntie en comfort overtreffen deze uitdagingen \autocite{Markogiannaki2023}. Private 5G netwerken bieden bedrijven en organisaties een veilig, flexibel en schaalbaar alternatief voor publieke 5G netwerken. Private 5G netwerken maken het mogelijk om data veilig en autonoom te delen zonder de openbare internetinfrastructuur te gebruiken \autocite{eswaran2023private}.

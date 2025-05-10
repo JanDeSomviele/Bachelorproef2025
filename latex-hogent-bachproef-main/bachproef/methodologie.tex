@@ -32,7 +32,7 @@ Het doel van deze fase is om inzicht te krijgen in de huidige situatie en de tec
 
 \subsection{Basisopstelling en functionele tests}
 
-De eerste stap bestaat uit het opzetten van een functionele testomgeving waarin de communicatie tussen HVAC/lighting modules en de netwerkcontroller gecontroleerd wordt via een stabiele Wi-Fi-verbinding. Dit gebeurt met een eenvoudige basisopstelling: een Schneider Electric SpaceLogic AS-P controller is verbonden met één of meerdere TAC Xenta 401-modules via Modbus. Deze opstelling wordt lokaal getest op een eigen laptop of pc, zonder externe netwerkinfrastructuur.
+De eerste stap bestaat uit het opzetten van een functionele testomgeving waarin de communicatie tussen HVAC/lighting modules en de netwerkcontroller gecontroleerd wordt via een stabiele Wi-Fi-verbinding. Dit gebeurt met een eenvoudige basisopstelling: een Schneider Electric SpaceLogic AS-P controller is verbonden met één of meerdere TAC Xenta 401-modules via Modbus. Deze opstelling wordt getest op een eigen laptop of pc, zonder externe netwerkinfrastructuur.
 
 Om de connectiviteit en betrouwbaarheid van het systeem te beoordelen, worden Python-scripts ingezet die regelmatig Modbus-polling uitvoeren naar de Xenta-modules. Tegelijkertijd verzamelen deze scripts netwerkstatistieken zoals latency, packet loss en responstijd. Deze metingen worden lokaal bewaard voor latere analyse. Door de scripts eerst op Wi-Fi uit te voeren, wordt een referentiewaarde bepaald in een gecontroleerde en storingsvrije omgeving.
 

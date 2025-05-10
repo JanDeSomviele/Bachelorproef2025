@@ -1,7 +1,7 @@
-\chapter{\IfLanguageName{dutch}{scripts}{}}%
+\chapter{\IfLanguageName{dutch}{scripts}{scripts}}%
 \label{ch:scripts}
 
-\section*{Testscripts en validatie van de meetomgeving}
+\section{Testscripts en validatie van de meetomgeving}
 
 Om een objectieve vergelijking te kunnen maken tussen de prestaties van 4G- en 5G-netwerken in de context van gebouwbeheersystemen, werd er een reeks testscripts ontwikkeld in Python en Bash. Deze scripts dienen om op systematische wijze netwerkstatistieken te verzamelen, protocollaire communicatie te simuleren en de betrouwbaarheid van de verbinding tussen controlemodules en serveromgevingen te meten. In dit hoofdstuk wordt toegelicht welke scripts werden opgesteld, wat hun doel is binnen de testopstelling, hoe ze werken en hoe ze initieel gevalideerd werden op een lokaal wifinetwerk.
 
@@ -32,7 +32,7 @@ Het eerste script focust op algemene netwerkmetingen. Dit script voert periodiek
 
 \subsection*{Modbus-communicatie test (Python-script)}
 
-Het tweede script is gericht op het testen van industriële communicatie via het Modbus TCP-protocol. Dit script maakt gebruik van de \texttt{pymodbus}-bibliotheek om op geregelde tijdstippen waarden op te vragen bij een Xenta-module die met een AS-P controller verbonden is. Het meet de responstijd en controleert op fouten in de transmissie. Zo wordt nagegaan in welke mate netwerkvertragingen een impact hebben op de communicatie tussen veldmodules en beheersystemen.
+Het tweede script is gericht op het testen van industriële communicatie via het Modbus TCP-protocol. Dit script maakt gebruik van de pymodbus-bibliotheek om op geregelde tijdstippen waarden op te vragen bij een Xenta-module die met een AS-P controller verbonden is. Het meet de responstijd en controleert op fouten in de transmissie. Zo wordt nagegaan in welke mate netwerkvertragingen een impact hebben op de communicatie tussen veldmodules en beheersystemen.
 
 \textbf{Het script:}
 % TO DO: script
@@ -69,12 +69,7 @@ De scripts dienen meerdere doelen binnen de testopstelling:
 
 Voordat de scripts worden ingezet in de volledige testopstelling met 4G en 5G, worden ze eerst uitvoerig getest op het lokale wifi-netwerk. Deze validatiefase dient om mogelijke bugs in de scripts op te sporen, de logs te controleren op correcte structuur, en na te gaan of de scripts robuust functioneren bij langdurige uitvoering.
 
-De gebruikte testomgeving bestond uit:
-\begin{itemize}
-    \item Een AS-P controller verbonden via ethernet met een router.
-    \item Een PC of server verbonden via hetzelfde netwerk.
-    \item De scripts werden uitgevoerd op de server die tegelijkertijd dienst deed als logger.
-\end{itemize}
+De gebruikte testomgeving bestaat uit een AS-P controller verbonden via ethernet met een router. Een pc of server verbonden met hetzelfde netwerk. De scripts worden uitgevoerd op de server/pc die  tgelijkertijd de logs bijhoudt.
 
 Tijdens deze validatiefase werd onder andere bevestigd dat:
 \begin{itemize}

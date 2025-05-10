@@ -1,15 +1,15 @@
-\chapter{\IfLanguageName{dutch}{basisopstelling}{}}%
+\chapter{\IfLanguageName{dutch}{basisopstelling}{basic set-up}}%
 \label{ch:basisopstelling}
 
 Om snel van start te kunnen gaan met het uitvoeren van testen en metingen werd een basisopstelling uitgewerkt waarbij geen gebruik wordt gemaakt van een externe server. Deze opstelling dient als eerste implementatie van het testnetwerk en biedt voldoende functionaliteit om al cruciale netwerkanalyses en communicatieproeven uit te voeren. In dit hoofdstuk wordt deze basisopstelling besproken, samen met de gebruikte componenten, verbindingen en de functionele doelen die hiermee gerealiseerd worden.
 
-\section*{Doel van de basisopstelling}
+\section{Doel van de basisopstelling}
 
 De bedoeling van deze initiële configuratie is om een minimale maar representatieve omgeving op te zetten waarin het gedrag van een gebouwbeheersysteem (GBS) getest kan worden over zowel een privaat 4G- als 5G-netwerk. De nadruk ligt hierbij op de communicatie tussen een Spacelogic AS-P controller en één of meerdere TAC Xenta-modules. Deze componenten vormen een realistische representatie van HVAC- en verlichtingssystemen in gebouwen.
 
 Door het weglaten van een centrale server worden de scripts en logging lokaal uitgevoerd op een laptop of test-PC die direct met het netwerk verbonden is. Dit verlaagt de complexiteit van de opstartfase en maakt het eenvoudiger om foutopsporing te doen tijdens de eerste tests.
 
-\section*{Componenten in de opstelling}
+\section{Componenten in de opstelling}
 
 De basisopstelling bevat de volgende kerncomponenten:
 \begin{itemize}
@@ -19,7 +19,7 @@ De basisopstelling bevat de volgende kerncomponenten:
     \item \textbf{Mobiel netwerk (4G of 5G)}: verbinding tussen de PC en de controller gebeurt via een mobiele router of gateway. Er wordt gebruikgemaakt van het privaat 4G/5G-netwerk beschikbaar op de HOGENT-campus.
 \end{itemize}
 
-\section*{Verbindingsstructuur}
+\section{Verbindingsstructuur}
 % TO DO: foto/de structuur kunnen tonen met dan uitleg eronder
 De verbindingen worden als volgt gelegd:
 \begin{enumerate}
@@ -32,7 +32,7 @@ De verbindingen worden als volgt gelegd:
 
 Deze opstelling maakt het mogelijk om onder reële netwerkcondities de communicatie en responstijd van het GBS te meten en zo de betrouwbaarheid van beide netwerken te evalueren.
 
-\section*{Functionele werking van de opstelling}
+\section{Functionele werking van de opstelling}
 
 De communicatie tussen de PC en de controller wordt voortdurend gemonitord door de Python- en Bash-scripts die eerder besproken werden. Zo worden de volgende metingen uitgevoerd:
 \begin{itemize}
@@ -44,11 +44,7 @@ De communicatie tussen de PC en de controller wordt voortdurend gemonitord door 
 
 Alle meetresultaten worden gelogd en gestructureerd opgeslagen om later geanalyseerd te worden in functie van het gekozen netwerktype (4G of 5G).
 
-\section*{Voordelen van deze opstelling}
-% TO DO: doorlopende tekst
-\begin{itemize}
-    \item \textbf{Eenvoudige opstart}: geen nood aan serverinstallatie of configuratie.
-    \item \textbf{Directe controle en logging}: alles gebeurt lokaal op de test-PC.
-    \item \textbf{Duidelijke afbakening van testdomein}: beperkt aantal variabelen maakt het gemakkelijker om netwerkinvloed te isoleren.
-    \item \textbf{Schaalbaar}: indien later nodig, kan een server eenvoudig worden toegevoegd aan deze basisstructuur.
-\end{itemize}
+\section{Voordelen van deze opstelling}
+De voorgestelde opstelling biedt diverse voordelen die bijdragen aan een efficiënte en controleerbare testomgeving. Een belangrijk voordeel is de vereenvoudigde initiële opstart, aangezien er geen noodzaak bestaat tot het installeren of configureren van servers. Hierdoor wordt de implementatiedrempel aanzienlijk verlaagd. Bovendien vindt alle verwerking lokaal plaats op de testcomputer, wat directe controle en gedetailleerde logging mogelijk maakt. Dit bevordert de traceerbaarheid en vergemakkelijkt de foutanalyse.
+
+Een ander essentieel voordeel betreft de duidelijke afbakening van het testdomein. Door het beperkt aantal betrokken variabelen kan de invloed van netwerkomstandigheden nauwkeuriger worden geïsoleerd en onderzocht. Tot slot is deze opstelling intrinsiek schaalbaar: indien uitbreiding gewenst is, kan een serversysteem zonder ingrijpende wijzigingen aan de bestaande structuur worden toegevoegd.

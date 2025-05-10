@@ -1,13 +1,13 @@
-\chapter{\IfLanguageName{dutch}{uitgebreide opstelling}{}}%
+\chapter{\IfLanguageName{dutch}{uitgebreide opstelling}{extended set-up}}%
 \label{ch:uitgebreide-opstelling}
 
-Voor het uitvoeren van netwerkgerelateerde prestatietests op HVAC- en verlichtingssystemen in gebouw C, werd een testopstelling ontwikkeld waarin een private 4G- en 5G-netwerk vergeleken worden. Om deze tests op een gecontroleerde en schaalbare manier te kunnen uitvoeren, werd een kleine server opgenomen in het testnetwerk.
+Voor het uitvoeren van netwerkgerelateerde prestatietests op HVAC- en verlichtingssystemen, werd een testopstelling ontwikkeld waarin een private 4G- en 5G-netwerk vergeleken worden. Om deze tests op een gecontroleerde en schaalbare manier te kunnen uitvoeren, werd een kleine server opgenomen in het testnetwerk.
 
-\section*{Doel van de opstelling}
+\section{Doel van de opstelling}
 
 Het hoofddoel van deze testopstelling is het evalueren van de performantie van communicatieprotocollen, zoals Modbus, die gebruikt worden voor het aansturen van TAC Xenta modules via een SpaceLogic AS-P controller. Er wordt onderzocht hoe deze systemen reageren onder verschillende netwerkcondities (4G vs 5G). De integratie van een lokale server maakt het mogelijk om testdata te genereren, netwerkverkeer te loggen en simulaties of scriptgestuurde polls uit te voeren.
 
-\section*{Benodigde hardware}
+\section{Benodigde hardware}
 
 \begin{itemize}
     \item \textbf{SpaceLogic AS-P controller} – fungeert als gateway tussen IP-netwerk en veldapparatuur (Modbus/RS485).
@@ -19,7 +19,7 @@ Het hoofddoel van deze testopstelling is het evalueren van de performantie van c
     \item \textbf{Netwerkcomponenten} – Ethernetkabels, voeding, eventueel een switch.
 \end{itemize}
 
-\section*{Software en tools}
+\section{Software en tools}
 
 \begin{itemize}
     \item \textbf{Python/Bash scripts} – voor periodieke polling van Modbus registers en logging van reactietijden.
@@ -28,11 +28,11 @@ Het hoofddoel van deze testopstelling is het evalueren van de performantie van c
     \item \textbf{Modbus client} – via Python (pymodbus) of modpoll CLI-tool.
 \end{itemize}
 
-\section*{Netwerkstructuur}
+\section{Netwerkstructuur}
 
 De server bevindt zich in hetzelfde subnet als de AS-P controller en is bereikbaar via zowel 4G als 5G afhankelijk van het testscenario. De Xenta modules zijn via Modbus (RTU of TCP) verbonden met de AS-P controller, die als interface naar het IP-netwerk fungeert. Alle communicatie tussen de controller en de server verloopt via de mobiele netwerken, waarbij testsoftware op de server de communicatie meet, logt en visualiseert.
 
-\section*{Testprocedure}
+\section{Testprocedure}
 
 \begin{enumerate}
     \item Configuratie van de AS-P: verbinding met Xenta modules opzetten, Modbus-mapping controleren.
@@ -48,7 +48,7 @@ De server bevindt zich in hetzelfde subnet als de AS-P controller en is bereikba
     \item Analyse \& vergelijking: met Grafana worden verschillen tussen 4G en 5G inzichtelijk gemaakt.
 \end{enumerate}
 
-\section*{Rol van de server}
+\section{Rol van de server}
 
 De server speelt een centrale rol als controle- en dataverzamelpunt in de testopstelling. Het voordeel hiervan is dat alle meetdata lokaal opgeslagen kunnen worden, onafhankelijk van externe cloudverbindingen. Dit maakt reproduceerbare en betrouwbare metingen mogelijk en verlaagt de complexiteit van troubleshooting.
 
