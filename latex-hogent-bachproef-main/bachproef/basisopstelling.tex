@@ -1,50 +1,35 @@
-\chapter{\IfLanguageName{dutch}{basisopstelling}{basic set-up}}%
+\chapter{\IfLanguageName{dutch}{De opstelling}{The set-up}}%
 \label{ch:basisopstelling}
 
-Om snel van start te kunnen gaan met het uitvoeren van testen en metingen werd een basisopstelling uitgewerkt waarbij geen gebruik wordt gemaakt van een externe server. Deze opstelling dient als eerste implementatie van het testnetwerk en biedt voldoende functionaliteit om al cruciale netwerkanalyses en communicatieproeven uit te voeren. In dit hoofdstuk wordt deze basisopstelling besproken, samen met de gebruikte componenten, verbindingen en de functionele doelen die hiermee gerealiseerd worden.
+De opstelling is ontworpen om zo snel mogelijk connectiviteitstesten en netwerkmetingen uit te voeren. De oorspronkelijke bedoeling is om gebruik te maken van een Schneider Electric SpaceLogic SmartX AS-P controller als centrale eenheid voor de aansturing van de HVAC- en lichtsystemen. Omdat dit toestel niet onmiddellijk beschikbaar is en de focus in eerste instantie ligt op het testen van de netwerkinfrastructuur eerder dan op de volledige gebouwbeheersoftware, wordt gekozen voor een Raspberry Pi als vervangend testplatform.
 
-\section{Doel van de basisopstelling}
+De Raspberry Pi fungeert in deze opstelling als een centrale node die zowel scripts uitvoert om netwerkmetingen te doen als eenvoudige Modbus-polling uitvoert naar gesimuleerde of echte apparaten. De keuze voor de Raspberry Pi biedt een aantal voordelen:
 
-De bedoeling van deze initiële configuratie is om een minimale maar representatieve omgeving op te zetten waarin het gedrag van een gebouwbeheersysteem (GBS) getest kan worden over zowel een privaat 4G- als 5G-netwerk. De nadruk ligt hierbij op de communicatie tussen een Spacelogic AS-P controller en één of meerdere TAC Xenta-modules. Deze componenten vormen een realistische representatie van HVAC- en verlichtingssystemen in gebouwen.
-
-Door het weglaten van een centrale server worden de scripts en logging lokaal uitgevoerd op een laptop of test-PC die direct met het netwerk verbonden is. Dit verlaagt de complexiteit van de opstartfase en maakt het eenvoudiger om foutopsporing te doen tijdens de eerste tests.
-
-\section{Componenten in de opstelling}
-
-De basisopstelling bevat de volgende kerncomponenten:
 \begin{itemize}
-    \item \textbf{Spacelogic AS-P Controller}: functioneert als centrale regelaar die via Modbus TCP communiceert met de Xenta-modules.
-    \item \textbf{TAC Xenta Module (type 401)}: simulatie van een HVAC- of verlichtingsmodule die uitleesbaar is via Modbus.
-    \item \textbf{Laptop of test-PC}: voert de testscripts uit en verzamelt meetgegevens (zoals latency, responstijden, packet loss, etc.).
-    \item \textbf{Mobiel netwerk (4G of 5G)}: verbinding tussen de PC en de controller gebeurt via een mobiele router of gateway. Er wordt gebruikgemaakt van het privaat 4G/5G-netwerk beschikbaar op de HOGENT-campus.
+    \item Flexibiliteit: De Raspberry Pi ondersteunt Python, bash en diverse bibliotheken zoals `pymodbus`, `speedtest-cli` en `psutil`, waarmee netwerktesten eenvoudig geautomatiseerd worden.
+    \item Lage kostprijs en eenvoudige setup: Dankzij de brede community en ondersteuning kan men snel aan de slag.
+    \item Mobiliteit: Door het compacte formaat wordt de Pi ook ingezet als mobiele testnode binnen verschillende netwerkzones (WiFi, 4G, 5G).
 \end{itemize}
 
-\section{Verbindingsstructuur}
-% TO DO: foto/de structuur kunnen tonen met dan uitleg eronder
-De verbindingen worden als volgt gelegd:
-\begin{enumerate}
-    \item De AS-P controller wordt verbonden met een mobiele router/gateway via ethernet.
-    \item De test-PC/laptop wordt via USB of ethernet verbonden met dezelfde mobiele router.
-    \item De mobiele router is verbonden met het 4G- of 5G-netwerk, afhankelijk van het scenario.
-    \item De TAC Xenta-module is bekabeld aangesloten op de AS-P controller via een RS-485-bus of IP, afhankelijk van de configuratie.
-    \item Er is geen centrale server, dus alle scripts draaien op de test-PC.
-\end{enumerate}
+De opstelling bevat geen echte HVAC- of lichtsystemen, maar maakt gebruik van gesimuleerde Modbus-slave software. Deze wordt lokaal of op een andere computer uitgevoerd en reageert op pollingverzoeken van de Raspberry Pi. Dit maakt het mogelijk om latenties, foutpercentages en betrouwbaarheid van het netwerk te meten zonder dat de fysieke installaties al aanwezig moeten zijn.
 
-Deze opstelling maakt het mogelijk om onder reële netwerkcondities de communicatie en responstijd van het GBS te meten en zo de betrouwbaarheid van beide netwerken te evalueren.
+Scripts worden eerst getest op een lokaal WiFi-netwerk, voordat ze ingezet worden binnen het private 5G-netwerk op de campus van HOGENT of een publiek netwerk. Zo wordt in een gecontroleerde omgeving de betrouwbaarheid en correcte werking van de scripts geverifieerd.
 
-\section{Functionele werking van de opstelling}
+\section{Schema van de opstelling}
+%
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=0.95\linewidth]{images/basisopstelling_raspi.png}
+%    \caption{Schematische voorstelling van de opstelling met Raspberry Pi}
+%\end{figure}
 
-De communicatie tussen de PC en de controller wordt voortdurend gemonitord door de Python- en Bash-scripts die eerder besproken werden. Zo worden de volgende metingen uitgevoerd:
+\textbf{Beschrijving van het schema:}
 \begin{itemize}
-    \item Latency tussen PC en controller via ping-tests.
-    \item Bandbreedte en jitter via iperf3 indien ondersteund door de router.
-    \item Realtime uitlezing van registers via Modbus TCP.
-    \item Registratie van eventuele time-outs of fouten in de communicatie.
+    \item De Raspberry Pi is via WiFi verbonden met het lokale netwerk (eigen router of access point). Dit netwerk fungeert als testomgeving voor netwerkmetingen.
+    \item Via Python-scripts op de Pi wordt een Modbus TCP-client uitgevoerd, die connecteert met een Modbus TCP-server (slave simulator) op een andere computer of lokaal op de Pi.
+    \item Tegelijk worden metingen uitgevoerd zoals ping, packet loss, jitter en bandbreedte, met behulp van netwerkscripts.
+    \item De verzamelde data wordt lokaal opgeslagen in logbestanden of eenvoudige CSV-bestanden.
 \end{itemize}
 
-Alle meetresultaten worden gelogd en gestructureerd opgeslagen om later geanalyseerd te worden in functie van het gekozen netwerktype (4G of 5G).
+Deze opstelling vormt het fundament waarop latere uitbreidingen mogelijk zijn, zoals een echte 5G-verbinding, fysieke controllers, sensoren of een serveromgeving voor geavanceerde dataverwerking.
 
-\section{Voordelen van deze opstelling}
-De voorgestelde opstelling biedt diverse voordelen die bijdragen aan een efficiënte en controleerbare testomgeving. Een belangrijk voordeel is de vereenvoudigde initiële opstart, aangezien er geen noodzaak bestaat tot het installeren of configureren van servers. Hierdoor wordt de implementatiedrempel aanzienlijk verlaagd. Bovendien vindt alle verwerking lokaal plaats op de testcomputer, wat directe controle en gedetailleerde logging mogelijk maakt. Dit bevordert de traceerbaarheid en vergemakkelijkt de foutanalyse.
-
-Een ander essentieel voordeel betreft de duidelijke afbakening van het testdomein. Door het beperkt aantal betrokken variabelen kan de invloed van netwerkomstandigheden nauwkeuriger worden geïsoleerd en onderzocht. Tot slot is deze opstelling intrinsiek schaalbaar: indien uitbreiding gewenst is, kan een serversysteem zonder ingrijpende wijzigingen aan de bestaande structuur worden toegevoegd.
