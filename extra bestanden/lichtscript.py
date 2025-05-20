@@ -7,7 +7,7 @@ BRIDGE_IP = "192.168.1.22"
 USERNAME = "DUgpSWs4X6tY9ytE-sDjKmePO7JcDrN9rKWdKr-G"
 LIGHT_ID = "1"
 URL = f"http://{BRIDGE_IP}/api/{USERNAME}/lights/{LIGHT_ID}/state"
-AANTAL_TESTS = 100 
+AANTAL_TESTS = 200
 CSV_BESTAND = f"betrouwbaarheid_test_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
 
 def toggle_light(state):
@@ -44,7 +44,7 @@ for i in range(AANTAL_TESTS):
     status = "true" if success else "false"
     print(f"[{i+1:03}] {status} - {'aan' if state else 'uit'} - {duur if duur else 'n.v.t.'} ms")
 
-    time.sleep(0.5)  # optioneel vertraging tussen commando’s
+    time.sleep(1)  # optioneel vertraging tussen commando’s
 
 # === RESULTATEN SCHRIJVEN NAAR CSV ===
 with open(CSV_BESTAND, mode='w', newline='', encoding='utf-8') as f:
