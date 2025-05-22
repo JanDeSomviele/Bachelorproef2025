@@ -3,8 +3,8 @@ import time
 import csv
 from datetime import datetime
 
-BRIDGE_IP = "192.168.1.22"
-USERNAME = "DUgpSWs4X6tY9ytE-sDjKmePO7JcDrN9rKWdKr-G"
+BRIDGE_IP = "10.5.0.185"
+USERNAME = "ggp0-Bh7itGde4XkezvxHkWHGSPCLKBv2rOpbpp-"
 LIGHT_ID = "1"
 URL = f"http://{BRIDGE_IP}/api/{USERNAME}/lights/{LIGHT_ID}/state"
 AANTAL_TESTS = 200
