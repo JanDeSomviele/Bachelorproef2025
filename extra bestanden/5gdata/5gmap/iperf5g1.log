@@ -1,5 +1,3 @@
-Connecting to host 10.5.0.186, port 5201
-[  5] local 10.5.0.194 port 41404 connected to 10.5.0.186 port 5201
 [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
 [  5]   0.00-1.00   sec   101 MBytes   843 Mbits/sec    0    264 KBytes       
 [  5]   1.00-2.00   sec   111 MBytes   935 Mbits/sec    0    264 KBytes       

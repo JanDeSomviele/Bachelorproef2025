@@ -1,467 +1,480 @@
-23-5-2025, 10:04:26node: debug 1
+22-5-2025, 15:52:28node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    922    692 --:--:-- --:--:-- --:--:--  1647↵"
-23-5-2025, 10:04:31node: debug 1
+100    28    0    16  100    12   3214   2410 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:52:33node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1135    851 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:04:36node: debug 1
+100    28    0    16  100    12   4522   3391 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:52:38node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1146    860 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:04:41node: debug 1
+100    28    0    16  100    12   5312   3984 --:--:-- --:--:-- --:--:-- 14000↵"
+22-5-2025, 15:52:43node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1137    852 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:04:46node: debug 1
+100    28    0    16  100    12   1535   1151 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:52:48node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1039    779 --:--:-- --:--:-- --:--:--  1866↵"
-23-5-2025, 10:04:51node: debug 1
+100    28    0    16  100    12   2645   1983 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:52:53node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2359   1769 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:04:56node: debug 1
+100    28    0    16  100    12   4612   3459 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:52:58node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1122    841 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:05:01node: debug 1
+100    28    0    16  100    12   1367   1025 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:53:03node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2322   1741 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:05:06node: debug 1
+100    28    0    16  100    12   1625   1218 --:--:-- --:--:-- --:--:--  3111↵"
+22-5-2025, 15:53:08node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    514    385 --:--:-- --:--:-- --:--:--   933↵"
-23-5-2025, 10:05:11node: debug 1
+100    28    0    16  100    12   3583   2687 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:53:13node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1066    799 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:05:16node: debug 1
+100    28    0    16  100    12   1592   1194 --:--:-- --:--:-- --:--:--  3111↵"
+22-5-2025, 15:53:18node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1214    911 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:05:21node: debug 1
+100    28    0    16  100    12   1010    757 --:--:-- --:--:-- --:--:--  1866↵"
+22-5-2025, 15:53:23node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    870    653 --:--:-- --:--:-- --:--:--  1555↵"
-23-5-2025, 10:05:26node: debug 1
+100    28    0    16  100    12   1420   1065 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:53:28node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1100    825 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:05:31node: debug 1
+100    28    0    16  100    12   1340   1005 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:53:33node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1177    883 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:05:36node: debug 1
+100    28    0    16  100    12   3354   2515 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:53:38node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1074    805 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:05:41node: debug 1
+100    28    0    16  100    12   4116   3087 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:53:43node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1115    836 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:05:46node: debug 1
+100    28    0    16  100    12   3059   2294 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:53:48node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1226    919 --:--:-- --:--:-- --:--:--  2333↵"
-23-5-2025, 10:05:51node: debug 1
+100    28    0    16  100    12   2713   2035 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:53:53node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1148    861 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:05:56node: debug 1
+100    28    0    16  100    12   1238    928 --:--:-- --:--:-- --:--:--  2333↵"
+22-5-2025, 15:53:58node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1374   1031 --:--:-- --:--:-- --:--:--  2545↵"
-23-5-2025, 10:06:01node: debug 1
+100    28    0    16  100    12   4628   3471 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:54:03node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1139    854 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:06:06node: debug 1
+100    28    0    16  100    12   2375   1781 --:--:-- --:--:-- --:--:--  4666↵"
+22-5-2025, 15:54:08node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1235    926 --:--:-- --:--:-- --:--:--  2333↵"
-23-5-2025, 10:06:11node: debug 1
+100    28    0    16  100    12   1985   1488 --:--:-- --:--:-- --:--:--  4000↵"
+22-5-2025, 15:54:13node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1109    831 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:06:16node: debug 1
+100    28    0    16  100    12   7142   5357 --:--:-- --:--:-- --:--:-- 14000↵"
+22-5-2025, 15:54:18node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1149    861 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:06:21node: debug 1
+100    28    0    16  100    12   2277   1707 --:--:-- --:--:-- --:--:--  4666↵"
+22-5-2025, 15:54:23node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1121    840 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:06:26node: debug 1
+100    28    0    16  100    12   1142    857 --:--:-- --:--:-- --:--:--  2153↵"
+22-5-2025, 15:54:28node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1127    845 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:06:31node: debug 1
+100    28    0    16  100    12   1641   1231 --:--:-- --:--:-- --:--:--  3111↵"
+22-5-2025, 15:54:33node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    698    523 --:--:-- --:--:-- --:--:--  1272↵"
-23-5-2025, 10:06:36node: debug 1
+100    28    0    16  100    12   3752   2814 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:54:38node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1428   1071 --:--:-- --:--:-- --:--:--  2545↵"
-23-5-2025, 10:06:41node: debug 1
+100    28    0    16  100    12   4338   3253 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:54:43node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1133    850 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:06:46node: debug 1
+100    28    0    16  100    12   2071   1553 --:--:-- --:--:-- --:--:--  4000↵"
+22-5-2025, 15:54:48node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1229    922 --:--:-- --:--:-- --:--:--  2333↵"
-23-5-2025, 10:06:51node: debug 1
+100    28    0    16  100    12   1604   1203 --:--:-- --:--:-- --:--:--  3111↵"
+22-5-2025, 15:54:53node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1144    858 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:06:56node: debug 1
+100    28    0    16  100    12   1276    957 --:--:-- --:--:-- --:--:--  2333↵"
+22-5-2025, 15:54:58node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1252    939 --:--:-- --:--:-- --:--:--  2333↵"
-23-5-2025, 10:07:01node: debug 1
+100    28    0    16  100    12    803    602 --:--:-- --:--:-- --:--:--  1473↵"
+22-5-2025, 15:55:03node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    971    728 --:--:-- --:--:-- --:--:--  1750↵"
-23-5-2025, 10:07:06node: debug 1
+100    28    0    16  100    12   1450   1088 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:55:08node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1203    902 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:07:11node: debug 1
+100    28    0    16  100    12   4787   3590 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:55:13node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1810   1357 --:--:-- --:--:-- --:--:--  3500↵"
-23-5-2025, 10:07:16node: debug 1
+100    28    0    16  100    12   4098   3073 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:55:18node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1115    836 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:07:21node: debug 1
+100    28    0    16  100    12   3014   2260 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:55:23node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1142    856 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:07:26node: debug 1
+100    28    0    16  100    12   1414   1060 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:55:28node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1211    908 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:07:31node: debug 1
+100    28    0    16  100    12   7414   5560 --:--:-- --:--:-- --:--:-- 14000↵"
+22-5-2025, 15:55:33node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2256   1692 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:07:36node: debug 1
+100    28    0    16  100    12   4358   3268 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:55:38node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2278   1709 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:07:41node: debug 1
+100    28    0    16  100    12   2544   1908 --:--:-- --:--:-- --:--:--  4666↵"
+22-5-2025, 15:55:43node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    966    724 --:--:-- --:--:-- --:--:--  1750↵"
-23-5-2025, 10:07:46node: debug 1
+100    28    0    16  100    12   1386   1040 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:55:48node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1110    832 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:07:51node: debug 1
+100    28    0    16  100    12   1101    826 --:--:-- --:--:-- --:--:--  2000↵"
+22-5-2025, 15:55:53node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1376   1032 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:55:58node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1468   1101 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:56:03node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1374   1030 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:56:08node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1591   1193 --:--:-- --:--:-- --:--:--  3111↵"
+22-5-2025, 15:56:13node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1437   1078 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:56:18node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   4131   3098 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:56:23node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1439   1079 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:56:28node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1030    772 --:--:-- --:--:-- --:--:--  1866↵"
+22-5-2025, 15:56:33node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   2787   2090 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:56:38node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1321    991 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:56:43node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1240    930 --:--:-- --:--:-- --:--:--  2333↵"
+22-5-2025, 15:56:48node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1109    832 --:--:-- --:--:-- --:--:--  2000↵"
+22-5-2025, 15:56:53node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1533   1150 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:56:58node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1125    844 --:--:-- --:--:-- --:--:--  2000↵"
+22-5-2025, 15:57:03node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1416   1062 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:57:08node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   3553   2665 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:57:13node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1453   1090 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:57:18node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   4458   3343 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:57:23node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   3646   2734 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:57:28node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   3296   2472 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:57:33node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   2269   1701 --:--:-- --:--:-- --:--:--  4666↵"
+22-5-2025, 15:57:38node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   2386   1789 --:--:-- --:--:-- --:--:--  4666↵"
+22-5-2025, 15:57:43node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1403   1052 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:57:48node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   3165   2374 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:57:53node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1896   1422 --:--:-- --:--:-- --:--:--  3500↵"
+22-5-2025, 15:57:58node: debug 1
+msg.payload : string[317]
+"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    28    0    16  100    12   1513   1134 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:58:03node: debug 1
 msg.payload : string[396]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1112    834 --:--:-- --:--:-- --:--:--  1866
-100    28    0    16  100    12   1075    806 --:--:-- --:--:-- --:--:--  1866↵"
-23-5-2025, 10:07:56node: debug 1
+100    28    0    16  100    12   1364   1023 --:--:-- --:--:-- --:--:--  2333↵"
+22-5-2025, 15:58:08node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1210    908 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:08:01node: debug 1
-msg.payload : string[396]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    12    0     0  100    12      0   1683 --:--:-- --:--:-- --:--:--  1714
-100    28    0    16  100    12   2100   1575 --:--:-- --:--:-- --:--:--  3500↵"
-23-5-2025, 10:08:06node: debug 1
+100    28    0    16  100    12   2377   1783 --:--:-- --:--:-- --:--:--  4666↵"
+22-5-2025, 15:58:13node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1643   1232 --:--:-- --:--:-- --:--:--  3111↵"
-23-5-2025, 10:08:11node: debug 1
+100    28    0    16  100    12   5912   4434 --:--:-- --:--:-- --:--:-- 14000↵"
+22-5-2025, 15:58:18node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1560   1170 --:--:-- --:--:-- --:--:--  2800↵"
-23-5-2025, 10:08:16node: debug 1
+100    28    0    16  100    12   4981   3735 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:58:23node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1112    834 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:08:21node: debug 1
+100    28    0    16  100    12   3267   2450 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:58:28node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1080    810 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:08:26node: debug 1
+100    28    0    16  100    12   2210   1657 --:--:-- --:--:-- --:--:--  4000↵"
+22-5-2025, 15:58:33node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1135    851 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:08:31node: debug 1
+100    28    0    16  100    12   3145   2359 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:58:38node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1216    912 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:08:36node: debug 1
+100    28    0    16  100    12   2525   1893 --:--:-- --:--:-- --:--:--  4666↵"
+22-5-2025, 15:58:43node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1035    776 --:--:-- --:--:-- --:--:--  1866↵"
-23-5-2025, 10:08:41node: debug 1
+100    28    0    16  100    12   2084   1563 --:--:-- --:--:-- --:--:--  4000↵"
+22-5-2025, 15:58:48node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2319   1739 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:08:46node: debug 1
+100    28    0    16  100    12   2651   1988 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:58:53node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   3358   2518 --:--:-- --:--:-- --:--:--  7000↵"
-23-5-2025, 10:08:51node: debug 1
+100    28    0    16  100    12   4411   3308 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 15:58:58node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1150    862 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:08:56node: debug 1
+100    28    0    16  100    12   3049   2287 --:--:-- --:--:-- --:--:--  5600↵"
+22-5-2025, 15:59:03node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1126    844 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:09:01node: debug 1
+100    28    0    16  100    12   1103    827 --:--:-- --:--:-- --:--:--  2000↵"
+22-5-2025, 15:59:08node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1146    859 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:09:06node: debug 1
+100    28    0    16  100    12   1165    874 --:--:-- --:--:-- --:--:--  2153↵"
+22-5-2025, 15:59:13node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    959    719 --:--:-- --:--:-- --:--:--  1750↵"
-23-5-2025, 10:09:11node: debug 1
+100    28    0    16  100    12   1439   1079 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:59:18node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1029    772 --:--:-- --:--:-- --:--:--  1866↵"
-23-5-2025, 10:09:16node: debug 1
+100    28    0    16  100    12   1245    934 --:--:-- --:--:-- --:--:--  2333↵"
+22-5-2025, 15:59:23node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    865    649 --:--:-- --:--:-- --:--:--  1555↵"
-23-5-2025, 10:09:21node: debug 1
+100    28    0    16  100    12   1319    989 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:59:28node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1808   1356 --:--:-- --:--:-- --:--:--  3500↵"
-23-5-2025, 10:09:26node: debug 1
+100    28    0    16  100    12   1227    920 --:--:-- --:--:-- --:--:--  2333↵"
+22-5-2025, 15:59:33node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1551   1163 --:--:-- --:--:-- --:--:--  2800↵"
-23-5-2025, 10:09:31node: debug 1
+100    28    0    16  100    12   1379   1034 --:--:-- --:--:-- --:--:--  2545↵"
+22-5-2025, 15:59:38node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2870   2153 --:--:-- --:--:-- --:--:--  5600↵"
-23-5-2025, 10:09:36node: debug 1
+100    28    0    16  100    12   1578   1183 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 15:59:43node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   3160   2370 --:--:-- --:--:-- --:--:--  7000↵"
-23-5-2025, 10:09:41node: debug 1
+100    28    0    16  100    12   3786   2839 --:--:-- --:--:-- --:--:--  7000↵"
+22-5-2025, 15:59:48node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1830   1372 --:--:-- --:--:-- --:--:--  3500↵"
-23-5-2025, 10:09:46node: debug 1
+100    28    0    16  100    12   2223   1667 --:--:-- --:--:-- --:--:--  4000↵"
+22-5-2025, 15:59:53node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2503   1877 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:09:51node: debug 1
+100    28    0    16  100    12   1599   1199 --:--:-- --:--:-- --:--:--  3111↵"
+22-5-2025, 15:59:58node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2593   1945 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:09:56node: debug 1
+100    28    0    16  100    12   1312    984 --:--:-- --:--:-- --:--:--  2333↵"
+22-5-2025, 16:00:02node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    896    672 --:--:-- --:--:-- --:--:--  1647↵"
-23-5-2025, 10:10:01node: debug 1
+100    28    0    16  100    12   1103    827 --:--:-- --:--:-- --:--:--  2000↵"
+22-5-2025, 16:00:03node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1100    825 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:10:06node: debug 1
+100    28    0    16  100    12   1543   1157 --:--:-- --:--:-- --:--:--  2800↵"
+22-5-2025, 16:00:08node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1181    886 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:10:11node: debug 1
+100    28    0    16  100    12   4271   3203 --:--:-- --:--:-- --:--:--  9333↵"
+22-5-2025, 16:00:13node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   2319   1739 --:--:-- --:--:-- --:--:--  4666↵"
-23-5-2025, 10:10:16node: debug 1
+100    28    0    16  100    12   7352   5514 --:--:-- --:--:-- --:--:-- 14000↵"
+22-5-2025, 16:00:18node: debug 1
 msg.payload : string[317]
 "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1246    935 --:--:-- --:--:-- --:--:--  2333↵"
-23-5-2025, 10:10:21node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1078    809 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:10:26node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    588    441 --:--:-- --:--:-- --:--:--  1037↵"
-23-5-2025, 10:10:31node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1574   1180 --:--:-- --:--:-- --:--:--  2800↵"
-23-5-2025, 10:10:36node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1130    847 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:10:41node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1154    865 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:10:46node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1170    878 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:10:51node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1323    992 --:--:-- --:--:-- --:--:--  2545↵"
-23-5-2025, 10:10:56node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1193    894 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:11:01node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1151    863 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:11:06node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1002    751 --:--:-- --:--:-- --:--:--  1866↵"
-23-5-2025, 10:11:11node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1095    821 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:11:16node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1078    808 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:11:21node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1207    905 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:11:26node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1044    783 --:--:-- --:--:-- --:--:--  1866↵"
-23-5-2025, 10:11:31node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1585   1189 --:--:-- --:--:-- --:--:--  2800↵"
-23-5-2025, 10:11:36node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1445   1084 --:--:-- --:--:-- --:--:--  2800↵"
-23-5-2025, 10:11:41node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1092    819 --:--:-- --:--:-- --:--:--  2000↵"
-23-5-2025, 10:11:46node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1144    858 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:11:51node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1199    899 --:--:-- --:--:-- --:--:--  2153↵"
-23-5-2025, 10:11:56node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1039    779 --:--:-- --:--:-- --:--:--  1866↵"
-23-5-2025, 10:12:01node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12    945    708 --:--:-- --:--:-- --:--:--  1750↵"
-23-5-2025, 10:12:06node: debug 1
-msg.payload : string[317]
-"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current↵                                 Dload  Upload   Total   Spent    Left  Speed↵
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100    28    0    16  100    12   1146    859 --:--:-- --:--:-- --:--:--  2153↵"
+100    28    0    16  100    12   4577   3433 --:--:-- --:--:-- --:--:--  9333↵"
