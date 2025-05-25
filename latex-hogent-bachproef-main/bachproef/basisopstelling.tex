@@ -1,35 +1,100 @@
-\chapter{\IfLanguageName{dutch}{De opstelling}{The set-up}}%
+\chapter{\IfLanguageName{dutch}{Meetopstelling en testmethodologie}{Measurement Setup and Testing Methodology}}%
 \label{ch:basisopstelling}
 
-De opstelling is ontworpen om zo snel mogelijk connectiviteitstesten en netwerkmetingen uit te voeren. De oorspronkelijke bedoeling is om gebruik te maken van een Schneider Electric SpaceLogic SmartX AS-P controller als centrale eenheid voor de aansturing van de HVAC- en lichtsystemen. Omdat dit toestel niet onmiddellijk beschikbaar is en de focus in eerste instantie ligt op het testen van de netwerkinfrastructuur eerder dan op de volledige gebouwbeheersoftware, wordt gekozen voor een Raspberry Pi als vervangend testplatform.
+\section{Inleiding op de meetopstelling}
 
-De Raspberry Pi fungeert in deze opstelling als een centrale node die zowel scripts uitvoert om netwerkmetingen te doen als eenvoudige Modbus-polling uitvoert naar gesimuleerde of echte apparaten. De keuze voor de Raspberry Pi biedt een aantal voordelen:
+De meetopstelling is ontworpen met het oog op het evalueren en vergelijken van netwerkprestaties over 4G, publiek 5G en privaat 5G binnen de context van gebouwbeheersystemen, meer bepaald voor toepassingen in verlichting en HVAC-sturing. Aangezien de focus in eerste instantie ligt op netwerkanalyse, wordt gekozen voor een flexibele en programmeerbare testomgeving. In plaats van de beoogde Schneider Electric SpaceLogic SmartX AS-P controller, die op dat moment niet beschikbaar is, wordt een Raspberry Pi gebruikt als centrale testnode.
+
+De Raspberry Pi simuleert de rol van een gebouwcontroller en voert netwerkmetingen uit, evenals communicatie met gesimuleerde of reële Modbus-apparaten. De meetopstelling is opgebouwd rond een industriële RUTX50-router, die in staat is om zowel 4G als 5G-connectiviteit aan te bieden. Zowel de Raspberry Pi als een Windows-pc zijn bekabeld verbonden met de router voor maximale stabiliteit van de interne netwerkkoppeling.
+
+\section{Motivatie voor gebruik van de Raspberry Pi}
+
+De Raspberry Pi biedt de volgende voordelen binnen deze meetcontext:
 
 \begin{itemize}
-    \item Flexibiliteit: De Raspberry Pi ondersteunt Python, bash en diverse bibliotheken zoals `pymodbus`, `speedtest-cli` en `psutil`, waarmee netwerktesten eenvoudig geautomatiseerd worden.
-    \item Lage kostprijs en eenvoudige setup: Dankzij de brede community en ondersteuning kan men snel aan de slag.
-    \item Mobiliteit: Door het compacte formaat wordt de Pi ook ingezet als mobiele testnode binnen verschillende netwerkzones (WiFi, 4G, 5G).
+    \item \textbf{Flexibiliteit:} Ondersteunt meerdere programmeertalen en bibliotheken (o.a. Python, bash, \texttt{pymodbus}, \texttt{iperf3}, \texttt{speedtest-cli}).
+    \item \textbf{Automatisatie:} Laat toe om complexe testreeksen automatisch en herhaalbaar uit te voeren.
+    \item \textbf{Compactheid:} Ideaal als mobiele node die kan ingezet worden in uiteenlopende netwerkomgevingen.
 \end{itemize}
 
-De opstelling bevat geen echte HVAC- of lichtsystemen, maar maakt gebruik van gesimuleerde Modbus-slave software. Deze wordt lokaal of op een andere computer uitgevoerd en reageert op pollingverzoeken van de Raspberry Pi. Dit maakt het mogelijk om latenties, foutpercentages en betrouwbaarheid van het netwerk te meten zonder dat de fysieke installaties al aanwezig moeten zijn.
+\section{Overzicht van de meetopstelling}
 
-Scripts worden eerst getest op een lokaal WiFi-netwerk, voordat ze ingezet worden binnen het private 5G-netwerk op de campus van HOGENT of een publiek netwerk. Zo wordt in een gecontroleerde omgeving de betrouwbaarheid en correcte werking van de scripts geverifieerd.
-
-\section{Schema van de opstelling}
-%
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=0.95\linewidth]{images/basisopstelling_raspi.png}
-%    \caption{Schematische voorstelling van de opstelling met Raspberry Pi}
-%\end{figure}
-
-\textbf{Beschrijving van het schema:}
 \begin{itemize}
-    \item De Raspberry Pi is via WiFi verbonden met het lokale netwerk (eigen router of access point). Dit netwerk fungeert als testomgeving voor netwerkmetingen.
-    \item Via Python-scripts op de Pi wordt een Modbus TCP-client uitgevoerd, die connecteert met een Modbus TCP-server (slave simulator) op een andere computer of lokaal op de Pi.
-    \item Tegelijk worden metingen uitgevoerd zoals ping, packet loss, jitter en bandbreedte, met behulp van netwerkscripts.
-    \item De verzamelde data wordt lokaal opgeslagen in logbestanden of eenvoudige CSV-bestanden.
+    \item De Raspberry Pi en de Windows-pc zijn bekabeld verbonden met een RUTX50-router.
+    \item Deze router biedt afwisselend connectiviteit via 4G, publiek 5G en privaat 5G (afhankelijk van de testomgeving).
+    \item Op de Raspberry Pi worden diverse scripts uitgevoerd die netwerkparameters meten zoals latency, jitter, throughput, packet loss, en responsiviteit.
+    \item De pc fungeert als referentiepunt voor iperf3-sessies en host ook een lokale HTTPS-endpoint via een Python-API.
 \end{itemize}
 
-Deze opstelling vormt het fundament waarop latere uitbreidingen mogelijk zijn, zoals een echte 5G-verbinding, fysieke controllers, sensoren of een serveromgeving voor geavanceerde dataverwerking.
+\section{Beschrijving van de uitgevoerde testen}
 
+Elke test wordt viermaal uitgevoerd in zowel 4G- als 5G-context om voldoende data te verzamelen voor statistische analyse.
+
+\subsection{Pingtest (latency en packet loss)}
+\textbf{Doel:} Evalueren van de gemiddelde latency en het aantal verloren pakketten tussen de Raspberry Pi en een extern internetadres.
+
+\begin{itemize}
+    \item \textbf{Commando:} \texttt{ping -c 250 8.8.8.8 > ping\_****.log}
+    \item \textbf{Verloop:} Vier iteraties per netwerkmodus (4G en 5G), telkens met 250 pakketten → in totaal 1000 metingen per technologie.
+    \item \textbf{Doelvariabelen:} Gemiddelde latency, minimale/maximale RTT, packet loss percentage.
+\end{itemize}
+
+\subsection{TCP throughputtest (bandbreedte en betrouwbaarheid)}
+\textbf{Doel:} Meten van de netto datadoorvoer en de stabiliteit van de TCP-verbinding.
+
+\begin{itemize}
+    \item \textbf{Setup:} iperf3-server wordt opgestart op de pc via \texttt{iperf3.exe -s}.
+    \item \textbf{Commando op Pi:} \texttt{iperf3 -c [PC-IP] -t 120 > iperf\_tcp\_***.log}
+    \item \textbf{Verloop:} Vier sessies van twee minuten per netwerkomgeving.
+    \item \textbf{Analyse:} Doorvoersnelheid per seconde, variaties (stabiliteit), eventuele TCP retries.
+\end{itemize}
+
+\subsection{HTTP latency test (toepassingslatency)}
+\textbf{Doel:} Simuleren van een realistische netwerkinteractie met een webgebaseerde API zoals in smart building dashboards.
+
+\begin{itemize}
+    \item \textbf{Setup:} Lokale webserver (Flask/API) draait op de pc en is benaderbaar via het interne IP.
+    \item \textbf{Script op Pi:} \texttt{gbssim.sh} – stuurt 250 HTTP GET-verzoeken met \texttt{time curl}.
+    \item \textbf{Verloop:} Uitvoering vier keer per technologie, totaal 1000 requests per netwerkmodus.
+    \item \textbf{Analyse:} Time to connect, time to first byte, total response time.
+\end{itemize}
+
+\subsection{UDP jittertest}
+\textbf{Doel:} Meten van jitter en packet loss in een niet-verbindingsgerichte overdracht (UDP).
+
+\begin{itemize}
+    \item \textbf{Commando:} \texttt{iperf3 -c [PC-IP] -u -b 1M -t 120 > iperf\_udp\_***.log}
+    \item \textbf{Verloop:} Vier keer per netwerkomgeving.
+    \item \textbf{Meetwaarden:} Jitter, aantal verloren pakketten, Lost/Total ratio.
+\end{itemize}
+
+\subsection{Speedtest via Node-RED}
+\textbf{Doel:} Evalueren van download- en uploadsnelheid binnen een visuele omgeving zoals Node-RED, die vaak gebruikt wordt in IoT-contexten.
+
+\begin{itemize}
+    \item \textbf{Opstelling:} Node-RED draait lokaal, bevat speedtest-node.
+    \item \textbf{Verloop:} Test laat gedurende circa 7 minuten lopen om voldoende meetpunten te verzamelen.
+    \item \textbf{Analyse:} Variabiliteit van snelheid, maximale en gemiddelde snelheden.
+\end{itemize}
+
+\subsection{Smart verlichting test}
+\textbf{Doel:} Evalueren van de betrouwbaarheid en reactietijd van een eenvoudige IoT-toepassing over verschillende netwerken.
+
+\begin{itemize}
+    \item \textbf{Hardware:} Philips Hue Bridge + slimme lamp.
+    \item \textbf{Script:} \texttt{lichtscript.py} voert twee keer een toggle-operatie uit.
+    \item \textbf{Metingen:} Tijd tussen commando en uitvoering, eventueel falen.
+    \item \textbf{Netwerkmodi:} Uitgevoerd onder zowel 4G als 5G.
+\end{itemize}
+
+\section{Samenvatting van meetdoelen}
+
+Elke test draagt bij tot het beantwoorden van volgende onderzoeksvragen:
+
+\begin{itemize}
+    \item Wat is het verschil in latency, jitter, packet loss en throughput tussen 4G, publiek 5G en privaat 5G?
+    \item Hoe betrouwbaar verlopen netwerkverzoeken en IoT-acties in een smart building scenario over verschillende mobiele netwerken?
+    \item In welke mate beïnvloeden de netwerkparameters de performantie van gebouwbeheersystemen?
+\end{itemize}
+
+Deze uitgebreide teststructuur laat toe om zowel objectieve netwerkparameters als real-world applicatieprestaties te evalueren in functie van het onderliggende mobiele netwerk.

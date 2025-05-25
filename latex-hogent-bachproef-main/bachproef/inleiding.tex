@@ -5,15 +5,32 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-Deze bachelorproef richt zich op het onderzoeken van de impact van de overstap van een bekabeld netwerk naar mobiele netwerken, zoals 4G, privaat 5G, en publiek 5G, voor de facilitaire diensten verwarming en verlichting van HOGENT. Doordat apparatuur steeds meer gebruik maakt van internettoegang en cloudmanagement, wordt de vraag gesteld of een mobiel netwerk een een betrouwbare en veilige oplossing kan bieden. Momenteel worden verlichting en verwarming op de campus Schoonmeersen automatisch aangestuurd via tijdschema's, sensoren en regelmodules. De overstap naar een mobiel netwerk brengt zowel voordelen als uitdagingen mee: een mobiel netwerk belooft snellere verbindingen en flexibiliteit, maar zorgt ook voor de nood aan afwegingen met betrekking tot bandbreedte, netwerkbelasting en veiligheid. De doelgroep van dit onderzoek is het faciliteir beheer van HOGENT. De centrale onderzoeksvraag van deze bachelorproef is: \textit{Welk netwerk (4G, privaat 5G of publiek 5G) biedt de beste balans tussen beveiliging, prestaties en netwerkbelasting voor de facilitaire diensten verwarming en verlichting van HOGENT?}. Naast deze onderzoeksvraag worden volgende vragen ook beantwoord: 
+Deze bachelorproef onderzoekt de haalbaarheid en meerwaarde van mobiele netwerken, in het bijzonder 4G, publiek 5G en privaat 5G, als alternatief voor bekabelde netwerkinfrastructuur bij de aansturing van facilitaire systemen zoals verlichting en HVAC (Heating, Ventilation and Air Conditioning) binnen HOGENT. Door de toenemende digitalisering en de opkomst van cloudgebaseerd beheer van gebouwfuncties, ontstaat de nood om de traditionele netwerkinfrastructuren te herzien. Mobiele netwerken beloven immers een grotere flexibiliteit, hogere snelheid en snellere uitrolmogelijkheden — maar tegelijkertijd brengen ze ook uitdagingen met zich mee op vlak van betrouwbaarheid, latency, netwerkbelasting en beveiliging.
+
+Momenteel worden de verlichting en HVAC-systemen op de campus Schoonmeersen automatisch aangestuurd via een combinatie van tijdschema’s, aanwezigheidsdetectie en lokale besturingsmodules die communiceren over een bekabeld IP-netwerk. Binnen deze context stelt zich de vraag in welke mate mobiele netwerken, en met name een privaat 5G-netwerk, een waardig alternatief vormen. De beoogde eindgebruiker van dit onderzoek is het facilitair beheer van HOGENT, dat in het kader van toekomstige infrastructuurprojecten een geïnformeerde keuze moet kunnen maken tussen bestaande en nieuwe netwerktechnologieën.
+
+Om deze thematiek grondig te analyseren, wordt een reeks netwerkmetingen en simulaties opgezet die zowel technische netwerkparameters als praktische gebouwbeheertoepassingen omvatten. Door middel van een testopstelling met een Raspberry Pi, een RUTX50-router en diverse scripts worden meetdata verzameld over latency, jitter, throughput, packet loss, HTTP-responsiviteit, en de performantie van smart verlichting via verschillende netwerken. Deze metingen worden telkens herhaald op 4G, publiek 5G en privaat 5G, zodat een vergelijkende analyse mogelijk is.
+
+De centrale onderzoeksvraag van deze bachelorproef luidt als volgt:
+
+\begin{quote}
+    \textit{Wat is het verschil tussen 4G, publiek 5G en privaat 5G in verband met prestaties, betrouwbaarheid en beveiliging van toepassingen zoals verlichting en HVAC binnen een gebouwbeheersysteem?}
+\end{quote}
+
+Om deze hoofdvraag te kunnen beantwoorden, wordt ook stilgestaan bij een aantal onderliggende deelvragen:
+
 \begin{itemize}
-    \item Welke technische vereisten hebben de systemen voor verwarming en verlichting op HOGENT-locaties?
-    \item Wat zijn de veiligheidsrisico’s bij het gebruik van mobiele netwerken voor verwarming en verlichting, en hoe kunnen deze worden beperkt?
-    \item Welke aanpassingen zijn nodig om de bestaande bekabelde systemen voor verwarming en verlichting compatibel te maken met mobiele netwerken?
-    \item Wat zijn de implicaties van de keuze voor een mobiel netwerk op de operationele continuïteit van de diensten verwarming en verlichting?
-    \item Wat zijn de implicaties van een overstap naar een mobiel netwerk voor onderhoud en beheer van de verwarmings- en verlichtingssystemen?
-    \item Is het zinvol om volledig over te stappen naar een privaat 5G netwerk, en hoe kan dit het best worden gerealiseerd?
+    \item Welke technische vereisten stellen HVAC- en verlichtingssystemen op HOGENT-locaties aan de netwerkconnectiviteit?
+    \item Welke verschillen zijn er in latency, jitter, packet loss en throughput tussen 4G, publiek 5G en privaat 5G?
+    \item Hoe betrouwbaar zijn netwerkinteracties (zoals HTTP-verzoeken en Modbus-communicatie) bij mobiele netwerken in een gebouwbeheerscenario?
+    \item Wat zijn de implicaties van de overstap naar mobiele netwerken op de operationele continuïteit van HVAC- en verlichtingssystemen?
+    \item Wat zijn de beveiligingsrisico’s van mobiele netwerken in deze context, en welke maatregelen zijn nodig om die te beperken?
+    \item Welke praktische aanpassingen zijn vereist om bestaande bekabelde systemen compatibel te maken met mobiele infrastructuur?
+    \item Onder welke voorwaarden is het zinvol om volledig over te stappen naar een privaat 5G-netwerk, en hoe kan een dergelijk netwerk best uitgerold worden?
 \end{itemize}
+
+Door het combineren van metingen op netwerkniveau met simulaties van concrete toepassingen (zoals smart lighting via Philips Hue en HTTP-gebaseerde dataverzoeken), biedt deze bachelorproef een geïntegreerde analyse van de geschiktheid van mobiele netwerken in het domein van gebouwbeheer.
+
 %
 %De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
 %
