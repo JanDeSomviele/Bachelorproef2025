@@ -25,8 +25,6 @@
 %%
 %% Maak voor elke fase (behalve het literatuuronderzoek) een NIEUW HOOFDSTUK aan
 %% en geef het een gepaste titel.
-\chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}%
-\label{ch:methodologie}
 
 \section{Literatuuronderzoek en probleemdefinitie}
 
@@ -36,72 +34,56 @@ Daarnaast werden gesprekken gevoerd met IT- en facilitair personeel van HOGENT o
 
 \section{Ontwerp en realisatie van de testomgeving}
 
-Aangezien de fysieke SpaceLogic AS-P controller initieel niet beschikbaar was, werd gekozen voor een flexibele testomgeving op basis van een Raspberry Pi 4 Model B. Deze fungeert als centrale testnode en voert zowel netwerkscripts als Modbus-simulaties uit. In de testopstelling wordt gebruik gemaakt van:
+Omdat de fysieke SpaceLogic AS-P controller initieel niet beschikbaar is voor experimentele doeleinden, wordt een alternatieve en flexibele testomgeving opgezet, gebaseerd op een Raspberry Pi 4 Model B. Deze microcomputer fungeert als centrale testnode en neemt de rol van edgecontroller op zich binnen de testopstelling. De keuze voor dit platform is gebaseerd op de brede ondersteuning van netwerkprotocollen, de programmeerbaarheid via Python en de mogelijkheid tot headless operaties en lokale datalogging. Hierdoor voert de Raspberry Pi zowel netwerkmetingen als simulaties van communicatie in gebouwbeheersystemen uit.
 
-\begin{itemize}
-    \item Een Raspberry Pi 4 met Python-scripts voor Modbus-communicatie, netwerktesten en logging;
-    \item Een RUTX50-router voor mobiele connectiviteit (4G, 5G NSA/SA);
-    \item Een laptop met Modbus TCP-server (simulator) voor het nabootsen van HVAC- of verlichtingsapparatuur;
-    \item Mobiele netwerken: Wi-Fi, publiek 5G, privaat 5G (5Gblue) en 4G via HOGENT-infrastructuur;
-    \item Testtools zoals \texttt{ping}, \texttt{speedtest-cli}, \texttt{curl}, \texttt{pymodbus}, \texttt{iPerf3}, en \texttt{psutil}.
-\end{itemize}
+De Pi draait meerdere op maat geschreven Python-scripts die gebruikmaken van onder andere de \texttt{pymodbus}-bibliotheek om Modbus TCP-communicatie te simuleren. Via deze communicatie wisselt de testnode gegevens uit met een server die HVAC- of verlichtingsapparatuur nabootst. Tegelijkertijd voert de Pi netwerktests uit met behulp van tools zoals \texttt{ping}, \texttt{speedtest-cli}, \texttt{curl} en \texttt{iPerf3}, terwijl \texttt{psutil} systeemprestaties monitort. Alle resultaten worden automatisch gelogd in CSV-formaat, inclusief tijdstempels en relevante systeem- en netwerkparameters.
 
-De scripts zijn ontworpen om reproduceerbare metingen uit te voeren en loggen zowel systeemprestaties als netwerkdata in CSV-formaat.
+Voor mobiele netwerkconnectiviteit wordt een industriële Teltonika RUTX50-router ingezet. Deze ondersteunt zowel 4G als 5G (zowel NSA als SA), en vormt de brug tussen de testnode en het externe netwerk. De combinatie van deze router met de Raspberry Pi maakt het mogelijk om in uiteenlopende netwerkomstandigheden betrouwbare metingen uit te voeren.
+
+Een laptop doet dienst als Modbus TCP-server en simuleert zo veldapparatuur zoals slimme verlichting of HVAC-units. Deze server reageert op de verzoeken van de Raspberry Pi, wat een representatieve testomgeving creëert voor Modbus-communicatie in een smart building-context.
+
+De testomgeving omvat verschillende netwerken: Wi-Fi via een lokaal access point, publiek 5G via een commerciële provider, privaat 5G via het 5Gblue-project, en 4G via het mobiele netwerk van HOGENT. Deze variatie stelt de testopstelling in staat om netwerkprestaties onder reële omstandigheden te vergelijken.
+
+Deze modulaire, scriptgestuurde en reproduceerbare opstelling vormt een robuust alternatief voor fysieke BMS-hardware en is uitermate geschikt voor experimenteel onderzoek naar IoT-communicatie binnen slimme gebouwen.
 
 \section{Connectiviteits- en performantiemetingen}
 
-Voor elke netwerkomgeving (Wi-Fi, 4G, publiek 5G, privaat 5G) worden identieke metingen uitgevoerd. De scripts testen volgende aspecten:
+In elk van de netwerkomgevingen – Wi-Fi, 4G, publiek 5G en privaat 5G – wordt een identieke testreeks uitgevoerd. Het doel is om te evalueren hoe verschillende technologieën presteren op vlak van snelheid, betrouwbaarheid en stabiliteit. 
 
-\begin{itemize}
-    \item \textbf{Latency en jitter}: via \texttt{ping}-metingen naar lokale en externe servers;
-    \item \textbf{Throughput (bandbreedte)}: via \texttt{speedtest-cli} en \texttt{iPerf3};
-    \item \textbf{Packet loss en stabiliteit}: over langere perioden via herhaalde communicatie;
-    \item \textbf{HTTP-performance}: via \texttt{curl} om HTML-pagina’s of API-data op te halen;
-    \item \textbf{Modbus-prestaties}: polling van registers op de slave-server om communicatievertragingen te detecteren;
-    \item \textbf{Smart lighting responsiveness}: schakelen van een Philips Hue-lamp via een lokale bridge en logging van responstijden.
-\end{itemize}
+De latency en jitter worden gemeten met behulp van het \texttt{ping}-commando, waarbij zowel lokale apparaten als externe servers (zoals 8.8.8.8) als doelwit dienen. Voor de meting van throughput wordt gebruikgemaakt van zowel \texttt{speedtest-cli}, dat communiceert met publieke servers, als \texttt{iPerf3}, waarbij een eigen server op de laptop fungeert als eindpunt.
 
-De resultaten van deze testen geven inzicht in hoe het netwerkgedrag verschilt tussen technologieën, en hoe dit zich vertaalt naar functionele impact op gebouwbeheerapplicaties.
+Packet loss en stabiliteit worden geëvalueerd door langdurige communicatieopdrachten te herhalen. Zo voert de Raspberry Pi honderden HTTP-verzoeken uit met \texttt{curl} naar een lokale Node-RED-server en registreert daarbij responstijden en eventuele fouten. Modbus-verzoeken worden eveneens herhaald om vertragingen of mislukte interacties te detecteren.
+
+Een extra test meet de reactietijd van een smart lighting-toepassing. Via een lokaal netwerk wordt een Philips Hue-lamp twee keer geschakeld door een Python-script. De tijd tussen het commando en de feitelijke uitvoering wordt gelogd. Deze test illustreert concreet hoe netwerkomstandigheden de gebruikerservaring van IoT-toepassingen beïnvloeden.
 
 \section{Scenario-uitwerking: worst-case en realistische belasting}
 
-Om het effect van netwerkfluctuaties te onderzoeken, worden verschillende testscenario’s gesimuleerd:
+Om de robuustheid van de netwerken te testen, worden verschillende scenario’s nagebootst. In de eerste fase wordt getest onder ideale omstandigheden zonder achtergrondverkeer, wat als referentiesituatie dient. Vervolgens wordt netwerkcongestie gesimuleerd door gelijktijdig zware dataverkeer te genereren, zoals downloads of parallelle speedtests.
 
-\begin{itemize}
-    \item Standaard communicatie zonder achtergrondverkeer;
-    \item Zware netwerklast met gelijktijdige dataverzoeken;
-    \item Simulatie van packet loss of netwerkvertraging;
-    \item Verplaatsing van de testnode binnen het dekkingsgebied om signaalvariatie te introduceren.
-\end{itemize}
+Daarna introduceert de testomgeving kunstmatige vertragingen en packet loss, bijvoorbeeld via QoS-instellingen of netwerkemulatie. Tot slot wordt ook de invloed van fysieke verplaatsing onderzocht: de testnode beweegt zich binnen het dekkingsgebied van de router om variaties in signaalsterkte en dekking te simuleren.
 
-Hierbij wordt ook een onderscheid gemaakt tussen toepassingen die sterk tijdsgevoelig zijn (bv. lichtschakelaars) versus minder kritieke processen (bv. temperatuurmetingen).
+Tijdens elke test wordt gekeken hoe gevoelig verschillende toepassingen zijn voor vertraging of verlies. Zo blijkt dat lichtschakelingen veel sneller hinder ondervinden van hoge latency dan niet-tijdskritische metingen zoals temperatuurmonitoring. Dit onderscheid helpt om prioriteiten te bepalen bij netwerkinfrastructuurkeuze binnen een smart building.
 
 \section{Data-analyse en evaluatie}
 
-Alle meetdata wordt automatisch opgeslagen in CSV-bestanden en met behulp van Python verwerkt tot grafieken en samenvattende tabellen. De kern van de evaluatie ligt in het vergelijken van de netwerktypes op vlak van:
+Alle verzamelde data wordt automatisch verwerkt met Python. De scripts analyseren latency, jitter, packet loss, doorvoersnelheden en systeembelasting. Deze gegevens worden omgezet naar visuele representaties zoals tijdreeksen, boxplots en gemiddeldevergelijkingen, wat helpt bij het identificeren van trends of anomalieën.
 
-\begin{itemize}
-    \item Gemiddelde en maximale latency;
-    \item Stabiliteit (jitter, packet loss);
-    \item Reactietijd van toepassingen (bv. lamp schakeltijd, Modbus-respons);
-    \item Uptime en verbindingszekerheid;
-    \item Beperkingen of storingen tijdens simulaties.
-\end{itemize}
+De evaluatie focust op prestatieverschillen tussen de onderzochte netwerktechnologieën. Daarbij worden onder meer gemiddelde en maximale latency, jitterwaarden, en de frequentie van communicatieproblemen geanalyseerd. Ook wordt expliciet nagegaan hoe snel en betrouwbaar toepassingen reageren: van het schakelen van een lamp tot het succesvol polsen van Modbus-registers.
 
-De analyse wordt zowel numeriek als visueel ondersteund en vormt de basis voor de aanbevelingen in het slothoofdstuk.
+Naast deze kwantitatieve metingen wordt ook aandacht besteed aan operationele storingen of anomalieën zoals time-outs, verbindingsverlies of onverwacht gedrag tijdens de tests. Deze kwalitatieve observaties bieden inzicht in de betrouwbaarheid van de netwerken in dagelijkse toepassingen.
 
 \section{Onderzoeksafbakening en beperkingen}
 
-Hoewel de testopstelling representatief is voor realistische omstandigheden, zijn enkele beperkingen van toepassing:
+Hoewel de testomgeving een realistische benadering van smart building-infrastructuur nastreeft, zijn er enkele beperkingen. De gebruikte Modbus-simulatie wijkt in bepaalde technische details af van commerciële BMS-controllers, wat invloed kan hebben op timing of foutafhandeling.
 
-\begin{itemize}
-    \item De gebruikte Modbus-simulatie is niet identiek aan commerciële gebouwbeheersystemen;
-    \item De publieke 5G-test gebeurde via een beperkt aantal providers en locaties;
-    \item Er werd geen real-time failover getest tussen netwerktypes;
-    \item Beveiliging werd hoofdzakelijk theoretisch behandeld, niet op pakketniveau gemeten.
-\end{itemize}
+De publieke 5G-tests vinden plaats binnen een beperkt geografisch bereik en onder specifieke providercondities. Daardoor zijn de resultaten niet zonder meer generaliseerbaar naar andere regio’s of netwerkaanbieders.
 
-Deze beperkingen worden in de bespreking meegenomen bij de interpretatie van de resultaten en de algemene toepasbaarheid van de bevindingen voor HOGENT.
+Een andere beperking is dat er geen automatische failover-tests worden uitgevoerd. In een echte smart building kunnen systemen naadloos overschakelen tussen netwerken bij storingen; dit gedrag wordt in deze opstelling niet gesimuleerd.
+
+Ten slotte behandelt deze studie netwerkinfrastructuur hoofdzakelijk functioneel. Beveiligingsaspecten zoals encryptie, authenticatie of netwerksegmentatie worden niet geëvalueerd op pakketniveau, maar eerder theoretisch besproken.
+
+Deze beperkingen worden in de interpretatie van de resultaten meegenomen en vormen aanknopingspunten voor vervolgonderzoek of implementatie in productieomgevingen.
+
 
 
 
