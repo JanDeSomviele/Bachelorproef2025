@@ -8,6 +8,7 @@
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 \section{Inleiding}
 
+De stand van zaken gaat dieper in op het gebouwenbeheerssysteem van HOGENT en meer in detail op de regeling van verlichting en HVAC op de campus Schoonmeersen. Er is verder op basis van een literatuurstudie een beschrijving van het verschil tussen 4G en 5G in facilitair beheer en hoe de principes van smart campussen kunnen toegepast worden om te komen tot slimme HVAC in gebouwen en slimme verlichting van gebouwen en campussen.
 %Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
 %
 %Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
@@ -50,13 +51,13 @@
 %  \caption[Voorbeeld tabel]{\label{tab:example}Voorbeeld van een tabel.}
 %\end{table}
 \section{Facilitair beheer}
-Facilitair beheer (FM) is een interdisciplinair vakgebied dat de coördinatie van mensen, processen en ruimtes omvat om welzijn en efficiëntie binnen organisaties te verbeteren (ISO 41011:2018) \autocite{jaouhari2023we}. 
+Facilitair beheer  is een interdisciplinair vakgebied dat de coördinatie van mensen, processen en ruimtes omvat om welzijn en efficiëntie binnen organisaties te verbeteren \autocite{jaouhari2023we}. Facilitair beheer omvat verschillende ondersteunende diensten waaronder deze die instaan voor het beheren van de fysieke omgeving, zoals elektriciteit en koeling, fysiek toegangsbeheer en ruimtebewaking.
 
-\section{facilitaire diensten van HOGENT}
-Het centrale punt voor het beheer van facilitaire diensten op HOGENT heeft als locatie de campus Mercator. Hier wordt de informatie verzameld en gemonitord van alle campussen binnen het gebouwbeheersysteem. Voor deze bachelorproef wordt er dieper ingegaan op de campus Schoonmeersen.
+\section{Facilitaire diensten van HOGENT}
+Het centrale beheer van de faciltaire diensten van HOGENT bevindt zich op de campus Mercator. Op deze locatie  wordt de informatie verzameld en gemonitord van alle campussen binnen het gebouwbeheersysteem. Voor deze bachelorproef wordt er dieper ingegaan op het facilitair beheer van de campus Schoonmeersen. Er is ook een focus op het regelen van verlichting op de campus en verwarming, ventilatie en klimaatregeling in de gebouwen.
 
 \subsection{Campus Schoonmeersen}
-Op de campus Schoonmeersen zijn er 2 platformen om de informatie te verzamelen van de facilitaire diensten. Deze platformen zijn Johnson controls Metasys en Schneider's Schneider Electric. Metasys is in gebruik in gebouw D (GSCHD) zie figuur 2.1 en Scneider Electric is in gebruik in de gebouwen B (GSCHB), C (GSCHC), P (GSCHP) en de HOGENT Sporthal zie figuur 2.2 \autocite{Venneman2019}.
+Op de campus Schoonmeersen zijn er twee platformen om de informatie te verzamelen voor het regelen van de facilitaire diensten. Deze platformen zijn Johnson controls Metasys en Schneider’s Schneider Electric. Het platform Metasys is in gebruik in gebouw D  (zie figuur 2.1). Het platform Schneider Electric is in gebruik in de gebouwen B, C, P en de sporthal van HOGENT (zie figuur 2.2)\autocite{Venneman2019}.
 
 \begin{figure}
     \centering
@@ -70,7 +71,9 @@ Op de campus Schoonmeersen zijn er 2 platformen om de informatie te verzamelen v
 \end{figure}
 
 \subsection{Xenta modules}
-In de gebouwen wordt er gebruik gemaakt van Xenta modules. Xenta module 401 is telkens de hoofdregelaar voor de systemen. Hieraan zijn dan telkens maximaal 10 input output apparaten verbonden en deze staan dan in voor het verzamelen van de gegevens van de diverse metingen. Er zijn verschillende soorten van input/output apparaten zoals te zien in figuur 2.3. Digitale input en output apparaten hebben 2 vaste staten zoals uit en aan. Een thermistor is een weerstandsthermometer, of een resistor waarvan de weerstand afhankelijk is van de temperatuur. Analoge apparaten gebruiken continue signalen die variëren in grootte, zoals spanning, stroom of weerstand. Universele apparaten zijn apparaten die zowel kunnen dienen als digitale input en output en als analoge output.
+In de gebouwen wordt er gebruik gemaakt van Xenta modules. De Xenta module 401 is telkens de hoofdregelaar voor de systemen. Hieraan zijn dan maximaal 10 input/output apparaten verbonden en deze staan dan in voor het verzamelen van de gegevens voor de diverse metingen. Er zijn verschillende soorten van input/output apparaten zoals te zien in figuur 2.3. Digitale input en output apparaten hebben twee vaste staten uit en aan. Een thermistor is een weerstandsthermometer, meer bepaald een elektrische weerstand (component) waarvan de elektrische weerstand afhankelijk is van de temperatuur. \newline \newline
+Analoge apparaten gebruiken continue signalen die variëren in grootte, zoals spanning, stroom of weerstand. Universele apparaten zijn apparaten die zowel kunnen dienen als digitale input en output en als analoge output.
+
 
 \begin{figure}
   \centering
@@ -79,97 +82,66 @@ In de gebouwen wordt er gebruik gemaakt van Xenta modules. Xenta module 401 is t
 \end{figure}
 
 \subsection{Spacelogic}
-Een Spacelogic AS-P controller wordt in elk gebouw gebruikt om het gebouwbeheersysteem een ip adres te geven.
+Een Spacelogic AS-P controller wordt in elk gebouw gebruikt om het gebouwbeheersysteem een IP-adres te geven en de https-poort open te zetten.
 
-
-% TO DO: foto's bijzetten
 \subsection{Verlichting}
-Op het hoofdscherm van het systeem bevindt zich een schakelaar waarmee de verlichting van de gebouwen vanuit Mercator kan worden aangestuurd. De verlichting werkt volgens een vooraf ingesteld tijdschema. Binnen de gebouwen mogen de lichten aanstaan op de volgende tijden:
+Op het hoofdscherm van het systeem bevindt zich een schakelaar waarmee de verlichting van de gebouwen vanuit Mercator kan worden aangestuurd. De verlichting werkt volgens een vooraf ingesteld tijdschema. Daarbij is er een verschillend tijdsschema voor de verlichting in de gebouwen en de buitenverlichting. \newline \newline
+Naast tijdsinstellingen wordt ook de helderheid gemeten om te bepalen of verlichting noodzakelijk is. Voor binnenverlichting geldt een drempelwaarde van 60,000 lux, terwijl deze voor buitenverlichting op 60 lux ligt. Wanneer de helderheid onder deze grenswaarden komt, wordt de verlichting automatisch ingeschakeld. Voor gebouwen waarbij de verlichting niet vanuit Mercator kan worden aangestuurd zoals bijvoorbeeld gebouw C, gebeurt de bediening handmatig.
 
-\begin{itemize}
-    \item \textbf{Maandag tot en met vrijdag:} 05:30 -- 22:00
-    \item \textbf{Zaterdag:} 07:00 -- 19:00
-\end{itemize}
-
-Voor de buitenverlichting geldt een iets ruimer tijdschema:
-
-\begin{itemize}
-    \item \textbf{Maandag tot en met vrijdag:} 05:30 -- 22:15
-    \item \textbf{Zaterdag:} 07:20 -- 19:20
-\end{itemize}
-
-Naast tijdsinstellingen wordt ook de helderheid gemeten om te bepalen of verlichting noodzakelijk is. Voor binnenverlichting geldt een drempelwaarde van 60,000 lux, terwijl deze voor buitenverlichting op 60 lux ligt. Wanneer de helderheid onder deze grenswaarden komt, wordt de verlichting ingeschakeld. Voor gebouwen waarbij de verlichting niet vanuit Mercator kan worden aangestuurd, gebeurt de bediening handmatig.
 
 \subsection{HVAC (Heating, Ventilation, and Air Conditioning)}
-Gebouw T beschikt over het meest geavanceerde HVAC-systeem op de campus Schoonmeersen en dient als referentie voor de overige gebouwen. De warmteproductie binnen de gebouwen wordt voornamelijk verzorgd door ketels. In Gebouw T is daarnaast een warmtepomp geïnstalleerd, wat zorgt voor een efficiëntere en flexibelere regeling.
+De gebouwen zijn opgedeeld in verschillende verwarmingskringen, waarbij een kring een verzameling radiatoren omvat. In oudere gebouwen zoals gebouw B en C vormen deze kringen het eindpunt van de regeling, terwijl Gebouw T daarnaast nog extra zoneregelaars per lokaal heeft. Dankzij de zoneregelaars kan de temperatuur per lokaal worden aangepast. Hierbij wordt rekening gehouden met aanwezigheidssensoren die de ruimtestatus bepalen. \newline \newline
+De verwarmingskringen werken volgens een tijdsschema waar overdag de binnenruimtetemperatuur automatisch wordt aangepast op basis van de buitentemperatuur, met een gemiddelde richtwaarde van 19 °C
+De warmteproductie binnen de gebouwen wordt voornamelijk verzorgd door verwarmingsketels. In gebouw T is daarnaast een warmtepomp geïnstalleerd, wat zorgt voor een efficiëntere en flexibelere regeling.\newline\newline
+De werking van de ketels is gebaseerd op het aantal draaiuren, wat belangrijk is voor de onderhoudsplanning. Wanneer een warmtepomp aanwezig is, fungeert deze als primaire warmtebron, terwijl de ketels als secundaire warmtevoorziening dienen. Het stookseizoen loopt doorgaans van oktober tot april/mei, afhankelijk van de buitentemperaturen en de verwarmingsbehoefte. Het systeem heeft ook vorstbescherming in de winter zodat het automatisch overschakelt op verwarming als de temperatuur onder 5°C daalt.
 
-De werking van de ketels is gebaseerd op het aantal draaiuren, wat vooral van belang is voor onderhoudsplanning. Wanneer een warmtepomp aanwezig is, fungeert deze als primaire warmtebron, terwijl de ketels als secundaire warmtevoorziening dienen.
-
-De warmtepomp hanteert specifieke temperatuursinstellingen:
-
-\begin{itemize}
-    \item \textbf{Verwarming (heating):} Ingeschakeld bij een temperatuur onder 16°C
-    \item \textbf{Neutrale stand:} Tussen 16°C en 18°C
-    \item \textbf{Koeling (cooling):} Geactiveerd bij temperaturen boven 18°C
-    \item \textbf{Vorstbescherming:} In de winter schakelt het systeem automatisch over op verwarming wanneer de temperatuur onder 5°C daalt
-\end{itemize}
-
-\subsubsection{Zone-indeling en temperatuurregeling}
-De gebouwen zijn opgedeeld in verschillende verwarmingskringen, waarbij een kring een verzameling radiatoren omvat. In oudere gebouwen vormen deze kringen het eindpunt van de regeling, terwijl Gebouw T daarnaast nog extra zoneregelaars per lokaal heeft. Hierdoor is een meer gedetailleerde temperatuurregeling mogelijk.
-
-De verwarmingskringen werken volgens een \textbf{tijdsschema}:
-
-\begin{itemize}
-    \item \textbf{Maandag tot en met zaterdag:} 05:30 -- 17:30
-    \item \textbf{Donderdag:} Uitgebreide werking tot 19:30
-    \item \textbf{Nachttemperatuur:} 16 °C
-    \item \textbf{Overdag:} De binnenruimtetemperatuur wordt automatisch aangepast op basis van de buitentemperatuur, met een gemiddelde richtwaarde van 19 °C
-\end{itemize}
-
-Dankzij de zoneregelaars kan de temperatuur per lokaal worden aangepast. Hierbij wordt rekening gehouden met aanwezigheidssensoren die de ruimtestatus bepalen:
-
-\begin{itemize}
-    \item \textbf{Unoccupied:} Ruimte is niet in gebruik $\rightarrow$ 16 °C
-    \item \textbf{Standby:} Ruimte is actief, maar leeg $\rightarrow$ 18 °C
-    \item \textbf{Occupied:} Ruimte is in gebruik $\rightarrow$ 19 °C
-\end{itemize}
 
 \subsubsection{Ventilatie}
 De ventilatie wordt geregeld per luchtgroep. Buitenlucht wordt via een warmtewiel en een warmtebatterij (kleine warmtekring) gefilterd en opgewarmd voordat het via ventilatoren naar binnen wordt gebracht. De ventilatie werkt op basis van zowel een tijdsklok als een drukregeling, waarbij de druk binnen de waarden van 400 Pa tot 500 Pa blijft.
 
-In Gebouw T kunnen de zoneregelaars ook de ventilatie aansturen. Dit gebeurt op basis van CO$_2$-concentratie. Wanneer de CO$_2$-waarde de drempel van 800 ppm (parts per million) overschrijdt, worden de regelkleppen automatisch meer geopend om extra ventilatie toe te laten.
+In gebouw T kunnen de zoneregelaars ook de ventilatie aansturen. Dit gebeurt op basis van CO$_2$-concentratie. Wanneer de CO$_2$-waarde de drempel van 800 ppm (parts per million) overschrijdt, worden de regelkleppen automatisch meer geopend om extra ventilatie toe te laten.
 
-Elk van deze regelmodules verzamelt en logt verschillende meetwaarden, waardoor temperatuur- en ventilatiegegevens grafisch kunnen worden weergegeven.
-
-\subsubsection{Verwarmingsperiode}
-Het stookseizoen loopt doorgaans van oktober tot april/mei, afhankelijk van de buitentemperaturen en de verwarmingsbehoefte.
 
 \subsection{Storingen en Monitoring}
-Storingen worden in realtime geregistreerd en weergegeven in Mercator via een overzichtelijke lijst. Hierdoor kunnen bekende problemen direct worden gemonitord en kunnen storingen snel worden opgelost voordat ze een impact hebben op het comfort binnen de gebouwen.
+Elk van deze regelmodules in de gebouwen van campus Schoonmeersen verzamelt en logt verschillende meetwaarden, waardoor temperatuur- en ventilatiegegevens grafisch kunnen worden weergegeven.\newline\newline
+Storingen worden in realtime geregistreerd en weergegeven in Mercator via een overzichtelijke lijst. Hierdoor kunnen bekende problemen direct worden gemonitord en kunnen storingen snel worden opgelost voordat ze een impact hebben op het comfort van de gebruiker van de  gebouwen
+
 
 \section{Vergelijking 4G en 5G}
-Het verschil tussen 4G en 5G in facilitair beheer ligt in de infrastructuur en middelenbeheer. 5G biedt flexibelere en efficiëntere infrastructuur dankzij virtualisatie wat zorgt voor schaalbaarheid en minder handmatige interventie \autocite{degambur2021resource}. 5G introduceert een verbeterde netwerkcapaciteit, betrouwbaarheid en efficiëntie, met lagere latentie en lager energieverbruik ten opzichte van 4G. De nadruk ligt op hoge snelheden en het verbinden van meerdere apparaten tegelijkertijd \autocite{mihret20214g}. De integratie van 5G technologie in het facilitair beheer van slimme gebouwen biedt voordelen voor efficiëntie, connectiviteit en veiligheid. Hoewel uitdagingen zoals hoge investeringskosten en complexe integratie bestaan, maar de voordelen van verbeterde duurzaamheid, efficiëntie en comfort overtreffen deze uitdagingen \autocite{Markogiannaki2023}. Private 5G netwerken bieden bedrijven en organisaties een veilig, flexibel en schaalbaar alternatief voor publieke 5G netwerken. Private 5G netwerken maken het mogelijk om data veilig en autonoom te delen zonder de openbare internetinfrastructuur te gebruiken \autocite{eswaran2023private}.
+Het verschil tussen 4G en 5G netwerken in facilitair beheer ligt in de infrastructuur en middelenbeheer. 5G biedt flexibelere en efficiëntere infrastructuur dankzij virtualisatie wat zorgt voor schaalbaarheid en minder handmatige interventie \autocite{degambur2021resource}. De integratie van 5G technologie in het facilitair beheer van slimme gebouwen biedt voordelen voor efficiëntie, connectiviteit en veiligheid. Met een 5G is er een verbeterde netwerkcapaciteit, betrouwbaarheid en efficiëntie, met lagere latentie en lager energieverbruik ten opzichte van 4G. De voordelen liggen op het vlak van hoge snelheden en het verbinden van meerdere apparaten tegelijkertijd \autocite{mihret20214g}. 5G biedt hogere datasnelheden, lagere latentie en ondersteuning voor veel meer verbonden apparaten dan 4G dankzij mmWave-technologie, massive MIMO en ultradense netwerken \autocite{Hui_2020}.
 
-5G biedt hogere datasnelheden, lagere latentie en ondersteuning voor veel meer verbonden apparaten  dan 4G dankzij mmWave-technologie, massive MIMO en ultra-dense netwerken \autocite{Hui_2020}.
+De voordelen bij de overgang naar een beheersysteem via 5G zoals verbeterde duurzaamheid, efficiëntie en comfort overtreffen de uitdagingen zoals hoge investeringskosten en complexe integratie \autocite{Markogiannaki2023}. Private 5G netwerken bieden organisaties een veilig, flexibel en schaalbaar alternatief voor publieke 5G netwerken. Private 5G netwerken maken het mogelijk om data veilig en autonoom te delen zonder de openbare internetinfrastructuur te gebruiken \autocite{eswaran2023private}.
+
+
+
 
 
 \section{Smart campussen}
-\textcites{Min_Allah_2020,AbuAlnaaj2016,Ahmed2022} beschrijven hoe smart campussen geavanceerde technologieën zoals het Internet of Things (IoT), 5G-connectiviteit en kunstmatige intelligentie (AI) gebruiken om onderwijsinstellingen efficiënter, duurzamer en gebruiksvriendelijker te maken. Deze technologieën verbeteren niet alleen de leeromgeving, maar optimaliseren ook energiebeheer, beveiliging en operationele efficiëntie \autocite{Correia2022}. Een belangrijke uitdaging bij de implementatie van smart campus-technologieën is de hoge kosten, cyberveiligheidsrisico’s en de noodzaak van een geïntegreerde infrastructuur \autocite{Liu_2022}. Desondanks tonen studies aan dat de voordelen, zoals energiebesparing en verhoogde veiligheid, opwegen tegen deze uitdagingen \autocite{AbuAlnaaj2016}.
+\textcites{Min_Allah_2020,AbuAlnaaj2016,Ahmed2022} beschrijven hoe smart campussen geavanceerde technologieën zoals het Internet of Things (IoT), 5G-connectiviteit en kunstmatige intelligentie (AI) gebruiken om onderwijsinstellingen efficiënter, duurzamer en gebruiksvriendelijker te maken. Deze technologieën verbeteren niet alleen de leeromgeving, maar optimaliseren ook energiebeheer, beveiliging en operationele efficiëntie \autocite{Correia2022}. De belangrijkste uitdagingen van de implementatie van smart campus-technologieën zijn de hoge kosten, cyberveiligheidsrisico’s en de noodzaak van een geïntegreerde infrastructuur \autocite{Liu_2022}. Desondanks tonen studies aan dat de voordelen, zoals energiebesparing en verhoogde veiligheid, opwegen tegen deze uitdagingen \autocite{AbuAlnaaj2016}.
+
+
+
+
 
 \section{IoT en 5G in smart campussen, steden en gebouwen}
 
-\textcite{Bilardo_2021} stelt dat IoT en 5G een cruciale rol spelen in de ontwikkeling van slimme steden en campussen door real-time monitoring en communicatie tussen apparaten mogelijk te maken. Hierdoor kunnen systemen zoals verlichting, klimaatregeling en beveiliging automatisch worden aangepast aan de behoeften van gebruikers, wat leidt tot een efficiënter energiegebruik en lagere operationele kosten \autocite{Polin2023}. De integratie van IoT binnen smart cities bevordert niet alleen duurzaamheidsdoelstellingen, maar verbetert ook de kwaliteit van leven door slimmere mobiliteit en infrastructuur \autocite{Chew2020}. Toch brengt de implementatie van IoT beveiligingsrisico’s met zich mee, zoals gegevenslekken en cyberaanvallen, wat een belangrijk aandachtspunt blijft voor beleidsmakers en technologieleveranciers \autocite{Trivedi2017}.
+\textcite{Bilardo_2021} stelt dat IoT en 5G een cruciale rol spelen in de ontwikkeling van slimme steden en campussen door real-time monitoring en communicatie tussen apparaten mogelijk te maken. Hierdoor kunnen systemen zoals verlichting, klimaatregeling en beveiliging automatisch worden aangepast aan de behoeften van gebruikers, wat leidt tot een efficiënter energiegebruik en lagere operationele kosten \autocite{Polin2023}. De integratie van IoT binnen smart cities bevordert niet alleen het bereiken van duurzaamheidsdoelstellingen, maar kan ook de kwaliteit van leven verbeteren door slimmere mobiliteit en infrastructuur \autocite{Chew2020}. De implementatie van IoT brengt wel beveiligingsrisico’s met zich mee, zoals gegevenslekken en cyberaanvallen, wat een belangrijk aandachtspunt moet blijven voor beleidsmakers en technologieleveranciers \autocite{Trivedi2017}.
+Door de integratie van IoT, 5G en AI kunnen smart campussen en gebouwen op een duurzamere en efficiëntere manier functioneren
+
+
+
+
 
 \section{HVAC-systemen en slim energiebeheer}
 
-\textcite{Correia2022} legt uit dat efficiënte HVAC-systemen (verwarming, ventilatie en airconditioning) essentieel zijn voor slimme gebouwen en campussen, aangezien ze verantwoordelijk zijn voor een groot deel van het energieverbruik. Door AI en IoT te combineren, kunnen deze systemen worden geoptimaliseerd om energie te besparen zonder dat dit ten koste gaat van het comfort van gebruikers \autocite{Min_Allah_2020}. Geavanceerde algoritmes en machine learning spelen een grote rol bij het voorspellen van energieverbruik en het automatisch aanpassen van HVAC-instellingen om piekbelasting te verminderen \autocite{Khoa2020}. Daarnaast helpt IoT-technologie bij het continu monitoren en onderhouden van HVAC-systemen, waardoor storingen en inefficiëntie sneller kunnen worden opgespoord en verholpen \autocite{Zhang2022}.
+\textcite{Correia2022} legt uit dat efficiënte HVAC-systemen (verwarming, ventilatie en airconditioning) essentieel zijn voor slimme gebouwen en campussen, aangezien ze verantwoordelijk zijn voor een groot deel van het energieverbruik van organisaties. Door AI en IoT te combineren, kunnen deze systemen worden geoptimaliseerd om energie te besparen zonder dat dit ten koste gaat van het comfort van gebruikers \autocite{Min_Allah_2020}. Geavanceerde algoritmes en machine learning spelen een grote rol bij het voorspellen van energieverbruik en het automatisch aanpassen van HVAC-instellingen om piekbelasting te verminderen \autocite{Khoa2020}. Daarnaast helpt IoT-technologie bij het continu monitoren en onderhouden van HVAC-systemen, waardoor storingen en inefficiëntie van de installaties sneller kunnen worden opgespoord en verholpen \autocite{Zhang2022}.
+
+
+
 
 \section{Slimme verlichting}
 
-\textcite{Poyyamozhi2024} stelt dat slimme verlichting in zowel binnen- als buitenomgevingen bijdraagt aan energie-efficiëntie en verhoogd gebruikerscomfort. In gebouwen maken slimme verlichtingssystemen gebruik van sensoren en AI om de lichtsterkte en kleurtemperatuur aan te passen op basis van de aanwezigheid van personen en de hoeveelheid natuurlijk licht \autocite{Wang2024}. In buitenomgevingen, zoals smart cities, helpt geautomatiseerde straatverlichting energie te besparen door middel van bewegingsdetectie en connectiviteit met andere stadsnetwerken \autocite{Huseien_2022}. Hierdoor wordt niet alleen het energieverbruik verminderd, maar ook de veiligheid en bruikbaarheid van stedelijke ruimtes verbeterd.
-
-Door de integratie van IoT, 5G en AI kunnen smart campussen en gebouwen op een duurzamere en efficiëntere manier functioneren. Hoewel er uitdagingen zijn zoals kosten en beveiligingsrisico’s, wegen de voordelen op lange termijn ruimschoots op tegen deze obstakels.
-
+\textcite{Poyyamozhi2024} stelt dat slimme verlichting in zowel binnen- als buitenomgevingen bijdraagt aan energie-efficiëntie en verhoogd gebruikerscomfort. In gebouwen maken slimme verlichtingssystemen gebruik van sensoren en AI om de lichtsterkte en kleurtemperatuur aan te passen op basis van de aanwezigheid van personen en de hoeveelheid natuurlijk licht \autocite{Wang2024}. In buitenomgevingen, zoals smart cities, helpt geautomatiseerde straatverlichting energie te besparen door middel van bewegingsdetectie en connectiviteit met andere stadsnetwerken \autocite{Huseien_2022}. Hierdoor wordt niet alleen het energieverbruik verminderd, maar ook de veiligheid en bruikbaarheid van stedelijke ruimtes verbeterd.  
 
 
 

@@ -28,61 +28,42 @@
 
 \section{Literatuuronderzoek en probleemdefinitie}
 
-Het onderzoek startte met een literatuurstudie over de technische kenmerken, toepassingen en beperkingen van mobiele netwerken (4G, privaat 5G en publiek 5G) in het kader van gebouwbeheersystemen. Er werd aandacht besteed aan latentie, bandbreedte, betrouwbaarheid en beveiligingsmechanismen binnen elk netwerktype. Parallel werd ook onderzocht hoe deze eigenschappen zich verhouden tot de vereisten van toepassingen zoals verlichting en HVAC, en wat de impact kan zijn op operationele stabiliteit.
+Het onderzoek startte met een literatuurstudie over 5G netwerken, smart gebouwen/campussen en de technische kenmerken, toepassingen en beperkingen van mobiele netwerken (4G, privaat 5G en wifi) in het kader van gebouwbeheersystemen. Er werd aandacht besteed aan latentie, bandbreedte en betrouwbaarheid binnen elk netwerktype. Parallel werd ook onderzocht hoe deze eigenschappen zich verhouden tot de vereisten van toepassingen zoals verlichting en HVAC, en wat de impact kan zijn op operationele stabiliteit.
+Daarnaast werden gesprekken gevoerd met personeel van de directies IT- en facilitair beheer van HOGENT om inzicht te krijgen in de huidige architectuur, gebruikte protocollen , en gevoeligheden rond beveiliging en uptime van de gebouwenbeheerinfrastructuur. Deze fase resulteerde in een literatuurstudie en onderbouwing voor de testscenario’s.
 
-Daarnaast werden gesprekken gevoerd met IT- en facilitair personeel van HOGENT om inzicht te krijgen in de huidige architectuur, gebruikte protocollen (zoals Modbus TCP), en gevoeligheden rond beveiliging en uptime. Deze fase resulteerde in een requirementsdocument dat de basis vormde voor het opstellen van relevante testscenario’s.
 
 \section{Ontwerp en realisatie van de testomgeving}
 
-Omdat de fysieke SpaceLogic AS-P controller initieel niet beschikbaar is voor experimentele doeleinden, wordt een alternatieve en flexibele testomgeving opgezet, gebaseerd op een Raspberry Pi 4 Model B. Deze microcomputer fungeert als centrale testnode en neemt de rol van edgecontroller op zich binnen de testopstelling. De keuze voor dit platform is gebaseerd op de brede ondersteuning van netwerkprotocollen, de programmeerbaarheid via Python en de mogelijkheid tot headless operaties en lokale datalogging. Hierdoor voert de Raspberry Pi zowel netwerkmetingen als simulaties van communicatie in gebouwbeheersystemen uit.
+De testomgeving heeft als doel het gebouwbeheersysteem te simuleren. Omdat in HOGENT een fysieke SpaceLogic AS-P controller niet beschikbaar is voor experimentele doeleinden, wordt een alternatieve en flexibele testomgeving opgezet, gebaseerd op een Raspberry Pi 4 Model B. Deze microcomputer fungeert als centrale testnode en neemt de rol van edgecontroller op zich binnen de testopstelling. 
+De keuze voor dit platform is gebaseerd op de brede ondersteuning van netwerkprotocollen, de programmeerbaarheid via Python en de mogelijkheid tot headless operaties en lokale datalogging. De Raspberry Pi voert daarbij zowel netwerkmetingen als simulaties van communicatie in gebouwbeheersystemen uit.
+De Pi voert netwerktests uit met behulp van tools zoals ping, node-red, curl en iPerf3. Alle resultaten worden gelogd en bewaard om later te gebruiken.
+Voor mobiele netwerkconnectiviteit wordt een industriële Teltonika RUTX50-router ingezet. Deze ondersteunt zowel 4G als 5G (zowel NSA als SA), en vormt de brug tussen de testnode en het externe netwerk. De combinatie van deze router met de Raspberry Pi maakt het mogelijk om in de verschillende netwerkomstandigheden metingen uit te voeren.
+Een PC doet dienst als iperf3 TCP-server en simuleert een iperf server. Deze server reageert op de verzoeken van de Raspberry Pi, zodat dit een representatieve testomgeving creëert voor communicatie in een smart building-context.
+De testomgeving omvat verschillende netwerken: wifi via een lokaal access point, privaat 4G en 5G via de RUTX50 router. Deze variatie biedt de mogelijkheid om met de testopstelling netwerkprestaties te vergelijken.
+Deze opstelling vormt een goed alternatief voor fysieke gebouwbeheersysteem-hardware en is aldus geschikt voor experimenteel onderzoek naar IoT-communicatie binnen slimme gebouwen.
 
-De Pi draait meerdere op maat geschreven Python-scripts die gebruikmaken van onder andere de \texttt{pymodbus}-bibliotheek om Modbus TCP-communicatie te simuleren. Via deze communicatie wisselt de testnode gegevens uit met een server die HVAC- of verlichtingsapparatuur nabootst. Tegelijkertijd voert de Pi netwerktests uit met behulp van tools zoals \texttt{ping}, \texttt{speedtest-cli}, \texttt{curl} en \texttt{iPerf3}, terwijl \texttt{psutil} systeemprestaties monitort. Alle resultaten worden automatisch gelogd in CSV-formaat, inclusief tijdstempels en relevante systeem- en netwerkparameters.
-
-Voor mobiele netwerkconnectiviteit wordt een industriële Teltonika RUTX50-router ingezet. Deze ondersteunt zowel 4G als 5G (zowel NSA als SA), en vormt de brug tussen de testnode en het externe netwerk. De combinatie van deze router met de Raspberry Pi maakt het mogelijk om in uiteenlopende netwerkomstandigheden betrouwbare metingen uit te voeren.
-
-Een laptop doet dienst als Modbus TCP-server en simuleert zo veldapparatuur zoals slimme verlichting of HVAC-units. Deze server reageert op de verzoeken van de Raspberry Pi, wat een representatieve testomgeving creëert voor Modbus-communicatie in een smart building-context.
-
-De testomgeving omvat verschillende netwerken: Wi-Fi via een lokaal access point, publiek 5G via een commerciële provider, privaat 5G via het 5Gblue-project, en 4G via het mobiele netwerk van HOGENT. Deze variatie stelt de testopstelling in staat om netwerkprestaties onder reële omstandigheden te vergelijken.
-
-Deze modulaire, scriptgestuurde en reproduceerbare opstelling vormt een robuust alternatief voor fysieke BMS-hardware en is uitermate geschikt voor experimenteel onderzoek naar IoT-communicatie binnen slimme gebouwen.
 
 \section{Connectiviteits- en performantiemetingen}
 
-In elk van de netwerkomgevingen – Wi-Fi, 4G, publiek 5G en privaat 5G – wordt een identieke testreeks uitgevoerd. Het doel is om te evalueren hoe verschillende technologieën presteren op vlak van snelheid, betrouwbaarheid en stabiliteit. 
+In elk van de netwerkomgevingen wordt een identieke testreeks uitgevoerd. Het doel is om te evalueren hoe verschillende technologieën presteren op vlak van snelheid, betrouwbaarheid en stabiliteit.
+De latency en jitter worden gemeten met behulp van het ping-commando . Voor de meting van throughput wordt gebruikgemaakt van zowel speedtest-cli, dat communiceert met publieke servers, als iPerf3, waarbij een eigen server op de pc fungeert als eindpunt.
+Packet loss en stabiliteit worden geëvalueerd door langdurige communicatieopdrachten te herhalen. Zo voert de Raspberry Pi HTTP-verzoeken uit met curl naar een lokale Node-RED-server en registreert daarbij responstijden en eventuele fouten. 
+Een extra test meet de reactietijd van een smart verlichting-toepassing. Via een lokaal netwerk wordt een Philips Hue-lamp twee keer geschakeld door een Python-script. De tijd tussen het commando en de feitelijke uitvoering wordt gelogd. Deze test illustreert concreet hoe netwerkomstandigheden de gebruikerservaring van een IoT-toepassing kunnen beïnvloeden.
 
-De latency en jitter worden gemeten met behulp van het \texttt{ping}-commando, waarbij zowel lokale apparaten als externe servers (zoals 8.8.8.8) als doelwit dienen. Voor de meting van throughput wordt gebruikgemaakt van zowel \texttt{speedtest-cli}, dat communiceert met publieke servers, als \texttt{iPerf3}, waarbij een eigen server op de laptop fungeert als eindpunt.
 
-Packet loss en stabiliteit worden geëvalueerd door langdurige communicatieopdrachten te herhalen. Zo voert de Raspberry Pi honderden HTTP-verzoeken uit met \texttt{curl} naar een lokale Node-RED-server en registreert daarbij responstijden en eventuele fouten. Modbus-verzoeken worden eveneens herhaald om vertragingen of mislukte interacties te detecteren.
+\section{Uitvoer van de testscenario’s}
 
-Een extra test meet de reactietijd van een smart lighting-toepassing. Via een lokaal netwerk wordt een Philips Hue-lamp twee keer geschakeld door een Python-script. De tijd tussen het commando en de feitelijke uitvoering wordt gelogd. Deze test illustreert concreet hoe netwerkomstandigheden de gebruikerservaring van IoT-toepassingen beïnvloeden.
+TO DO: uitleggen
 
-\section{Scenario-uitwerking: worst-case en realistische belasting}
-
-Om de robuustheid van de netwerken te testen, worden verschillende scenario’s nagebootst. In de eerste fase wordt getest onder ideale omstandigheden zonder achtergrondverkeer, wat als referentiesituatie dient. Vervolgens wordt netwerkcongestie gesimuleerd door gelijktijdig zware dataverkeer te genereren, zoals downloads of parallelle speedtests.
-
-Daarna introduceert de testomgeving kunstmatige vertragingen en packet loss, bijvoorbeeld via QoS-instellingen of netwerkemulatie. Tot slot wordt ook de invloed van fysieke verplaatsing onderzocht: de testnode beweegt zich binnen het dekkingsgebied van de router om variaties in signaalsterkte en dekking te simuleren.
-
-Tijdens elke test wordt gekeken hoe gevoelig verschillende toepassingen zijn voor vertraging of verlies. Zo blijkt dat lichtschakelingen veel sneller hinder ondervinden van hoge latency dan niet-tijdskritische metingen zoals temperatuurmonitoring. Dit onderscheid helpt om prioriteiten te bepalen bij netwerkinfrastructuurkeuze binnen een smart building.
 
 \section{Data-analyse en evaluatie}
 
+TO DO: anders
 Alle verzamelde data wordt automatisch verwerkt met Python. De scripts analyseren latency, jitter, packet loss, doorvoersnelheden en systeembelasting. Deze gegevens worden omgezet naar visuele representaties zoals tijdreeksen, boxplots en gemiddeldevergelijkingen, wat helpt bij het identificeren van trends of anomalieën.
-
-De evaluatie focust op prestatieverschillen tussen de onderzochte netwerktechnologieën. Daarbij worden onder meer gemiddelde en maximale latency, jitterwaarden, en de frequentie van communicatieproblemen geanalyseerd. Ook wordt expliciet nagegaan hoe snel en betrouwbaar toepassingen reageren: van het schakelen van een lamp tot het succesvol polsen van Modbus-registers.
-
+De evaluatie focust op prestatieverschillen tussen de onderzochte netwerktechnologieën - Wi-Fi, 4G en privaat 5G. Daarbij worden onder meer gemiddelde en maximale latency, jitterwaarden, en de frequentie van communicatieproblemen geanalyseerd. Ook wordt expliciet nagegaan hoe snel en betrouwbaar toepassingen reageren: van het schakelen van een lamp tot het succesvol polsen van Modbus-registers.
 Naast deze kwantitatieve metingen wordt ook aandacht besteed aan operationele storingen of anomalieën zoals time-outs, verbindingsverlies of onverwacht gedrag tijdens de tests. Deze kwalitatieve observaties bieden inzicht in de betrouwbaarheid van de netwerken in dagelijkse toepassingen.
 
-\section{Onderzoeksafbakening en beperkingen}
 
-Hoewel de testomgeving een realistische benadering van smart building-infrastructuur nastreeft, zijn er enkele beperkingen. De gebruikte Modbus-simulatie wijkt in bepaalde technische details af van commerciële BMS-controllers, wat invloed kan hebben op timing of foutafhandeling.
-
-De publieke 5G-tests vinden plaats binnen een beperkt geografisch bereik en onder specifieke providercondities. Daardoor zijn de resultaten niet zonder meer generaliseerbaar naar andere regio’s of netwerkaanbieders.
-
-Een andere beperking is dat er geen automatische failover-tests worden uitgevoerd. In een echte smart building kunnen systemen naadloos overschakelen tussen netwerken bij storingen; dit gedrag wordt in deze opstelling niet gesimuleerd.
-
-Ten slotte behandelt deze studie netwerkinfrastructuur hoofdzakelijk functioneel. Beveiligingsaspecten zoals encryptie, authenticatie of netwerksegmentatie worden niet geëvalueerd op pakketniveau, maar eerder theoretisch besproken.
-
-Deze beperkingen worden in de interpretatie van de resultaten meegenomen en vormen aanknopingspunten voor vervolgonderzoek of implementatie in productieomgevingen.
 
 
 
