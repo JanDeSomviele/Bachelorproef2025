@@ -19,71 +19,156 @@ De netwerkprestaties worden vergeleken op basis van:
 \end{itemize}
 
 \subsection{Latency}
+\begin{table}[]
+    \begin{tabular}{l|l|l|l|}
+        \cline{2-4}
+        & \textbf{WIFI} & \textbf{4G} & \textbf{5G} \\ \hline
+        \multicolumn{1}{|l|}{\textbf{rtt avg}} & 13,2665       & 18,16675    & 26,304      \\ \hline
+        \multicolumn{1}{|l|}{\textbf{rtt min}} & 12,8495       & 15,659      & 10,85       \\ \hline
+        \multicolumn{1}{|l|}{\textbf{rtt max}} & 18,051        & 37,052      & 230,9215    \\ \hline
+    \end{tabular}
+    \caption{Resultaten van latencytest}
+\end{table}
+
+\subsubsection{Bevindingen}
+\begin{itemize}
+    \item \textbf{Wi-Fi} vertoont de laagste gemiddelde latency (13,27 ms). Dit bevestigt de stabiliteit van het lokale draadloze netwerk in een gecontroleerde binnenomgeving zonder externe congestie.
+    
+    \item \textbf{4G} toont een iets hogere gemiddelde latency (18,17 ms), wat in lijn ligt met de verwachte vertraging van een mobiel netwerk met routing via het publieke netwerk van de provider.
+    
+    \item \textbf{5G} levert tegenstrijdige resultaten: de minimum RTT (10,85 ms) is het laagst van alle netwerken, wat wijst op het potentieel van de technologie voor lage latency. Tegelijkertijd is de gemiddelde RTT aanzienlijk hoger (26,30 ms) en de maximale RTT piekt tot 230,92 ms. Dit duidt op instabiliteit of fluctuaties tijdens de test, mogelijk door beperkte dekking, interferentie of routerproblemen in het privaat 5G-netwerk.
+\end{itemize}
+
+\subsubsection{Interpretatie}
+Hoewel 5G in theorie de laagste latency kan bieden, wijzen de testresultaten op een gebrek aan stabiliteit tijdens deze meting. Dit kan veroorzaakt zijn door onvoldoende configuratie van het privaat 5G-netwerk, een lage signaalsterkte of routingproblemen bij het verzenden van verkeer naar het internet.
+
+\subsubsection{Aanbeveling}
+Aangezien deze test werd uitgevoerd naar een extern IP-adres (\texttt{8.8.8.8}), is het resultaat niet uitsluitend representatief voor de prestaties van het interne netwerksegment. Verkeer naar het internet ondergaat additionele vertragingen door publieke netwerkrouting, congestie, of provider-SLA’s.
+
+Daarom wordt aanbevolen om latencytesten uit te voeren naar een lokaal IP-adres binnen het testnetwerk, zodat enkel de prestaties van het interne netwerkpad worden gemeten. Dit is relevanter voor de eindtoepassing van HVAC- en lichtsturing, die doorgaans binnen het campusnetwerk plaatsvindt. Een aangepaste testopstelling met: \textbf{ping -c 250 [lokaal-IP]} zal zuiverder inzicht bieden in de betrouwbaarheid en reactietijd van de onderzochte netwerken, zonder verstoring door externe internetrouting.
 
 \subsection{Jitter}
+Jitter is een maat voor de variabiliteit in de vertragingstijd tussen opeenvolgende datapakketten. In real-time toepassingen zoals HVAC-sturing of lichtregeling kan een hoge jitter leiden tot inconsistente werking, bijvoorbeeld vertraagde of incorrect uitgevoerde commando’s.
+
+De UDP-test werd uitgevoerd met \texttt{iperf3} op drie verschillende snelheden (1, 5 en 50 Mbit/s), telkens gedurende 120 seconden. De resultaten zijn samengevat in Tabel \ref{tab:jitter}.
+
+\begin{table}[]
+    \begin{tabular}{l|l|l|l|}
+        \cline{2-4}
+        & \textbf{WI-FI} & \textbf{4G} & \textbf{5G} \\ \hline
+        \multicolumn{1}{|l|}{\textbf{1 Mbits/sec}}  & 0,79925        & 0,313       & 0,3795      \\ \hline
+        \multicolumn{1}{|l|}{\textbf{5 Mbits/sec}}  & 0,62           & 0,151       & 0,171       \\ \hline
+        \multicolumn{1}{|l|}{\textbf{50 Mbits/sec}} & 0,15775        & 0,18875     & 0,19775     \\ \hline
+    \end{tabular}
+    \caption{Gemeten jitter (in ms) bij verschillende UDP-bandbreedtes}
+    \label{tab:jitter}
+\end{table}
+
+\subsubsection{Analyse}
+Bij een lage datasnelheid van 1 Mbit/s vertoont Wi-Fi de hoogste jitter (0,799 ms), wat mogelijk wijst op instabiliteit of interferentie in het lokale draadloze netwerk. 4G en 5G doen het hier beter, met respectievelijk 0,313 ms en 0,380 ms.
+
+Op 5 Mbit/s zien we een duidelijke afname van jitter over alle netwerken. Vooral bij 4G is dit opmerkelijk: slechts 0,151 ms, wat wijst op een stabiele verbinding onder matige belasting. 5G volgt met 0,171 ms.
+
+Bij hogere belasting (50 Mbit/s) convergeert de jitterwaarde voor alle netwerken naar een gelijkaardig niveau (tussen 0,158 en 0,198 ms), wat duidt op een robuuste afhandeling van verkeer, zelfs bij intensieve communicatie.
+
+\subsubsection{Aanbeveling}
+Voor toepassingen met tijdkritische communicatie zoals gebouwautomatisering is een lage jitter cruciaal. Op basis van deze resultaten blijkt dat alle netwerken bij hogere bandbreedtes redelijk stabiel presteren. Toch blijft 4G de beste balans bieden tussen lage jitter en betrouwbaarheid bij lagere snelheden.
+
+Indien de prioriteit ligt op minimale variatie in responstijden, bijvoorbeeld voor regelkringen of kritieke commando's, is het aanbevolen om 4G of 5G boven Wi-Fi te verkiezen. Zeker in storingsgevoelige omgevingen is Wi-Fi minder voorspelbaar.
 
 \subsection{Packet loss}
+Packet loss is een belangrijke parameter bij het beoordelen van de betrouwbaarheid van een netwerk. Het duidt op het percentage datapakketten dat onderweg verloren gaat tussen zender en ontvanger. In toepassingen zoals HVAC- of verlichtingssturing, waar elk signaal belangrijk is, kan packet loss leiden tot gemiste commando’s of vertraagde acties.
 
-Uit de ping test is er geen packet loss bij alle 3 de netwerken. Bij de iperf3 udp test ook geen data loss.
+Om packet loss te evalueren zijn twee afzonderlijke testen uitgevoerd:
+\begin{itemize}
+    \item Een \textbf{ICMP ping-test} met 250 opeenvolgende pakketten gericht aan \texttt{8.8.8.8}.
+    \item Een \textbf{UDP-throughputtest} via \texttt{iperf3}, waarbij gedurende 120 seconden een constante stroom UDP-pakketten wordt verzonden.
+\end{itemize}
 
-\subsection{Bandbreedte}
+Bij de \textbf{ping-test} blijkt uit de resultaten dat \textbf{geen enkel ICMP-pakket verloren is gegaan} bij alle drie de geteste netwerken: Wi-Fi, 4G en 5G. De succesratio bedraagt in elk geval 100\%, wat wijst op een betrouwbare datapad voor kleine, periodieke datapakketten zoals die gebruikt worden bij polling- of statussignalen.
+
+Ook bij de \textbf{UDP-test met iperf3} zijn er \textbf{geen meldingen van dataverlies}. De iperf3-uitvoer toont een packet loss van 0\% voor alle netwerken. Zelfs bij hogere verzendsnelheden (rond 94 Mbit/s over 120 seconden) wordt het volledige volume van verzonden data correct ontvangen. Dit geeft aan dat de netwerken – ondanks hun verschillen in latency en jitter – in staat zijn om stabiele datapaden te leveren zonder verlies, zelfs bij een relatief hoge netwerkbelasting.
+
+Deze resultaten bevestigen dat, in de huidige testopstelling, alle onderzochte netwerken voldoende robuust zijn om dataverlies te vermijden, wat essentieel is voor een correcte en voorspelbare werking van automatiseringssystemen in gebouwen. Toch is het belangrijk om packet loss ook onder realistischere omstandigheden (zoals roaming, zwakker signaal of congestie) verder te testen indien een migratie naar mobiele netwerken overwogen wordt voor kritieke infrastructuur.
+
+\subsection{Bandbreedte en netwerkcapaciteit}
+Om de prestaties van elk netwerktype te evalueren onder continue belasting, wordt een TCP throughput-test uitgevoerd met behulp van \texttt{iperf3}. Tijdens deze test wordt gedurende 120 seconden data van een client naar een server verzonden. Twee belangrijke prestatie-indicatoren worden hierbij gemeten:
+
+\textbf{Bitrate (Mbit/s)}: de gemiddelde hoeveelheid data die per seconde succesvol wordt overgedragen;
+
+\textbf{Congestion Window (cwnd)}: de maximale hoeveelheid data (in bytes) die op een bepaald moment zonder bevestiging mag worden verzonden. Hoe groter dit venster, hoe efficiënter de verbinding.
+
+De meetresultaten staan in Tabel \ref{tab:bandbreedte}.
+
+\begin{table}[]
+    \begin{tabular}{l|l|l|l|}
+        \cline{2-4}
+        & \textbf{WI-FI} & \textbf{4G} & \textbf{5G} \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Bitrate (Mbits/sec}} & 94,28417       & 94,225      & 931,1583    \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Cwnd (Bytes)}}       & 412,7599       & 421,3702    & 655,3695    \\ \hline
+    \end{tabular}
+    \caption{Gemeten gemiddelde bitrate en congestion window per netwerk (iperf3 TCP-test)}
+    \label{tab:bandbreedte}
+\end{table}
+
+\subsubsection{Analyse}
+De resultaten tonen dat Wi-Fi en 4G vergelijkbare bitrates halen, beide net boven de 94 Mbit/s. Dit suggereert dat de limiet hier niet in het netwerk zelf ligt, maar eerder aan de zijde van de testapparatuur of netwerkinstellingen (zoals 100 Mbit/s ethernetpoort of NAT-overhead).
+
+5G presteert daarentegen aanzienlijk beter, met een gemiddelde bitrate van meer dan 931 Mbit/s — bijna tien keer hoger dan bij de andere netwerken. Dit bevestigt de hoge doorvoercapaciteit van standalone 5G-infrastructuur en toont aan dat dit netwerk veel geschikter is voor toepassingen die grote hoeveelheden data vereisen.
+
+Het \textbf{congestion window} (cwnd) ondersteunt deze conclusie: bij 5G is dit beduidend groter (655.369 bytes), wat aangeeft dat de zender het netwerk als stabiel en betrouwbaar ervaart. Dit laat grotere hoeveelheden data toe per verzendcyclus, wat bijdraagt aan hogere efficiëntie en minder vertraging.
+
+\subsubsection{Aanbeveling}
+Hoewel de aansturing van HVAC- en verlichtingssystemen op zich geen hoge bandbreedte vereist, biedt het 5G-netwerk duidelijke voordelen met het oog op toekomstige uitbreiding. Denk hierbij aan real-time monitoring, integratie met slimme sensoren, of het centraliseren van gebouwbeheer via cloudgebaseerde dashboards.
+
+Voor eenvoudige commando's of basisautomatisering blijven 4G en Wi-Fi voldoende. Toch verdient 5G de voorkeur als schaalbaarheid, betrouwbaarheid en datacapaciteit belangrijke criteria zijn voor het langetermijnbeleid op HOGENT-campusnetwerken.
 
 
-
-\textit{(Hier worden grafieken of tabellen ingevoegd, met interpretaties. Bijvoorbeeld: “In figuur 4.2 blijkt dat privaat 5G gemiddeld 20 ms lagere latency vertoont dan 4G onder gelijkaardige omstandigheden.”)}
-
+\newpage
 \section{Functionele testen}
 
-De reactietijden van Modbus-communicatie en het schakelen van verlichting worden actief gemeten. Daarbij wordt geanalyseerd of netwerkvertragingen een merkbare invloed uitoefenen op de betrouwbaarheid van de data-uitwisseling.
+Deze sectie onderzoekt of de netwerken geschikt zijn voor operationele taken zoals verlichting schakelen of HTTP-verkeer via Node-RED. De nadruk ligt hierbij op reactietijd en betrouwbaarheid.
 
-\begin{itemize}
-    \item \textbf{Modbus polling}: 
-    \item \textbf{Verlichting}: 
-\end{itemize}
-\subsection{Modbus polling}
-%TO DO: tcpdump analyseren (zie. chatgpt)
-% Hoe Modbus polling afleiden uit een .pcap
-%1. Open het .pcap-bestand in Wireshark
-%Gebruik filters om enkel Modbus TCP-verkeer te bekijken:
-%
-%tcp.port == 502
-%Of specifiek voor Modbus:
-%
-%modbus
-%2. Zoek naar Modbus function codes
-%Voor polling zijn dit meestal:
-%
-%Function Code 03 – Read Holding Registers
-%
-%Function Code 04 – Read Input Registers
-%
-%Klik op een request en bekijk de tijdstempel (in de eerste kolom of via Frame > Arrival Time).
-%Zoek daarna de bijbehorende response-packet.
-%
-%3. Bereken de polling latency
-%Trek de tijd van het verzoek af van de tijd van het antwoord:
-%
-%Latency = T(response) - T(request)
-%Bijvoorbeeld:
-%
-%makefile
-%Request: 10:15:02.341
-%Response: 10:15:02.397
-%→ Modbus latency ≈ 56 ms
-%Je kunt dit handmatig doen voor een representatieve steekproef (bv. 10 requests per netwerk), of je kunt exporteren naar CSV en automatisch laten verwerken via Python.
-%
-% Hoe dit vermelden in je verslag
-%Functionele testen > Modbus polling:
-%\item \textbf{Modbus polling (afgeleid via Wireshark)}: In elk netwerk is een .pcap-bestand geanalyseerd in Wireshark. Daarbij wordt gekeken naar de tijd tussen Modbus TCP-verzoeken (bijv. “Read Holding Registers”) en hun bijhorende antwoorden. Uit deze analyse blijkt dat de gemiddelde polling-responstijd onder Wi-Fi stabiel blijft rond XX ms, terwijl bij 4G en 5G lichte schommelingen optreden met maxima tot XX ms. Deze waarden zijn consistent met de gemeten netwerkvertragingen.
-%Laat me gerust weten of je hulp wil met:
-%
-%het filteren en interpreteren van specifieke pcap-sessies,
+\subsection{Verlichtingstest}
 
-\subsection{Verlichting}
+In deze test wordt de reactietijd gemeten tussen het versturen van een commando via het netwerk en het schakelen van een slimme lamp. Deze test simuleert een veelvoorkomende IoT-automatiseringstoepassing.
 
-\section{Observaties tijdens simulaties}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|l|l|l|}
+        \cline{2-4}
+        & \textbf{WIFI} & \textbf{4G} & \textbf{5G} \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Gem reactiesnelheid (ms)}} & 224,16        & 113,80      & 90,63       \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Succes rate}}              & 100\%         & 100\%       & 100\%       \\ \hline
+    \end{tabular}
+    \caption{Resultaten lichtschakelingstest}
+\end{table}
 
-Tijdens simulaties van netwerklast en variërende signaalsterkte worden volgende observaties genoteerd:
+\textbf{Analyse:} Alle netwerken schakelen het licht betrouwbaar aan en uit zonder falen. 5G toont hierbij de laagste gemiddelde reactietijd, gevolgd door 4G. Wi-Fi blijft ook goed presteren, maar met een merkbaar hogere vertraging.
+
+\textbf{Conclusie:} Zowel 4G als 5G bieden een uitstekende basis voor tijdgevoelige automatiseringstoepassingen.
+
+\subsection{HTTP-verkeer (Node-RED test)}
+
+In deze test wordt via Node-RED elke 5 seconden een HTTP-aanvraag verstuurd naar een lokaal endpoint, waarbij download-, upload- en totale snelheid worden gemeten.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|l|l|l|}
+        \cline{2-4}
+        & \textbf{Dload (bytes/sec)} & \textbf{Uload (bytes/sec)} & \textbf{Current speed (bytes/sec)} \\ \hline
+        \multicolumn{1}{|l|}{\textbf{5G}} & 2546,55                     & 1909,75                    & 5077,83                             \\ \hline
+        \multicolumn{1}{|l|}{\textbf{4G}} & 3870,21                     & 2902,56                    & 8026,70                             \\ \hline
+        \multicolumn{1}{|l|}{\textbf{WIFI}}       & 1338,49                     & 1003,72                    & 2507,29                             \\ \hline
+    \end{tabular}
+    \caption{Gemiddelde doorvoersnelheden van HTTP-verkeer in Node-RED test}
+\end{table}
+
+\textbf{Analyse:} 4G toont verrassend genoeg de hoogste doorvoersnelheid, gevolgd door 5G. Wi-Fi levert de laagste prestaties. Alle netwerken zijn echter voldoende snel voor periodieke communicatie zoals REST-aanroepen in industriële of smart building context.
+
+\textbf{Conclusie:} De test bevestigt dat elk netwerk geschikt is voor lichte, regelmatige HTTP-verzoeken, zoals gebruikt in monitoring- en controlesystemen.
+
+
 
 
 
