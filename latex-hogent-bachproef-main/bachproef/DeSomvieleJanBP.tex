@@ -47,6 +47,15 @@
 
 % Other packages not already included can be imported here
 
+\usepackage{multirow,booktabs,setspace,caption}
+\usepackage{tikz}
+
+\DeclareCaptionLabelSeparator*{spaced}{\\[2ex]}
+\captionsetup[table]{textfont=it,format=plain,justification=justified,
+    singlelinecheck=false,labelsep=spaced,skip=0pt}
+\captionsetup[figure]{labelsep=period,labelfont=it,justification=justified,
+    singlelinecheck=false,font=doublespacing}
+
 %%---------- Document metadata -------------------------------------------------
 % TODO: Replace this with your own information
 \author{Jan De Somviele}

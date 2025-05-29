@@ -20,19 +20,24 @@ De netwerkprestaties worden vergeleken op basis van:
 
 \subsection{Latency}
 \begin{table}[]
-    \begin{tabular}{l|l|l|l|}
-        \cline{2-4}
-        & \textbf{WIFI} & \textbf{4G} & \textbf{5G} \\ \hline
-        \multicolumn{1}{|l|}{\textbf{rtt avg}} & 13,2665       & 18,16675    & 26,304      \\ \hline
-        \multicolumn{1}{|l|}{\textbf{rtt min}} & 12,8495       & 15,659      & 10,85       \\ \hline
-        \multicolumn{1}{|l|}{\textbf{rtt max}} & 18,051        & 37,052      & 230,9215    \\ \hline
-    \end{tabular}
-    \caption{Resultaten van latencytest}
+    
+    \caption{Resultaten van de latency-test} \label{tab:latency}
+    
+        \begin{tabular}{l l l l}
+            \cline{2-4}
+            & \textbf{rtt avg (ms)} & \textbf{rtt min (ms)} & \textbf{rtt max (ms)} \\ \hline
+            \multicolumn{1}{l}{\textbf{wifi}} & 13,2665          & 12,8495          & 18,051           \\ \hline
+            \multicolumn{1}{l}{\textbf{4G}}   & 18,16675         & 15,659           & 37,052           \\ \hline            
+            \multicolumn{1}{l}{\textbf{5G}}   & 26,304           & 10,85            & 230,9215         \\ \hline
+        \end{tabular}
+        
+        %\caption*{Note. uitleg bij tabel}
+    
 \end{table}
 
 \subsubsection{Bevindingen}
 \begin{itemize}
-    \item \textbf{Wi-Fi} vertoont de laagste gemiddelde latency (13,27 ms). Dit bevestigt de stabiliteit van het lokale draadloze netwerk in een gecontroleerde binnenomgeving zonder externe congestie.
+    \item \textbf{wifi} vertoont de laagste gemiddelde latency (13,27 ms). Dit bevestigt de stabiliteit van het lokale draadloze netwerk in een gecontroleerde binnenomgeving zonder externe congestie.
     
     \item \textbf{4G} toont een iets hogere gemiddelde latency (18,17 ms), wat in lijn ligt met de verwachte vertraging van een mobiel netwerk met routing via het publieke netwerk van de provider.
     
@@ -53,14 +58,15 @@ Jitter is een maat voor de variabiliteit in de vertragingstijd tussen opeenvolge
 De UDP-test werd uitgevoerd met \texttt{iperf3} op drie verschillende snelheden (1, 5 en 50 Mbit/s), telkens gedurende 120 seconden. De resultaten zijn samengevat in Tabel \ref{tab:jitter}.
 
 \begin{table}[]
-    \begin{tabular}{l|l|l|l|}
-        \cline{2-4}
-        & \textbf{WI-FI} & \textbf{4G} & \textbf{5G} \\ \hline
-        \multicolumn{1}{|l|}{\textbf{1 Mbits/sec}}  & 0,79925        & 0,313       & 0,3795      \\ \hline
-        \multicolumn{1}{|l|}{\textbf{5 Mbits/sec}}  & 0,62           & 0,151       & 0,171       \\ \hline
-        \multicolumn{1}{|l|}{\textbf{50 Mbits/sec}} & 0,15775        & 0,18875     & 0,19775     \\ \hline
-    \end{tabular}
     \caption{Gemeten jitter (in ms) bij verschillende UDP-bandbreedtes}
+    \begin{tabular}{l l l l}
+        \cline{2-4}
+        & \textbf{1 Mbits/s} & \textbf{5 Mbits/s} & \textbf{50 Mbits/s} \\ \hline
+        \multicolumn{1}{l}{\textbf{wifi}} & 0,79925              & 0,62                 & 0,15775               \\ \hline
+        \multicolumn{1}{l}{\textbf{4G}}   & 0,313                & 0,151                & 0,18875               \\ \hline
+        \multicolumn{1}{l}{\textbf{5G}}   & 0,3795               & 0,171                & 0,19775               \\ \hline
+    \end{tabular}
+    
     \label{tab:jitter}
 \end{table}
 
@@ -94,20 +100,23 @@ Deze resultaten bevestigen dat, in de huidige testopstelling, alle onderzochte n
 \subsection{Bandbreedte en netwerkcapaciteit}
 Om de prestaties van elk netwerktype te evalueren onder continue belasting, wordt een TCP throughput-test uitgevoerd met behulp van \texttt{iperf3}. Tijdens deze test wordt gedurende 120 seconden data van een client naar een server verzonden. Twee belangrijke prestatie-indicatoren worden hierbij gemeten:
 
-\textbf{Bitrate (Mbit/s)}: de gemiddelde hoeveelheid data die per seconde succesvol wordt overgedragen;
-
-\textbf{Congestion Window (cwnd)}: de maximale hoeveelheid data (in bytes) die op een bepaald moment zonder bevestiging mag worden verzonden. Hoe groter dit venster, hoe efficiënter de verbinding.
+\begin{itemize}
+    \item \textbf{Bitrate (Mbit/s)}: de gemiddelde hoeveelheid data die per seconde succesvol wordt overgedragen;
+    \item \textbf{Congestion Window (cwnd)}: de maximale hoeveelheid data (in bytes) die op een bepaald moment zonder bevestiging mag worden verzonden. Hoe groter dit venster, hoe efficiënter de verbinding.
+\end{itemize}
 
 De meetresultaten staan in Tabel \ref{tab:bandbreedte}.
 
 \begin{table}[]
-    \begin{tabular}{l|l|l|l|}
-        \cline{2-4}
-        & \textbf{WI-FI} & \textbf{4G} & \textbf{5G} \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Bitrate (Mbits/sec}} & 94,28417       & 94,225      & 931,1583    \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Cwnd (Bytes)}}       & 412,7599       & 421,3702    & 655,3695    \\ \hline
-    \end{tabular}
     \caption{Gemeten gemiddelde bitrate en congestion window per netwerk (iperf3 TCP-test)}
+    \begin{tabular}{l l l}
+        \cline{2-3}
+        & \textbf{Bitrate (Mbits/s} & \textbf{Cwnd (Bytes)} \\ \hline
+        \multicolumn{1}{l}{\textbf{wifi}} & 94,28417                    & 412,7599              \\ \hline
+        \multicolumn{1}{l}{\textbf{4G}}   & 94,225                      & 421,3702              \\ \hline
+        \multicolumn{1}{l}{\textbf{5G}}   & 931,1583                    & 655,3695              \\ \hline
+    \end{tabular}
+    
     \label{tab:bandbreedte}
 \end{table}
 
@@ -133,15 +142,16 @@ Deze sectie onderzoekt of de netwerken geschikt zijn voor operationele taken zoa
 
 In deze test wordt de reactietijd gemeten tussen het versturen van een commando via het netwerk en het schakelen van een slimme lamp. Deze test simuleert een veelvoorkomende IoT-automatiseringstoepassing.
 
-\begin{table}[h]
-    \centering
-    \begin{tabular}{l|l|l|l|}
-        \cline{2-4}
-        & \textbf{WIFI} & \textbf{4G} & \textbf{5G} \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Gem reactiesnelheid (ms)}} & 224,16        & 113,80      & 90,63       \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Succes rate}}              & 100\%         & 100\%       & 100\%       \\ \hline
-    \end{tabular}
+\begin{table}[]
     \caption{Resultaten lichtschakelingstest}
+    \begin{tabular}{l l l}
+        \cline{2-3}
+        & \textbf{Gem reactiesnelheid (ms)} & \textbf{succes rate} \\ \hline
+        \multicolumn{1}{l}{\textbf{wifi}} & 224,16                            & 100\%                \\ \hline
+        \multicolumn{1}{l}{\textbf{4G}}   & 113,8                             & 100\%                \\ \hline
+        \multicolumn{1}{l}{\textbf{5G}}   & 90,63                             & 100\%                \\ \hline
+    \end{tabular}
+    \label{tab:licht}
 \end{table}
 
 \textbf{Analyse:} Alle netwerken schakelen het licht betrouwbaar aan en uit zonder falen. 5G toont hierbij de laagste gemiddelde reactietijd, gevolgd door 4G. Wi-Fi blijft ook goed presteren, maar met een merkbaar hogere vertraging.
@@ -153,15 +163,15 @@ In deze test wordt de reactietijd gemeten tussen het versturen van een commando 
 In deze test wordt via Node-RED elke 5 seconden een HTTP-aanvraag verstuurd naar een lokaal endpoint, waarbij download-, upload- en totale snelheid worden gemeten.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{l|l|l|l|}
-        \cline{2-4}
-        & \textbf{Dload (bytes/sec)} & \textbf{Uload (bytes/sec)} & \textbf{Current speed (bytes/sec)} \\ \hline
-        \multicolumn{1}{|l|}{\textbf{5G}} & 2546,55                     & 1909,75                    & 5077,83                             \\ \hline
-        \multicolumn{1}{|l|}{\textbf{4G}} & 3870,21                     & 2902,56                    & 8026,70                             \\ \hline
-        \multicolumn{1}{|l|}{\textbf{WIFI}}       & 1338,49                     & 1003,72                    & 2507,29                             \\ \hline
-    \end{tabular}
     \caption{Gemiddelde doorvoersnelheden van HTTP-verkeer in Node-RED test}
+    \begin{tabular}{l l l l}
+        \cline{2-4}
+        & \textbf{Dload (bytes/s)} & \textbf{Uload (bytes/s)} & \textbf{Current speed (bytes/s)} \\ \hline
+        \multicolumn{1}{l}{\textbf{wifi}}       & 1338,49                     & 1003,72                    & 2507,29                             \\ \hline       
+        \multicolumn{1}{l}{\textbf{4G}} & 3870,21                     & 2902,56                    & 8026,70                             \\ \hline
+        \multicolumn{1}{l}{\textbf{5G}} & 2546,55                     & 1909,75                    & 5077,83                             \\ \hline
+    \end{tabular}
+    
 \end{table}
 
 \textbf{Analyse:} 4G toont verrassend genoeg de hoogste doorvoersnelheid, gevolgd door 5G. Wi-Fi levert de laagste prestaties. Alle netwerken zijn echter voldoende snel voor periodieke communicatie zoals REST-aanroepen in industriële of smart building context.
