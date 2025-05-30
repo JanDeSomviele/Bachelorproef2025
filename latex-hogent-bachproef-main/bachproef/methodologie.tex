@@ -28,7 +28,7 @@
 
 \section{Literatuuronderzoek en probleemdefinitie}
 
-Het onderzoek startte met een literatuurstudie over 5G netwerken, smart gebouwen/campussen en de technische kenmerken, toepassingen en beperkingen van mobiele netwerken (4G, privaat 5G en wifi) in het kader van gebouwbeheersystemen. Er werd aandacht besteed aan latentie, bandbreedte en betrouwbaarheid binnen elk netwerktype. Parallel werd ook onderzocht hoe deze eigenschappen zich verhouden tot de vereisten van toepassingen zoals verlichting en HVAC, en wat de impact kan zijn op operationele stabiliteit.
+Het onderzoek startte met een literatuurstudie over 5G netwerken, smart gebouwen/campussen en de technische kenmerken, toepassingen en beperkingen van mobiele netwerken (4G en privaat 5G) in het kader van gebouwbeheersystemen. Er werd aandacht besteed aan latentie, bandbreedte en betrouwbaarheid binnen elk netwerktype. Parallel werd ook onderzocht hoe deze eigenschappen zich verhouden tot de vereisten van toepassingen zoals verlichting en HVAC, en wat de impact kan zijn op operationele stabiliteit.
 Daarnaast werden gesprekken gevoerd met personeel van de directies IT- en facilitair beheer van HOGENT om inzicht te krijgen in de huidige architectuur, gebruikte protocollen , en gevoeligheden rond beveiliging en uptime van de gebouwenbeheerinfrastructuur. Deze fase resulteerde in een literatuurstudie en onderbouwing voor de testscenario’s.
 
 
@@ -36,8 +36,8 @@ Daarnaast werden gesprekken gevoerd met personeel van de directies IT- en facili
 
 De testomgeving heeft als doel het gebouwbeheersysteem te simuleren. Omdat in HOGENT een fysieke SpaceLogic AS-P controller niet beschikbaar is voor experimentele doeleinden, wordt een alternatieve en flexibele testomgeving opgezet, gebaseerd op een Raspberry Pi 4 Model B. Deze microcomputer fungeert als centrale testnode en neemt de rol van edgecontroller op zich binnen de testopstelling. 
 De keuze voor dit platform is gebaseerd op de brede ondersteuning van netwerkprotocollen, de programmeerbaarheid via Python en de mogelijkheid tot headless operaties en lokale datalogging. De Raspberry Pi voert daarbij zowel netwerkmetingen als simulaties van communicatie in gebouwbeheersystemen uit.
-De Pi voert netwerktests uit met behulp van tools zoals ping, node-red, curl en iPerf3. Alle resultaten worden gelogd en bewaard om later te gebruiken.
-Voor mobiele netwerkconnectiviteit wordt een industriële Teltonika RUTX50-router ingezet. Deze ondersteunt zowel 4G als 5G (zowel NSA als SA), en vormt de brug tussen de testnode en het externe netwerk. De combinatie van deze router met de Raspberry Pi maakt het mogelijk om in de verschillende netwerkomstandigheden metingen uit te voeren.
+De Pi voert netwerktests uit met behulp van tools zoals ping, node-red, curl en iPerf3. Alle resultaten worden gelogd en bewaard om later te gebruiken voor de analyse.
+Voor mobiele netwerkconnectiviteit wordt een industriële Teltonika RUTX50-router ingezet. Deze ondersteunt zowel 4G als 5G en vormt de brug tussen de testnode en het externe netwerk. De combinatie van deze router met de Raspberry Pi maakt het mogelijk om in de verschillende netwerkomstandigheden metingen uit te voeren.
 Een PC doet dienst als iperf3 TCP-server en simuleert een iperf server. Deze server reageert op de verzoeken van de Raspberry Pi, zodat dit een representatieve testomgeving creëert voor communicatie in een smart building-context.
 De testomgeving omvat verschillende netwerken: wifi via een lokaal access point, privaat 4G en 5G via de RUTX50 router. Deze variatie biedt de mogelijkheid om met de testopstelling netwerkprestaties te vergelijken.
 Deze opstelling vormt een goed alternatief voor fysieke gebouwbeheersysteem-hardware en is aldus geschikt voor experimenteel onderzoek naar IoT-communicatie binnen slimme gebouwen.

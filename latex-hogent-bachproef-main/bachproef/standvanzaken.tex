@@ -57,7 +57,7 @@ Facilitair beheer  is een interdisciplinair vakgebied dat de coördinatie van me
 Het centrale beheer van de faciltaire diensten van HOGENT bevindt zich op de campus Mercator. Op deze locatie  wordt de informatie verzameld en gemonitord van alle campussen binnen het gebouwbeheersysteem. Voor deze bachelorproef wordt er dieper ingegaan op het facilitair beheer van de campus Schoonmeersen. Er is ook een focus op het regelen van verlichting op de campus en verwarming, ventilatie en klimaatregeling in de gebouwen.
 
 \subsection{Campus Schoonmeersen}
-Op de campus Schoonmeersen zijn er twee platformen om de informatie te verzamelen voor het regelen van de facilitaire diensten. Deze platformen zijn Johnson controls Metasys en Schneider’s Schneider Electric. Het platform Metasys is in gebruik in gebouw D  (zie figuur 2.1). Het platform Schneider Electric is in gebruik in de gebouwen B, C, P en de sporthal van HOGENT (zie figuur 2.2)\autocite{Venneman2019}.
+Op de campus Schoonmeersen zijn er twee platformen om de informatie te verzamelen voor het regelen van de facilitaire diensten. Deze platformen zijn Johnson controls Metasys en Schneider’s Schneider Electric. Het platform Metasys is in gebruik in gebouw D  (zie figuur \ref{fig:metasys}). Het platform Schneider Electric is in gebruik in de gebouwen B, C, P en de sporthal van HOGENT (zie figuur \ref{fig:schneiderelectric})\autocite{Venneman2019}.
 
 \begin{figure}
     \centering
@@ -71,7 +71,7 @@ Op de campus Schoonmeersen zijn er twee platformen om de informatie te verzamele
 \end{figure}
 
 \subsection{Xenta modules}
-In de gebouwen wordt er gebruik gemaakt van Xenta modules. De Xenta module 401 is telkens de hoofdregelaar voor de systemen. Hieraan zijn dan maximaal 10 input/output apparaten verbonden en deze staan dan in voor het verzamelen van de gegevens voor de diverse metingen. Er zijn verschillende soorten van input/output apparaten zoals te zien in figuur 2.3. Digitale input en output apparaten hebben twee vaste staten uit en aan. Een thermistor is een weerstandsthermometer, meer bepaald een elektrische weerstand (component) waarvan de elektrische weerstand afhankelijk is van de temperatuur. \newline \newline
+In de gebouwen wordt er gebruik gemaakt van Xenta modules. De Xenta module 401 is telkens de hoofdregelaar voor de systemen. Hieraan zijn dan maximaal 10 input/output apparaten verbonden en deze staan dan in voor het verzamelen van de gegevens voor de diverse metingen. Er zijn verschillende soorten van input/output apparaten zoals te zien in figuur \ref{fig:xentamodules}. Digitale input en output apparaten hebben twee vaste staten uit en aan. Een thermistor is een weerstandsthermometer, meer bepaald een elektrische weerstand (component) waarvan de elektrische weerstand afhankelijk is van de temperatuur. \newline \newline
 Analoge apparaten gebruiken continue signalen die variëren in grootte, zoals spanning, stroom of weerstand. Universele apparaten zijn apparaten die zowel kunnen dienen als digitale input en output en als analoge output.
 
 
@@ -82,12 +82,11 @@ Analoge apparaten gebruiken continue signalen die variëren in grootte, zoals sp
 \end{figure}
 
 \subsection{Spacelogic}
-Een Spacelogic AS-P controller wordt in elk gebouw gebruikt om het gebouwbeheersysteem een IP-adres te geven en de https-poort open te zetten.
+Een Spacelogic AS-P controller (zie figuur \ref{fig:asp}) wordt in elk gebouw gebruikt om het gebouwbeheersysteem een IP-adres te geven en de https-poort open te zetten.
 
 \begin{figure}
-    
     \includegraphics[width=0.8\textwidth]{../graphics/AS-P.jpg}
-    \caption[asp]{\label{fig:asp}info bij fig}
+    \caption[Spacelogic AS-P controller in gebouw B]{\label{fig:asp}Spacelogic AS-P controller in gebouw B}
 \end{figure}
 
 \subsection{Verlichting}
@@ -110,17 +109,13 @@ In gebouw T kunnen de zoneregelaars ook de ventilatie aansturen. Dit gebeurt op 
 
 \subsection{Storingen en Monitoring}
 Elk van deze regelmodules in de gebouwen van campus Schoonmeersen verzamelt en logt verschillende meetwaarden, waardoor temperatuur- en ventilatiegegevens grafisch kunnen worden weergegeven.\newline\newline
-Storingen worden in realtime geregistreerd en weergegeven in Mercator via een overzichtelijke lijst. Hierdoor kunnen bekende problemen direct worden gemonitord en kunnen storingen snel worden opgelost voordat ze een impact hebben op het comfort van de gebruiker van de  gebouwen
+Storingen worden in realtime geregistreerd en weergegeven in Mercator via een overzichtelijke lijst. Hierdoor kunnen bekende problemen direct worden gemonitord en kunnen storingen snel worden opgelost voordat ze een impact hebben op het comfort van de gebruiker van de gebouwen
 
 
 \section{Vergelijking 4G en 5G}
 Het verschil tussen 4G en 5G netwerken in facilitair beheer ligt in de infrastructuur en middelenbeheer. 5G biedt flexibelere en efficiëntere infrastructuur dankzij virtualisatie wat zorgt voor schaalbaarheid en minder handmatige interventie \autocite{degambur2021resource}. De integratie van 5G technologie in het facilitair beheer van slimme gebouwen biedt voordelen voor efficiëntie, connectiviteit en veiligheid. Met een 5G is er een verbeterde netwerkcapaciteit, betrouwbaarheid en efficiëntie, met lagere latentie en lager energieverbruik ten opzichte van 4G. De voordelen liggen op het vlak van hoge snelheden en het verbinden van meerdere apparaten tegelijkertijd \autocite{mihret20214g}. 5G biedt hogere datasnelheden, lagere latentie en ondersteuning voor veel meer verbonden apparaten dan 4G dankzij mmWave-technologie, massive MIMO en ultradense netwerken \autocite{Hui_2020}.
 
 De voordelen bij de overgang naar een beheersysteem via 5G zoals verbeterde duurzaamheid, efficiëntie en comfort overtreffen de uitdagingen zoals hoge investeringskosten en complexe integratie \autocite{Markogiannaki2023}. Private 5G netwerken bieden organisaties een veilig, flexibel en schaalbaar alternatief voor publieke 5G netwerken. Private 5G netwerken maken het mogelijk om data veilig en autonoom te delen zonder de openbare internetinfrastructuur te gebruiken \autocite{eswaran2023private}.
-
-
-
-
 
 \section{Smart campussen}
 \textcites{Min_Allah_2020,AbuAlnaaj2016,Ahmed2022} beschrijven hoe smart campussen geavanceerde technologieën zoals het Internet of Things (IoT), 5G-connectiviteit en kunstmatige intelligentie (AI) gebruiken om onderwijsinstellingen efficiënter, duurzamer en gebruiksvriendelijker te maken. Deze technologieën verbeteren niet alleen de leeromgeving, maar optimaliseren ook energiebeheer, beveiliging en operationele efficiëntie \autocite{Correia2022}. De belangrijkste uitdagingen van de implementatie van smart campus-technologieën zijn de hoge kosten, cyberveiligheidsrisico’s en de noodzaak van een geïntegreerde infrastructuur \autocite{Liu_2022}. Desondanks tonen studies aan dat de voordelen, zoals energiebesparing en verhoogde veiligheid, opwegen tegen deze uitdagingen \autocite{AbuAlnaaj2016}.

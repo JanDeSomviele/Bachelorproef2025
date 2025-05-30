@@ -1,7 +1,7 @@
 \chapter{\IfLanguageName{dutch}{Resultaten}{results}}%
 \label{ch:resultaten}
 
-In dit hoofdstuk worden de resultaten gepresenteerd van de uitgevoerde netwerken systeemtesten, zoals beschreven in het methodologiehoofdstuk. De metingen vinden plaats in 3 verschillende netwerkomgevingen: wifi, 4G en privaat 5G. Voor elke omgeving worden gegevens verzameld over latency, jitter, packet loss, bandbreedte en applicatieresponsiviteit.
+In dit hoofdstuk worden de resultaten gepresenteerd van de uitgevoerde netwerken systeemtesten. De metingen vinden plaats in 3 verschillende netwerkomgevingen: wifi, 4G en privaat 5G. Voor elke omgeving worden gegevens verzameld over latency, jitter, packet loss, bandbreedte en througput.
 De resultaten worden gegroepeerd per netwerktype en gevisualiseerd met behulp van grafieken en tabellen. Naast objectieve meetwaarden wordt ook de functionele impact op de communicatie met HVAC- en verlichtingssimulaties besproken.
 
 
@@ -19,7 +19,7 @@ De netwerkprestaties worden vergeleken op basis van:
 \subsection{Latency}
 Latency is de tijd die een datapakket nodig heeft om van verzender naar ontvanger te reizen. In toepassingen zoals lichtsturing of HVAC-automatisering is een lage en stabiele latency belangrijk om opdrachten snel en voorspelbaar uit te voeren.
 
-De resultaten zijn samengevat in Tabel \ref{tab:latency}.
+De resultaten zijn samengevat in Tabel \ref{tab:latency} en figuur \ref{fig:latency}.
 \begin{table}[]
     \caption{Resultaten van de ping-test} \label{tab:latency}
         \begin{tabular}{l l l l}
@@ -36,7 +36,7 @@ De resultaten zijn samengevat in Tabel \ref{tab:latency}.
 
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{../graphics/RTT_grafiek.png}
-    \caption[grafiek van latency test]{\label{fig:latency}info bij fig}
+    \caption[Grafiek van de gemiddelde resultaten van de ping test]{\label{fig:latency}Grafiek van de gemiddelde resultaten van de ping test}
 \end{figure}
 \subsubsection{Analyse}
 \begin{itemize}
@@ -44,17 +44,17 @@ De resultaten zijn samengevat in Tabel \ref{tab:latency}.
     \item 4G toont een iets hogere gemiddelde latency (18,17 ms), wat in lijn ligt met de verwachte vertraging van een mobiel netwerk door de routing via het publieke netwerk van de provider.
     \item 5G levert tegenstrijdige resultaten: de minimum RTT (10,85 ms) is het laagst voor 5G wat wijst op het potentieel van de technologie voor lage latency. Tegelijkertijd is de gemiddelde RTT aanzienlijk hoger (26,30 ms) door RTT-waarden die pieken tot 230,92 ms. Dit kan wijzen op instabiliteit of fluctuaties tijdens de test, mogelijk door beperkte dekking, interferentie of routerproblemen in het privaat 5G-netwerk.
 \end{itemize}
-Hoewel 5G in theorie de laagste latency kan bieden, werd bij deze metingen minder stabiele resultaten waargenomen. . Dit kan veroorzaakt zijn door onvoldoende configuratie van het privaat 5G-netwerk, een lage signaalsterkte of routingproblemen bij het verzenden van dataverkeer naar het internet.
+Hoewel 5G in theorie de laagste latency kan bieden, werd bij deze metingen minder stabiele resultaten waargenomen. Dit kan veroorzaakt zijn door onvoldoende configuratie van het privaat 5G-netwerk, een lage signaalsterkte of routingproblemen bij het verzenden van dataverkeer naar het internet.
 
 \subsubsection{Aanbeveling}
 Aangezien deze test werd uitgevoerd naar een extern IP-adres (8.8.8.8), is het resultaat niet volledig representatief voor de prestaties van het interne netwerksegment.
-Verkeer naar het internet ondergaat additionele vertragingen door publieke netwerkrouting, congestie, of provider Service Level Agreements. Daarom wordt aanbevolen om latency-testen uit te voeren naar een lokaal IP-adres binnen het testnetwerk. Hierdoor worden  enkel de prestaties van het interne netwerkpad gemeten. Dit is relevanter voor de eindtoepassing van HVAC- en lichtsturing, die binnen het campusnetwerk plaatsvinden. Een aangepaste testopstelling met: \textbf{ping -c 250 [lokaal-IP]} zal vermoedelijk beter inzicht bieden in de betrouwbaarheid en reactietijd van de onderzochte netwerken, zonder verstoring door externe internetrouting.
+Verkeer naar het internet ondergaat additionele vertragingen door publieke netwerkrouting, congestie, of provider Service Level Agreements. Daarom wordt aanbevolen om latency-testen uit te voeren naar een lokaal IP-adres binnen het testnetwerk. Hierdoor worden enkel de prestaties van het interne netwerkpad gemeten. Dit is relevanter voor de eindtoepassing van HVAC- en lichtsturing, die binnen het campusnetwerk plaatsvinden. Een aangepaste testopstelling met: \textbf{ping -c 250 [lokaal-IP]} zal vermoedelijk beter inzicht bieden in de betrouwbaarheid en reactietijd van de onderzochte netwerken, zonder verstoring door externe internetrouting.
 
 
 \subsection{Jitter}
 Jitter is een maat voor de variabiliteit in de vertragingstijd tussen verzenden en ontvangen van opeenvolgende datapakketten. In real-time toepassingen zoals HVAC-sturing of lichtregeling zou een hoge jitter-waarde kunnen leiden tot inconsistente werking zoals vertraagde of incorrect uitgevoerde commando’s.
 
-De UDP-test werd uitgevoerd met iperf3 op drie verschillende snelheden (1, 5 en 50 Mbit/s), telkens gedurende 120 seconden. De resultaten zijn samengevat in Tabel \ref{tab:jitter}.
+De UDP-test werd uitgevoerd met iperf3 op drie verschillende snelheden (1, 5 en 50 Mbit/s), telkens gedurende 120 seconden. De resultaten zijn samengevat in Tabel \ref{tab:jitter} en figuur \ref{fig:jitter}.
 
 \begin{table}[]
     \caption{Gemeten jitter (in ms) bij verschillende UDP-bandbreedtes}
@@ -71,7 +71,7 @@ De UDP-test werd uitgevoerd met iperf3 op drie verschillende snelheden (1, 5 en 
 \begin{figure}
 
     \includegraphics[width=0.8\textwidth]{../graphics/Jitter_grafiek.png}
-    \caption[grafiek van jitter test]{\label{fig:jitter}info bij fig}
+    \caption[Grafiek van de gemiddelde resultaten van de iperf3 TCP test]{\label{fig:jitter}Grafiek van de gemiddelde resultaten van de iperf3 TCP test}
 \end{figure}
 \subsubsection{Analyse}
 Bij een lage datasnelheid van 1 Mbit/s vertoont wifi de hoogste jitter (0,799 ms), wat mogelijk wijst op instabiliteit of interferentie in het lokale draadloze netwerk. 4G en 5G hebben bij 1Mbit/s een lagere vertragingstijd, met respectievelijk 0,313 ms en 0,380 ms. Op 5 Mbit/s zien we een duidelijke afname van jitter over alle netwerken. Vooral bij 4G is dit opmerkelijk: slechts 0,151 ms, wat wijst op een stabiele verbinding onder matige belasting. Bij hogere belasting (50 Mbit/s) convergeert de jitterwaarde voor alle netwerken naar een gelijkaardig niveau (tussen 0,158 en 0,198 ms), wat duidt op een goede afhandeling van het dataverkeer, zelfs bij intensieve communicatie. 
@@ -142,7 +142,7 @@ Deze sectie onderzoekt of de netwerken geschikt zijn voor automatisering van ope
 
 \subsection{Verlichtingstest}
 
-In deze test wordt de reactietijd gemeten tussen het versturen van een commando via het netwerk en het schakelen van een slimme lamp. Dit type scenario is representatief voor veelgebruikte toepassingen binnen domotica en gebouwbeheer, zoals het automatisch activeren van verlichting op basis van sensoren of tijdsinstellingen. De resultaten sttan in Tabel \ref{tab:licht}.
+In deze test wordt de reactietijd gemeten tussen het versturen van een commando via het netwerk en het schakelen van een slimme lamp. Dit type scenario is representatief voor veelgebruikte toepassingen binnen domotica en gebouwbeheer, zoals het automatisch activeren van verlichting op basis van sensoren of tijdsinstellingen. De resultaten staan in Tabel \ref{tab:licht}.
 
 \begin{table}[]
     \caption{Resultaten lichtschakelingstest}
@@ -184,6 +184,7 @@ Deze test evalueert de prestaties van HTTP-verkeer, zoals vaak gebruikt in moder
 
 \begin{table}[h]
     \caption{Gemiddelde doorvoersnelheden van HTTP-verkeer in Node-RED test}
+    \label{tab:nodered}
     \begin{tabular}{l l l l}
         \cline{2-4}
         & \textbf{Dload (bytes/s)} & \textbf{Uload (bytes/s)} & \textbf{Current speed (bytes/s)} \\ \hline
@@ -195,26 +196,26 @@ Deze test evalueert de prestaties van HTTP-verkeer, zoals vaak gebruikt in moder
 \end{table}
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{../graphics/Node-red_grafiek.png}
-    \caption[grafiek van nodered test]{\label{fig:noderedgem}info bij fig}
+    \caption[Grafiek van de Node-Red test met de gemiddelde waarden per netwerk]{\label{fig:noderedgem}Grafiek van de Node-Red test met de gemiddelde waarden per netwerk}
 \end{figure}
 \begin{figure}
 
     \includegraphics[width=0.8\textwidth]{../graphics/node-red_dload_grafiek.png}
-    \caption[grafiek van dload nodered test]{\label{fig:nodereddload}info bij fig}
+    \caption[Spreidingsgrafiek van de Download waarden van de Node-Red test]{\label{fig:nodereddload}Spreidingsgrafiek van de Download waarden van de Node-Red test}
 \end{figure}
 \begin{figure}
 
     \includegraphics[width=0.8\textwidth]{../graphics/node-red_uload_grafiek.png}
-    \caption[grafiek van uload nodered test]{\label{fig:nodereduload}info bij fig}
+    \caption[Spreidingsgrafiek van de Upload waarden van de Node-Red test]{\label{fig:nodereduload}Spreidingsgrafiek van de Upload waarden van de Node-Red test}
 \end{figure}
 \begin{figure}
 
     \includegraphics[width=0.8\textwidth]{../graphics/node-red_currentspeed_grafiek.png}
-    \caption[grafiek van current speed van nodered test]{\label{fig:noderedcs}info bij fig}
+    \caption[Spreidingsgrafiek van de Current speed waarden van de Node-Red test]{\label{fig:noderedcs}Spreidingsgrafiek van de Current speed waarden van de Node-Red test}
 \end{figure}
 \subsubsection{Analyse}
 
-De testresultaten toonden aan dat:
+De testresultaten (zie tabel \ref{tab:nodered} en figuren \ref{fig:noderedgem}, \ref{fig:nodereddload}, \ref{fig:nodereduload}, \ref{fig:noderedcs}) toonden aan dat:
 \begin{itemize}
     \item \textbf{wifi} had de laagste prestaties, met enkele pieken in vertraging, mogelijk veroorzaakt door lokale interferentie of bandbreedteverdeling met andere apparaten.
     \item \textbf{4G} de hoogste gemiddelde doorvoersnelheid behaalde, met consistente prestaties over de testduur.

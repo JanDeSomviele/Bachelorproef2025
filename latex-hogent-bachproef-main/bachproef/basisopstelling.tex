@@ -4,14 +4,14 @@
 \section{Inleiding}
 
 De opstelling is ontworpen met het oog op het evalueren en vergelijken van netwerkprestaties over wifi, 4G en privaat 5G binnen de context van gebouwbeheersystemen, meer bepaald voor toepassingen in verlichting en HVAC-sturing.
-Aangezien de focus in eerste instantie ligt op netwerkanalyse, wordt gekozen voor een flexibele en programmeerbare testomgeving. In plaats van de oorspronkelijk gekozen Schneider Electric SpaceLogic SmartX AS-P controller, die niet beschikbaar bleek in HOGENT, wordt een Raspberry Pi gebruikt als centrale testnode.
+Aangezien de focus in eerste instantie ligt op netwerkanalyse, wordt gekozen voor een flexibele en programmeerbare testomgeving. In plaats van de oorspronkelijk gekozen Schneider Electric SpaceLogic SmartX AS-P controller, die niet beschikbaar bleek in HOGENT, wordt een Raspberry Pi (zie figuur \ref{fig:rasberrypi}) gebruikt als centrale testnode.
 
 
-De Raspberry Pi simuleert de rol van een AS-P controller, voert netwerkmetingen uit, en zorgt voor communicatie met het netwerk. De meetopstelling is opgebouwd rond een industriële RUTX50-router, die in staat is om zowel 4G als 5G-connectiviteit aan te bieden. Zowel de Raspberry Pi als een pc zijn bekabeld verbonden met de router voor een maximale stabiliteit van de interne netwerkkoppeling.
+De Raspberry Pi simuleert de rol van een AS-P controller, voert netwerkmetingen uit, en zorgt voor communicatie met het netwerk. De meetopstelling is opgebouwd rond een industriële RUTX50-router (zie figuur \ref{fig:router}), die in staat is om zowel 4G als 5G-connectiviteit aan te bieden. Zowel de Raspberry Pi als een pc zijn bekabeld verbonden met de router voor een maximale stabiliteit van de interne netwerkkoppeling.
 
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{../graphics/RUTX50.jpg}
-    \caption[router]{\label{fig:router}info bij fig}
+    \caption[RUTX50 router van het HOGENT 5G netwerk]{\label{fig:router}RUTX50 router van het HOGENT 5G netwerk}
 \end{figure}
 
 \section{Motivatie voor gebruik van de Raspberry Pi}
@@ -20,24 +20,23 @@ De Raspberry Pi biedt in deze meetcontext meerdere voordelen. Ten eerste heeft h
 
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{../graphics/Rasberry_pi.jpg}
-    \caption[rasberry pi]{\label{fig:rasberrypi}info bij fig}
+    \caption[Rasberry Pi]{\label{fig:rasberrypi}Rasberry Pi}
 \end{figure}
 
 \section{Overzicht van de meetopstelling}
 
 \begin{figure}
-    
     \includegraphics[width=0.8\textwidth]{../graphics/Opstelling_1.jpg}
-    \caption[opstelling 1]{\label{fig:opstellingpi}info bij fig}
+    \caption[Schematische voorstelling van de meetopstelling met de Rasberry Pi (“Raspberry Pi” by DesignBite, from the Noun Project, Icon made by Freepik from @flaticon)]{\label{fig:opstellingpi}Schematische voorstelling van de meetopstelling met de Rasberry Pi (“Raspberry Pi” by DesignBite, from the Noun Project, Icon made by Freepik from @flaticon)}
 \end{figure}
 \begin{itemize}
-    \item De Raspberry Pi en de Windows-pc zijn bekabeld verbonden met een RUTX50-router.
-    \item Deze router biedt afwisselend connectiviteit via 4G, publiek 5G en privaat 5G (afhankelijk van de testomgeving).
+    \item De Raspberry Pi en de pc zijn bekabeld verbonden met een RUTX50-router.
+    \item De router biedt afwisselend connectiviteit via wifi, 4G en privaat 5G (afhankelijk van de testomgeving).
     \item Op de Raspberry Pi worden diverse scripts uitgevoerd die netwerkparameters meten zoals latency, jitter, throughput, packet loss, en responsiviteit.
-    \item De pc fungeert als referentiepunt voor iperf3-sessies en host ook een lokale HTTPS-endpoint via een Python-API.
+    \item De pc fungeert als referentiepunt voor iperf3-sessies en host ook een lokale HTTP-endpoint.
 \end{itemize}
 
-Voor de uitvoering van de testen werd de Raspberry Pi voorbereid met een actuele versie van Raspberry Pi OS (Lite), waarop de nodige tools geïnstalleerd werden zoals ping, iperf3, curl en Node-RED. Deze werden geïnstalleerd via het pakketbeheer apt met commando’s zoals \textbf{sudo apt install iperf3 curl}, terwijl Node-RED werd toegevoegd via het officiële installatie­script van Node-RED.
+Voor de uitvoering van de testen werd de Raspberry Pi voorbereid met een actuele versie van Raspberry Pi OS (Lite), waarop de nodige tools geïnstalleerd werden zoals ping, iperf3, curl en Node-RED. Deze werden geïnstalleerd via het pakketbeheer apt met het commando: \textbf{sudo apt install iperf3 curl}, terwijl Node-RED werd toegevoegd via het officiële installatie­script van Node-RED.
 
 \section{Beschrijving van de uitgevoerde testen}
 
@@ -57,7 +56,7 @@ De belangrijkste doelvariabelen die uit deze metingen worden afgeleid, zijn de g
 
 
 \subsection{TCP throughputtest (bandbreedte en betrouwbaarheid)}
-De troughputtest bepaalt de netto datadoorvoer en de stabiliteit van de Transmission Control Protocol (TCP)-verbinding tussen de Raspberry Pi en de externe Windows-pc. De metingen worden uitgevoerd met behulp van de tool iperf3, specifiek ontworpen voor performantie-evaluaties van netwerkverbindingen. 
+De troughputtest bepaalt de netto datadoorvoer en de stabiliteit van de Transmission Control Protocol (TCP)-verbinding tussen de Raspberry Pi en de externe pc. De metingen worden uitgevoerd met behulp van de tool iperf3, specifiek ontworpen voor performantie-evaluaties van netwerkverbindingen. 
 De testopstelling vereist dat de iperf3-server op de ontvangende pc wordt geactiveerd. Download iperf3 voor Windows via: ’https://iperf.fr/iperf-download.php’.
 De server wordt dan gestart via het volgende commando: \textbf{iperf3.exe -s} 
 
@@ -76,21 +75,18 @@ De variabelen voor de analyse zijn de doorvoersnelheid per seconde, de variatie 
 \subsection{UDP jittertest}
 Om de eigenschappen van een niet-verbindingsgerichte netwerkoverdracht te analyseren, wordt een meting uitgevoerd met het User Datagram Protocol (UDP). In tegenstelling tot TCP, biedt UDP geen garantie op levering of volgorde van data, waardoor deze test specifiek gericht is op het bepalen van jitter (variatie in vertraging tussen opeenvolgende pakketten) en het aantal verloren pakketten
 
-
 De meting wordt uitgevoerd met behulp van iperf3, waarbij de Raspberry Pi als client fungeert en een pc met actieve iperf3-server als ontvanger. Het volgende commando wordt op de Raspberry Pi gebruikt: \textbf{iperf3 -c [PC-IP] -u -b xM -t 120 > iperfudp*.log}
 
 \begin{itemize}
     \item In dit commando specificeert de vlag -u dat het om een UDP-verbinding gaat. 
     \item Met -b xM wordt de bandbreedte vastgelegd op x megabit(s) per seconde waarbij x de waardes 1, 5 en 50 heeft.
     \item De testduur wordt ingesteld op 120 seconden via -t 120, en de uitvoer wordt gelogd in een bestand genaamd iperfudp*.log, waarbij * een placeholder is voor de testconfiguratie of het sessienummer. 
-    \item Het IP-adres van de pc-server moet worden ingevuld op de plaats van [PC-IP].
+    \item Het IP-adres van de pc moet worden ingevuld op de plaats van [PC-IP].
 \end{itemize}
 
 
 De test wordt viermaal herhaald per netwerkomgeving, wat een voldoende grote dataset oplevert om verschillen tussen technologieën te kunnen detecteren. 
 Tijdens de analyse worden drie hoofdparameters geëvalueerd: de jitter, het absolute aantal verloren pakketten, en de verhouding van verloren tot totaal verzonden pakketten (lost/total ratio). Deze meetwaarden geven inzicht in de betrouwbaarheid en stabiliteit van de UDP-verbinding, en zijn belangrijk bij het beoordelen van de geschiktheid van een netwerk voor latencygevoelige toepassingen.
-
-
 
 \subsection{Speedtest via Node-RED}
 Node-RED is een visueel programmeerplatform dat vaak wordt ingezet binnen IoT-toepassingen voor het beheren van datastromen tussen sensoren, servers en applicaties. Het doel van deze meting is het evalueren van de download- en uploadsnelheden binnen een realistische en visuele omgeving. 
@@ -112,34 +108,29 @@ Deze opzet bootst realistische API-interacties na, zoals ze vaak voorkomen in Io
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{../graphics/node-red_flow.png}
-    \caption{Node-RED-flow voor het verzenden van HTTP POST-verzoeken naar een externe endpoint.}
+    \caption[Node-RED-flow voor het verzenden van HTTP POST-verzoeken naar een externe endpoint]{Node-RED-flow voor het verzenden van HTTP POST-verzoeken naar een externe endpoint}
     \label{fig:nodered-flow}
 \end{figure}
 
 \subsection{Smart verlichting test}
 Het doel van deze meting is het evalueren van de betrouwbaarheid en de reactietijd van een eenvoudige IoT-toepassing als smart verlichting bij verschillende onderliggende netwerkverbindingen.
 Hierbij wordt specifiek onderzocht in welke mate de netwerktechnologie (wifi, 4G en 5G) de snelheid en betrouwbaarheid van een commando van een gebruiker naar een slim toestel beïnvloed.
-In plaats van de Raspberry Pi wordt in deze testopstelling een Philips Hue Bridge gebruikt als edgecontroller. Deze wordt verbonden met het netwerk via een bekabelde ethernetverbinding. Een slimme lamp die via deze bridge wordt aangestuurd, fungeert als uitvoerend toestel.
+In plaats van de Raspberry Pi wordt in deze testopstelling een Philips Hue Bridge gebruikt als edgecontroller. Deze wordt verbonden met het netwerk via een bekabelde ethernetverbinding. Een slimme lamp die via deze bridge wordt aangestuurd, fungeert als uitvoerend toestel (zie figuren \ref{fig:philips} en \ref{fig:opstellingphilips}). 
 
-\begin{figure}
-    
+\begin{figure}   
     \includegraphics[width=0.8\textwidth]{../graphics/philips_hue.jpg}
-    \caption[philips hue hardware]{\label{fig:philips}info bij fig}
+    \caption[Philips Hue Bridge en Hue Play light bar base unit]{\label{fig:philips}Philips Hue Bridge en Hue Play light bar base unitS}
 \end{figure}
 \begin{figure}
     
     \includegraphics[width=0.8\textwidth]{../graphics/Opstelling_2.jpg}
-    \caption[philips opstelling]{\label{fig:opstellingphilips}info bij fig}
+    \caption[Schematische voorstelling van de meetopstelling met Philips Hue Bridge (“philips hue bridge” by Derrick Snider, from the Noun Project, icon made by Pixel perfect from @flaticon)]{\label{fig:opstellingphilips}Schematische voorstelling van de meetopstelling met Philips Hue Bridge (“philips hue bridge” by Derrick Snider, from the Noun Project, icon made by Pixel perfect from @flaticon)}
 \end{figure}
 Het centrale testscript, lichtscript.py (zie bijlage \ref{script}), is geschreven in Python en maakt gebruik van de Hue API. Het script voert bij elke iteratie twee opeenvolgende toggle-operaties uit (aan-uit of uit-aan) op de lamp. Voor elke uitvoering wordt gelogd wat de reactiesnelheid is en of deze succesvol is.
-
-
 
 De kernparameter die gemeten wordt, is de totale tijd tussen het initiëren van het commando en het effectief voltooien van de toggle-operatie. Eventuele fouten (bv. timeouts of mislukte requests) worden eveneens geregistreerd als indicatoren van netwerkbetrouwbaarheid.
 De test wordt uitgevoerd op de 3 netwerken. Per netwerk worden 100 iteraties uitgevoerd van het script, met telkens twee toggles per iteratie. Dit resulteert in 200 metingen per script en 400 metingen in totaal per netwerk.
 Deze experimentele opzet laat toe om te evalueren hoe netwerkvertragingen en -stabiliteit impact hebben op de werking van een eenvoudige maar representatieve IoT-toepassing. De resultaten geven inzichten voor het gebruik van mobiele netwerken in real-time of near-real-time besturingssystemen binnen smart building-contexten (smart building concepten).
-
-
 
 \section{Samenvatting van meetdoelen}
 
