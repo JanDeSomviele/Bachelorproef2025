@@ -34,6 +34,10 @@ De resultaten zijn samengevat in Tabel \ref{tab:latency}.
     
 \end{table}
 
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{../graphics/RTT_grafiek.png}
+    \caption[grafiek van latency test]{\label{fig:latency}info bij fig}
+\end{figure}
 \subsubsection{Analyse}
 \begin{itemize}
     \item wifi vertoont de laagste gemiddelde latency (13,27 ms). Dit bevestigt de stabiliteit van het lokale draadloze netwerk in een gecontroleerde binnenomgeving zonder externe overbelasting.
@@ -64,11 +68,15 @@ De UDP-test werd uitgevoerd met iperf3 op drie verschillende snelheden (1, 5 en 
     
     \label{tab:jitter}
 \end{table}
+\begin{figure}
 
-Analyse
+    \includegraphics[width=0.8\textwidth]{../graphics/Jitter_grafiek.png}
+    \caption[grafiek van jitter test]{\label{fig:jitter}info bij fig}
+\end{figure}
+\subsubsection{Analyse}
 Bij een lage datasnelheid van 1 Mbit/s vertoont wifi de hoogste jitter (0,799 ms), wat mogelijk wijst op instabiliteit of interferentie in het lokale draadloze netwerk. 4G en 5G hebben bij 1Mbit/s een lagere vertragingstijd, met respectievelijk 0,313 ms en 0,380 ms. Op 5 Mbit/s zien we een duidelijke afname van jitter over alle netwerken. Vooral bij 4G is dit opmerkelijk: slechts 0,151 ms, wat wijst op een stabiele verbinding onder matige belasting. Bij hogere belasting (50 Mbit/s) convergeert de jitterwaarde voor alle netwerken naar een gelijkaardig niveau (tussen 0,158 en 0,198 ms), wat duidt op een goede afhandeling van het dataverkeer, zelfs bij intensieve communicatie. 
 
-Aanbeveling 
+\subsubsection{Aanbeveling }
 Voor toepassingen met tijdkritische communicatie zoals gebouwautomatisering is een lage jitter cruciaal. Op basis van deze resultaten blijkt dat alle netwerken bij hogere bandbreedtes redelijk stabiel presteren. 4G biedt in de gehele test de beste balans tussen lage jitter en betrouwbaarheid bij lagere snelheden. Indien de prioriteit ligt op minimale variatie in responstijden, bijvoorbeeld voor regelkringen of kritieke commando’s, is het aanbevolen om 4G of 5G boven wifi te verkiezen. Zeker in storingsgevoelige omgevingen kan wifi minder voorspelbaar zijn.
 
 
@@ -185,7 +193,25 @@ Deze test evalueert de prestaties van HTTP-verkeer, zoals vaak gebruikt in moder
     \end{tabular}
     
 \end{table}
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{../graphics/Node-red_grafiek.png}
+    \caption[grafiek van nodered test]{\label{fig:noderedgem}info bij fig}
+\end{figure}
+\begin{figure}
 
+    \includegraphics[width=0.8\textwidth]{../graphics/node-red_dload_grafiek.png}
+    \caption[grafiek van dload nodered test]{\label{fig:nodereddload}info bij fig}
+\end{figure}
+\begin{figure}
+
+    \includegraphics[width=0.8\textwidth]{../graphics/node-red_uload_grafiek.png}
+    \caption[grafiek van uload nodered test]{\label{fig:nodereduload}info bij fig}
+\end{figure}
+\begin{figure}
+
+    \includegraphics[width=0.8\textwidth]{../graphics/node-red_currentspeed_grafiek.png}
+    \caption[grafiek van current speed van nodered test]{\label{fig:noderedcs}info bij fig}
+\end{figure}
 \subsubsection{Analyse}
 
 De testresultaten toonden aan dat:
