@@ -44,7 +44,7 @@ Hoewel 5G in theorie de laagste latency kan bieden, werd bij deze metingen minde
 
 \subsubsection{Aanbeveling}
 Aangezien deze test werd uitgevoerd naar een extern IP-adres (8.8.8.8), is het resultaat niet volledig representatief voor de prestaties van het interne netwerksegment.
-Verkeer naar het internet ondergaat additionele vertragingen door publieke netwerkrouting, congestie, of provider-SLA’s. Daarom wordt aanbevolen om latency-testen uit te voeren naar een lokaal IP-adres binnen het testnetwerk. Hierdoor worden  enkel de prestaties van het interne netwerkpad gemeten. Dit is relevanter voor de eindtoepassing van HVAC- en lichtsturing, die binnen het campusnetwerk plaatsvinden. Een aangepaste testopstelling met: \textbf{ping -c 250 [lokaal-IP]} zal vermoedelijk beter inzicht bieden in de betrouwbaarheid en reactietijd van de onderzochte netwerken, zonder verstoring door externe internetrouting.
+Verkeer naar het internet ondergaat additionele vertragingen door publieke netwerkrouting, congestie, of provider Service Level Agreements. Daarom wordt aanbevolen om latency-testen uit te voeren naar een lokaal IP-adres binnen het testnetwerk. Hierdoor worden  enkel de prestaties van het interne netwerkpad gemeten. Dit is relevanter voor de eindtoepassing van HVAC- en lichtsturing, die binnen het campusnetwerk plaatsvinden. Een aangepaste testopstelling met: \textbf{ping -c 250 [lokaal-IP]} zal vermoedelijk beter inzicht bieden in de betrouwbaarheid en reactietijd van de onderzochte netwerken, zonder verstoring door externe internetrouting.
 
 
 \subsection{Jitter}

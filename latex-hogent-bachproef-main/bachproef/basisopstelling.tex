@@ -13,10 +13,8 @@ De Raspberry Pi simuleert de rol van een AS-P controller,  voert netwerkmetingen
 
 De Raspberry Pi biedt in deze meetcontext meerdere voordelen. Ten eerste heeft het platform een hoge flexibiliteit, aangezien het ondersteuning biedt voor meerdere programmeertalen en bibliotheken. Voorbeelden daarvan zijn Python, bash, iperf3 en speedtest-cli. Daarnaast is met de Raspberry Pi een verregaande automatisatie mogelijk. Dit laat toe om complexe testreeksen op een automatische en herhaalbare manier uit te voeren. Tot slot is het een zeer compact toestel waardoor het zeer makkelijk als mobiele meetnode kan worden ingezet in uiteenlopende netwerkomgevingen.
 
-%TO DO: voorbereiding rasberry pi
 
 \section{Overzicht van de meetopstelling}
-
 
 % TO DO:Schema maken
 \begin{itemize}
@@ -26,9 +24,9 @@ De Raspberry Pi biedt in deze meetcontext meerdere voordelen. Ten eerste heeft h
     \item De pc fungeert als referentiepunt voor iperf3-sessies en host ook een lokale HTTPS-endpoint via een Python-API.
 \end{itemize}
 
-\section{Beschrijving van de uitgevoerde testen}
+Voor de uitvoering van de testen werd de Raspberry Pi voorbereid met een actuele versie van Raspberry Pi OS (Lite), waarop de nodige tools geïnstalleerd werden zoals ping, iperf3, curl en Node-RED. Deze werden geïnstalleerd via het pakketbeheer apt met commando’s zoals \textbf{sudo apt install iperf3 curl}, terwijl Node-RED werd toegevoegd via het officiële installatie­script van Node-RED.
 
-Elke test wordt viermaal uitgevoerd in zowel wifi-, 4G- als 5G-context om voldoende data te verzamelen voor statistische analyse.
+\section{Beschrijving van de uitgevoerde testen}
 
 \subsection{Pingtest (latency en packet loss)}
 Het ping-commando meet de netwerkprestaties van de Raspberry Pi binnen verschillende netwerkomstandigheden. Het doel van deze meting is om de gemiddelde latency (Round-Trip Time, RTT), het aantal verloren pakketten en de spreiding in vertraging (minimum en maximum RTT) tussen de Raspberry Pi en een extern internetadres (in dit geval het publieke DNS-adres van Google, 8.8.8.8) in kaart te brengen.
@@ -61,50 +59,6 @@ Zodra de server actief is, wordt de Raspberry Pi als client gebruikt en voert de
 
 Voor elke netwerkomgeving 4G en 5G worden vier aparte sessies uitgevoerd, telkens met een duur van twee minuten. Dit zorgt voor een voldoende representatieve steekproef om statistische vergelijkingen mogelijk te maken. 
 De variabelen voor de analyse zijn de doorvoersnelheid per seconde, de variatie in die snelheden over de volledige sessie (als maat voor stabiliteit), en het aantal eventuele TCP-retransmissies (die een indicatie geven van de  netwerkbetrouwbaarheid en congestie). Deze parameters geven inzicht in de prestaties van het TCP-protocol onder reële omstandigheden.
-
-
-
-\subsection{HTTP latency test (toepassingslatency)}
-Het doel van deze meting is het simuleren van een realistische netwerkinteractie met een webgebaseerde API, zoals die typisch gebruikt wordt in smart building dashboards of IoT-toepassingen. Dit laat toe om niet enkel de ruwe netwerkprestaties, maar ook de gebruikerservaring bij API-interacties te evalueren.
-Voor de test wordt op de pc een lokale webserver opgezet met behulp van een python script ’api.py’ en is bereikbaar via het interne IP-adres van de pc.
-
-
-%TO DO: listings bekijken
-%\begin{Verbatim}
-%    from http.server import BaseHTTPRequestHandler, HTTPServer
-%    import json
-%    
-%    class SimpleHandler(BaseHTTPRequestHandler):
-%    def do_POST(self):
-%    content_length = int(self.headers['Content-Length'])
-%    post_data = self.rfile.read(content_length)
-%    print("Ontvangen data:", post_data.decode('utf-8'))
-%    
-%    self.send_response(200)
-%    self.send_header('Content-type', 'application/json')
-%    self.end_headers()
-%    response = {'status': 'OK'}
-%    self.wfile.write(json.dumps(response).encode('utf-8'))
-%    
-%    server = HTTPServer(('0.0.0.0', 8080), SimpleHandler)
-%    print("Mock API draait op http://localhost:8080")
-%    server.serve_forever()
-%\end{Verbatim}
-
-Op de Raspberry Pi wordt een shellscript genaamd gbssim.sh uitgevoerd. Dit script stuurt in totaal 250 HTTP GET-verzoeken naar het API-endpoint via een For-lus en meet per verzoek meerdere tijdsparameters met behulp van het time curl-commando. Het commando is: \textbf{time curl -k -X POST http://[endpoint] -d '\{"status": 'ok'\}' -H "Content-Type: application/json"}
-
-%TO DO: bekijken of juist
-Het script maakt gebruik van de curl-tool, waarbij elke aanvraag wordt geanalyseerd op drie kernparameters: 
-\begin{itemize}
-    \item time to connect: de tijd tot succesvolle TCP-handshake
-    \item time to first byte: de vertraging tot de server begint te antwoorden
-    \item totale responstijd. 
-\end{itemize}
-Deze gegevens bieden waardevolle inzichten in de prestaties van de API zelf.
-De test wordt vier keer herhaald per netwerkmodus, wat resulteert in 1000 individuele HTTP-verzoeken per technologie. Dankzij deze herhaling kan men de stabiliteit van de netwerkinteractie beoordelen en eventuele fluctuaties of latentiepieken identificeren.
-De verzamelde gegevens geven een analyse van de  consistentie, betrouwbaarheid van de verbinding en gebruikservaring. Deze parameters zijn essentieel voor toepassingen in real-time monitoring en besturingssystemen binnen slimme gebouwen.
-
-
 
 \subsection{UDP jittertest}
 Om de eigenschappen van een niet-verbindingsgerichte netwerkoverdracht te analyseren, wordt een meting uitgevoerd met het User Datagram Protocol (UDP). In tegenstelling tot TCP, biedt UDP geen garantie op levering of volgorde van data, waardoor deze test specifiek gericht is op het bepalen van jitter (variatie in vertraging tussen opeenvolgende pakketten) en het aantal verloren pakketten
@@ -154,9 +108,73 @@ De test wordt gedurende ongeveer zeven minuten uitgevoerd om een voldoende aanta
 
 \subsection{Smart verlichting test}
 Het doel van deze meting is het evalueren van de betrouwbaarheid en de reactietijd van een eenvoudige IoT-toepassing als smart verlichting bij verschillende onderliggende netwerkverbindingen.
-Hierbij wordt specifiek onderzocht in welke mate de netwerktechnologie (wifi???, 4G 5G) de snelheid en betrouwbaarheid van een commando van een gebruiker naar een slim toestel beïnvloed.
+Hierbij wordt specifiek onderzocht in welke mate de netwerktechnologie (wifi, 4G en 5G) de snelheid en betrouwbaarheid van een commando van een gebruiker naar een slim toestel beïnvloed.
 In plaats van de Raspberry Pi wordt in deze testopstelling een Philips Hue Bridge gebruikt als edgecontroller. Deze wordt verbonden met het netwerk via een bekabelde ethernetverbinding. Een slimme lamp die via deze bridge wordt aangestuurd, fungeert als uitvoerend toestel.
-Het centrale testscript, lichtscript.py, is geschreven in Python en maakt gebruik van de Hue API. Het script voert bij elke iteratie twee opeenvolgende toggle-operaties uit (aan-uit of uit-aan) op de lamp. Voor elke uitvoering wordt gelogd wat de reactiesnelheid is en of deze succesvol is.
+Het centrale testscript, lichtscript.py (zie bijlage \ref{script}), is geschreven in Python en maakt gebruik van de Hue API. Het script voert bij elke iteratie twee opeenvolgende toggle-operaties uit (aan-uit of uit-aan) op de lamp. Voor elke uitvoering wordt gelogd wat de reactiesnelheid is en of deze succesvol is.
+
+%\begin{listing}
+%    \begin{minted}{Python}
+%        import requests
+%        import time
+%        import csv
+%        from datetime import datetime
+%        
+%        BRIDGE_IP = "10.5.0.185"
+%        USERNAME = "drs7MVr-eK2e4HiBlzXMbsWCAPIiD24rMjHwKcx3"
+%        LIGHT_ID = "1"
+%        URL = f"http://{BRIDGE_IP}/api/{USERNAME}/lights/{LIGHT_ID}/state"
+%        AANTAL_TESTS = 200
+%        CSV_BESTAND = f"betrouwbaarheid_test_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+%        
+%        def toggle_light(state):
+%        payload = {"on": state}
+%        start = time.time()
+%        try:
+%        response = requests.put(URL, json=payload, timeout=5)
+%        end = time.time()
+%        duur = round((end - start)*1000, 2)  # in ms
+%        
+%        if response.status_code == 200:
+%        return True, duur, response.json()
+%        else:
+%        return False, duur, response.text
+%        except Exception as e:
+%        return False, None, str(e)
+%        
+%        # === TESTLOOP ===
+%        resultaten = []
+%        print(f"Start betrouwbaarheidstest ({AANTAL_TESTS} commando’s)...")
+%        
+%        for i in range(AANTAL_TESTS):
+%        state = i % 2 == 0  # om en om: aan/uit
+%        success, duur, reactie = toggle_light(state)
+%        
+%        resultaten.append({"nummer": i + 1,"actie": "aan" if state else "uit","resultaat": "succes" if success else "fout","reactietijd_ms": duur if duur else "n.v.t.","response": reactie})
+%        
+%        status = "true" if success else "false"
+%        print(f"[{i+1:03}] {status} - {'aan' if state else 'uit'} - {duur if duur else 'n.v.t.'} ms")
+%        
+%        time.sleep(1)  # optioneel vertraging tussen commando’s
+%        
+%        # === RESULTATEN SCHRIJVEN NAAR CSV ===
+%        with open(CSV_BESTAND, mode='w', newline='', encoding='utf-8') as f:
+%        writer = csv.DictWriter(f, fieldnames=resultaten[0].keys())
+%        writer.writeheader()
+%        writer.writerows(resultaten)
+%        
+%        # === OVERZICHT TONEN ===
+%        aantal_succes = sum(1 for r in resultaten if r["resultaat"] == "succes")
+%        aantal_fout = AANTAL_TESTS - aantal_succes
+%        gemiddelde_tijd = round(sum(r["reactietijd_ms"] for r in resultaten if isinstance(r["reactietijd_ms"], float)) / aantal_succes, 2)
+%        
+%        print("\nRESULTAATOVERZICHT")
+%        print(f"Succesvolle commando's : {aantal_succes}")
+%        print(f"Mislukte commando's     : {aantal_fout}")
+%        print(f"Gemiddelde reactietijd : {gemiddelde_tijd} ms")
+%        print(f"CSV opgeslagen als: {CSV_BESTAND}")
+%    \end{minted}
+%\end{listing}
+
 De kernparameter die gemeten wordt, is de totale tijd tussen het initiëren van het commando en het effectief voltooien van de toggle-operatie. Eventuele fouten (bv. timeouts of mislukte requests) worden eveneens geregistreerd als indicatoren van netwerkbetrouwbaarheid.
 De test wordt uitgevoerd op de 3 netwerken. Per netwerk worden 100 iteraties uitgevoerd van het script, met telkens twee toggles per iteratie. Dit resulteert in 200 metingen per script en 400 metingen in totaal per netwerk.
 Deze experimentele opzet laat toe om te evalueren hoe netwerkvertragingen en -stabiliteit impact hebben op de werking van een eenvoudige maar representatieve IoT-toepassing. De resultaten geven inzichten voor het gebruik van mobiele netwerken in real-time of near-real-time besturingssystemen binnen smart building-contexten (smart building concepten).
