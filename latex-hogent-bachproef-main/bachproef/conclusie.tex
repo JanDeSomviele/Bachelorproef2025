@@ -15,55 +15,53 @@
 %onderzoek?
 
 
-\section{Conclusie}
 
-\subsection{Antwoord op de onderzoeksvraag}
-
-Deze bachelorproef had als doel om te onderzoeken welk draadloos netwerk — Wi-Fi, 4G of 5G — het meest geschikt is voor industriële communicatie in een testomgeving waarin Modbus-protocollen, lichtsturing en HTTP-verkeer via Node-RED centraal staan. Uit de uitgevoerde metingen en functionele testen blijkt dat elk netwerk verschillende sterktes vertoont, afhankelijk van de toepassing.
-
-4G kwam naar voren als de meest stabiele en veelzijdige keuze voor toepassingen die betrouwbaarheid en continuïteit vereisen. Wi-Fi biedt lage latency bij algemene netwerkcommunicatie, maar toonde zich minder stabiel bij functionele opdrachten zoals lichtsturing. 5G behaalt uitzonderlijk hoge bandbreedte en snelle reacties bij functionele testen, maar kende ook grotere schommelingen in latency en jitter. Dit maakt 5G geschikt voor toepassingen met hoge datasnelheden, op voorwaarde dat de netwerkconfiguratie (bijvoorbeeld privaat 5G) een zekere voorspelbaarheid kan bieden.
-
-\subsection{Bijdrage en meerwaarde voor het vakgebied}
-
-De bijdrage van dit onderzoek ligt in het feit dat het niet alleen theoretische snelheden en latencies vergelijkt, maar die direct koppelt aan praktische industriële use-cases. Door de combinatie van meetgegevens (\texttt{iperf3}, \texttt{ping}, packet captures) en functionele testen (lichtsturing, HTTP-verkeer) levert dit onderzoek bruikbare inzichten voor bedrijven en integratoren binnen industriële automatisering, domotica en smart industry.
-
-In tegenstelling tot veel theoretische studies biedt dit werk een praktisch, reproduceerbaar scenario dat dicht aanleunt bij echte implementaties. De gebruikte methodologie — gestandaardiseerde metingen gecombineerd met testcases — vormt een nuttige basis voor toekomstig onderzoek of technische beslissingsondersteuning in het veld.
-
-\subsection{Kritische reflectie en interpretatie van de resultaten}
-
-In grote lijnen bevestigen de resultaten de verwachtingen: 5G biedt de hoogste prestaties op vlak van doorvoersnelheid, 4G is zeer betrouwbaar en Wi-Fi is snel maar gevoeliger voor verstoringen. Toch waren er ook verrassingen. Zo vertoonde 5G onverwacht hoge jitter- en latencypieken, wat wijst op onvoorspelbaarheid in publieke netwerken. Anderzijds was de reactietijd van 5G bij lichtsturing de snelste van de drie netwerken, wat aangeeft dat het voor lokale, kortstondige opdrachten toch goed presteert.
-
-Ook viel op dat Wi-Fi, ondanks de lage gemiddelde pingtijd, de traagste was bij reële opdrachten. Dit toont aan dat latency niet alles zegt, en dat andere netwerkkenmerken zoals beschikbaarheid, interferentie en lokale belasting mee bepalen hoe een netwerk in de praktijk aanvoelt.
+\section{Antwoord op de onderzoeksvraag}
+Deze bachelorproef had als doel om te onderzoeken welk draadloos netwerk (4G of 5G) het meest geschikt is voor dataverkeer in een testomgeving waarin netwerkprestaties, lichtsturing en HTTP-verkeer via Node-RED centraal staan. Uit de uitgevoerde metingen en functionele testen blijkt dat elk netwerk verschillende sterktes vertoont, afhankelijk van de toepassing.
+4G kwam naar voren als de meest stabiele en veelzijdige keuze voor toepassingen die betrouwbaarheid en continuïteit vereisen. Wifi biedt lage latency bij algemene netwerkcommunicatie, maar toonde zich minder stabiel bij functionele opdrachten zoals lichtsturing. 5G behaalt zeer hoge bandbreedte en snelle reacties bij functionele testen, maar kende ook grotere schommelingen in latency en jitter. Dit maakt 5G geschikt voor toepassingen met hoge datasnelheden, op voorwaarde dat de netwerkconfiguratie (bijvoorbeeld privaat 5G) een zekere voorspelbaarheid kan bieden.
 
 
+\section{Bijdrage en meerwaarde voor het vakgebied}
+De bijdrage van dit onderzoek ligt in het feit dat het niet alleen theoretische snelheden en latencies vergelijkt, maar die direct koppelt aan praktische use-cases. Door de combinatie van meetgegevens (iperf3, ping, packet captures) en functionele testen (lichtsturing, HTTP-verkeer) levert dit onderzoek bruikbare inzichten voor het toekomstige ontwerp van een gebouwbeheersysteem voor smart buildings.
+In tegenstelling tot veel theoretische studies biedt dit werk voorbeelden van  praktisch, reproduceerbare scenario’s dicht aanleunen bij echte implementaties. De gebruikte methodologie vormt een nuttige basis voor toekomstig onderzoek of technische beslissingsondersteuning.
 
-\subsection{Beantwoording van de onderzoeksvraag en deelvragen}
 
-Het centrale doel van deze bachelorproef was het onderzoeken van de verschillen tussen 4G en privaat 5G met betrekking tot prestaties, betrouwbaarheid en beveiliging in het kader van toepassingen zoals verlichting en HVAC binnen een gebouwbeheersysteem. Op basis van de uitgevoerde metingen, functionele testen en theoretische analyse, kunnen we stellen dat beide technologieën hun eigen sterktes en beperkingen kennen. 4G bleek bijzonder betrouwbaar en stabiel in situaties waarin voorspelbaarheid belangrijk is, terwijl 5G uitblinkt in doorvoersnelheid en reactiesnelheid, maar daarbij vatbaarder is voor fluctuaties in latency en jitter. \newline
+\section{Kritische reflectie en interpretatie van de resultaten}
+In grote lijnen bevestigen de resultaten de verwachtingen: 5G biedt de hoogste prestaties op vlak van doorvoersnelheid, 4G is zeer betrouwbaar en wifi is snel maar gevoeliger voor verstoringen. Toch waren er ook onverwachte waarnemingen. Zo vertoonde 5G onverwacht hoge jitter- en latencypieken, wat wijst op onvoorspelbaarheid in publieke netwerken. Anderzijds was de reactietijd van 5G bij lichtsturing de snelste van de drie netwerken, wat aangeeft dat het voor lokale, kortstondige opdrachten toch goed presteert.
+Ook viel het op dat wifi, ondanks de lage gemiddelde pingtijd, de traagste was bij reële opdrachten. Dit toont aan dat latency niet alles zegt en dat andere netwerkkenmerken zoals beschikbaarheid, interferentie en lokale belasting mee bepalen hoe een netwerk in de praktijk presteert.
 
 
-\paragraph{Technische vereisten van HVAC- en verlichtingssystemen}HVAC- en verlichtingssystemen zoals die op HOGENT gebruikt worden, vereisen een netwerk met lage en stabiele latency, hoge betrouwbaarheid en minimale packet loss. De communicatie is meestal periodiek en vereist een continue verbinding zonder onderbrekingen, maar vergt geen uitzonderlijk hoge bandbreedte. Vooral reactietijd bij opdrachten (zoals licht schakelen) is cruciaal.
+\section{Beantwoording van de deelvragen}
 
-\paragraph{Verschillen in latency, jitter, packet loss en throughput}Uit de meetresultaten blijkt dat 5G gemiddeld de hoogste throughput biedt, met snelheden boven 900 Mbit/s tegenover slechts 94 Mbit/s bij 4G en Wi-Fi. De latency daarentegen varieerde sterk bij 5G, met pieken tot boven 200 ms, terwijl 4G en wifi stabieler presteerden. De jitter was ook significant hoger bij 5G. Packet loss werd bij geen enkel netwerk vastgesteld in de testomstandigheden, wat positief is.
+\paragraph{Technische vereisten van HVAC- en verlichtingssystemen}
+HVAC- en verlichtingssystemen zoals die op HOGENT gebruikt worden, vereisen een netwerk met lage en stabiele latency, hoge betrouwbaarheid en minimale packet loss. De communicatie is meestal periodiek en vereist een continue verbinding zonder onderbrekingen, maar vraagt geen uitzonderlijk hoge bandbreedte. Vooral een snelle reactietijd bij opdrachten (zoals licht schakelen) is cruciaal.
 
-\paragraph{Betrouwbaarheid van netwerkinteracties in een gebouwbeheerscenario}In de praktijk blijkt 4G het meest betrouwbaar qua constante prestaties. Functionele testen zoals lichtsturing via Node-RED toonden aan dat 4G consistente responstijden gaf, terwijl 5G weliswaar sneller reageerde, maar occasioneel grotere variatie vertoonde. Dit kan in een industriële setting risico’s meebrengen bij niet-deterministisch gedrag. wifi bleek het minst voorspelbaar, met lagere performance bij gelijke opdrachtlast.
+\paragraph{Verschillen in latency, jitter, packet loss en throughput}
+Uit de meetresultaten blijkt dat 5G gemiddeld de hoogste throughput biedt, met snelheden boven 900 Mbit/s tegenover slechts 94 Mbit/s bij 4G en wifi. De latency daarentegen varieerde sterk bij 5G, met pieken tot boven 200 ms, terwijl 4G en wifi stabieler presteerden. De jitter was ook significant hoger bij 5G. Een positief resultaat was ook dat er in de testomstandigheden bij geen enkel netwerk packet loss werd vastgesteld. .
 
-\paragraph{Implicaties voor operationele continuïteit}De overstap naar mobiele netwerken is technisch haalbaar, mits aandacht voor redundantie, signaalsterkte en fallbackmechanismen. 4G biedt een haalbare tussenoplossing voor omgevingen waar bekabeling niet mogelijk is. 5G kan een meerwaarde bieden voor veeleisende toepassingen, maar vereist bijkomende garanties zoals die bij private 5G-netwerken wel beschikbaar zijn (denk aan QoS, SLA’s en prioritering).
+\paragraph{Betrouwbaarheid van netwerkinteracties in een gebouwbeheerscenario}
+In de praktijk blijkt 4G het meest betrouwbaar qua constante prestaties. Functionele testen zoals lichtsturing via Node-RED toonden aan dat 4G consistente responstijden gaf. 5G daarentegen reageerde wel  sneller maar vertoonde occasioneel grotere variatie. Wifi bleek het minst voorspelbaar, met lagere betrouwbaarheid bij gelijke opdrachtlast.
 
-\paragraph{Beveiligingsrisico's en benodigde maatregelen}Beveiliging is een belangrijk aandachtspunt bij mobiele netwerken. In publieke 5G- en 4G-netwerken zijn gebruikers afhankelijk van de operator voor encryptie en netwerksegmentatie. Voor kritische infrastructuur is een private 5G-opstelling wenselijk, waarbij beheer en segmentatie intern geregeld worden. Firewalls, VPN's, netwerkisolatie en toegangscontrole blijven essentieel.
+\paragraph{Implicaties voor operationele continuïteit}
+De overstap naar mobiele netwerken voor werking van een gebouwbeheersysteem is technisch haalbaar, mits aandacht voor redundantie, signaalsterkte en fall back-mechanismen. 4G biedt een haalbare tussenoplossing voor omgevingen waar bekabeling niet mogelijk is. 5G kan een meerwaarde bieden voor veeleisende toepassingen, maar vereist bijkomende garanties zoals die bij private 5G-netwerken wel beschikbaar zijn (denk aan QoS, SLA’s en prioritering).
 
-\paragraph{Compatibiliteit met bestaande bekabelde systemen}Om huidige bekabelde systemen compatibel te maken met mobiele netwerken, is het nodig om gateway-apparatuur te voorzien die netwerkverkeer converteert naar draadloos. Dit kan bijvoorbeeld via industriële routers met 4G/5G-functionaliteit en ondersteuning voor protocollen zoals Modbus TCP. Daarnaast is het essentieel dat latentie en jitter binnen de toelaatbare grenzen vallen voor het protocolgebruik.
+\paragraph{Compatibiliteit met bestaande bekabelde systemen}
+Om huidige bekabelde systemen compatibel te maken met mobiele netwerken, is het nodig om gateway-apparatuur te voorzien die het netwerkverkeer converteert naar draadloos. Dit kan bijvoorbeeld via industriële routers met 4G/5G-functionaliteit en ondersteuning voor protocollen zoals Modbus TCP. Daarnaast is het essentieel dat latentie en jitter binnen de toelaatbare grenzen blijven vallen voor het protocolgebruik.
 
-\paragraph{Wanneer overstappen naar een privaat 5G-netwerk?}Een overstap naar een privaat 5G-netwerk is vooral zinvol wanneer de vereisten voor betrouwbaarheid, voorspelbare latency en lokale controle niet kunnen worden ingevuld door bestaande infrastructuur of publieke mobiele netwerken. Toepassingen met hoge bandbreedte, lage latency (zoals real-time beeldanalyse of augmented reality), of met meerdere gelijktijdige apparaten profiteren sterk van een private 5G-configuratie, mits voldoende investering in infrastructuur en beheer.
+\paragraph{Wanneer overstappen naar een privaat 5G-netwerk?}
+Een overstap naar een privaat 5G-netwerk is vooral zinvol wanneer de vereisten voor betrouwbaarheid, voorspelbare latency en lokale controle niet kunnen worden ingevuld door bestaande infrastructuur of publieke mobiele netwerken. Toepassingen met hoge bandbreedte, lage latency (zoals real-time beeldanalyse of augmented reality) of met meerdere gelijktijdig werkende apparaten profiteren sterk van een private 5G-configuratie. Er zal dan voldoende investering in infrastructuur en beheersystemen moeten worden voorzien.
 
-\subsection{Reflectie en verdere onderzoeksvragen}
 
-Hoewel de algemene resultaten grotendeels overeenstemden met de verwachtingen, was het opvallend dat 5G zo sterk presteerde bij lichtsturing, ondanks zijn instabielere latencymetingen. Dit toont aan dat specifieke toepassingen soms minder gevoelig zijn voor algemene prestatiecijfers, wat verdere analyse verdient.
+\section{Reflectie en verdere onderzoeksvragen}
+Hoewel de algemene resultaten grotendeels overeenstemden met de verwachtingen, was het opvallend dat 5G zeer sterk presteerde bij lichtsturing, ondanks zijn instabielere latency resultaten. Dit toont aan dat specifieke toepassingen vermoedelijk minder gevoelig zijn voor algemene prestatiecijfers. Het is aangewezen om dit verder te analyseren.  Daarnaast blijft de invloed van de netwerkinfrastructuur zelf (zoals interferentie, handover tussen cellen en routing via het internet) een belangrijk punt. Een logische volgende stap zou zijn om dezelfde testen te herhalen binnen een private 5G-opstelling of om long-term monitoring uit te voeren onder reële bedrijfsomstandigheden.
+Tot slot roept dit onderzoek nieuwe vragen op zoals: 
+\begin{itemize}
+    \item Hoe schaalbaar zijn deze netwerken bij tientallen tot honderden sensoren?
+    \item Wat is de invloed van roaming of overbelasting op de netwerktoepassingen?
+    \item Hoe verhoudt het energieverbruik van mobiele modules zich tegenover de aanwezige bekabelde infrastructuur?
+    \item Wat zijn beveiligingsrisico’s bij het gebruik van een mobiel netwerk en hoe kunnen deze voorkomen worden?
+\end{itemize}
 
-Daarnaast blijft de invloed van netwerkinfrastructuur (zoals interferentie, handover tussen cellen, en routing via het internet) een belangrijk punt. Een logische volgende stap zou zijn om dezelfde testen te herhalen binnen een private 5G-opstelling, of om long-term monitoring uit te voeren onder reële bedrijfsomstandigheden.
+\section{Slotbeschouwing}
+Deze bachelorproef draagt bij aan het inzicht in de praktische toepasbaarheid van mobiele netwerken binnen een gebouwbeheersysteem. Dit werk biedt een basis voor scenario’s waarmee zowel prestatie- als functionele testen kunnen uitgevoerd worden. Hiermee kan HOGENT verder testomgevingen en test cases opzetten om de overstap naar mobiele infrastructuur  voor het gebouwbeheersysteem te bestuderen en voor te bereiden. Deze overstap is mogelijk en voor de toekomst in de context van smart buildings zeker wenselijk, maar vereist ontegensprekelijk een zorgvuldige afweging van vereisten, prestaties en netwerkarchitectuur.
 
-Tot slot roept dit onderzoek nieuwe vragen op: hoe schaalbaar zijn deze netwerken bij tientallen tot honderden sensoren? Wat is de invloed van roaming of overbelasting? En hoe verhoudt het energieverbruik van mobiele modules zich tegenover bekabelde alternatieven?
-
-\subsection{Slotbeschouwing}
-
-Deze bachelorproef draagt bij aan het inzicht in de praktische toepasbaarheid van mobiele netwerken binnen een gebouwbeheersysteem. Door zowel prestatie- als functionele testen te combineren, biedt dit werk een waardevolle referentie voor systeemontwerpers, installateurs en IT-beheerders. De overstap naar mobiele infrastructuur is mogelijk en in sommige gevallen wenselijk, maar vereist een zorgvuldige afweging van vereisten, prestaties en netwerkarchitectuur.

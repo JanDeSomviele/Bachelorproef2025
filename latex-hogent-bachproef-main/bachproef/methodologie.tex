@@ -43,7 +43,7 @@ De testomgeving omvat verschillende netwerken: wifi via een lokaal access point,
 Deze opstelling vormt een goed alternatief voor fysieke gebouwbeheersysteem-hardware en is aldus geschikt voor experimenteel onderzoek naar IoT-communicatie binnen slimme gebouwen.
 
 
-\section{Connectiviteits- en performantiemetingen}
+\section{Uitvoering van de testen}
 
 In elk van de netwerkomgevingen wordt een identieke testreeks uitgevoerd. Het doel is om te evalueren hoe verschillende technologieën presteren op vlak van snelheid, betrouwbaarheid en stabiliteit.
 De latency en jitter worden gemeten met behulp van het ping-commando . Voor de meting van throughput wordt gebruikgemaakt van zowel speedtest-cli, dat communiceert met publieke servers, als iPerf3, waarbij een eigen server op de pc fungeert als eindpunt.
@@ -51,17 +51,11 @@ Packet loss en stabiliteit worden geëvalueerd door langdurige communicatieopdra
 Een extra test meet de reactietijd van een smart verlichting-toepassing. Via een lokaal netwerk wordt een Philips Hue-lamp twee keer geschakeld door een Python-script. De tijd tussen het commando en de feitelijke uitvoering wordt gelogd. Deze test illustreert concreet hoe netwerkomstandigheden de gebruikerservaring van een IoT-toepassing kunnen beïnvloeden.
 
 
-\section{Uitvoer van de testscenario’s}
-
-TO DO: uitleggen
-
-
 \section{Data-analyse en evaluatie}
 
-TO DO: anders
-Alle verzamelde data wordt automatisch verwerkt met Python. De scripts analyseren latency, jitter, packet loss, doorvoersnelheden en systeembelasting. Deze gegevens worden omgezet naar visuele representaties zoals tijdreeksen, boxplots en gemiddeldevergelijkingen, wat helpt bij het identificeren van trends of anomalieën.
-De evaluatie focust op prestatieverschillen tussen de onderzochte netwerktechnologieën - Wi-Fi, 4G en privaat 5G. Daarbij worden onder meer gemiddelde en maximale latency, jitterwaarden, en de frequentie van communicatieproblemen geanalyseerd. Ook wordt expliciet nagegaan hoe snel en betrouwbaar toepassingen reageren: van het schakelen van een lamp tot het succesvol polsen van Modbus-registers.
-Naast deze kwantitatieve metingen wordt ook aandacht besteed aan operationele storingen of anomalieën zoals time-outs, verbindingsverlies of onverwacht gedrag tijdens de tests. Deze kwalitatieve observaties bieden inzicht in de betrouwbaarheid van de netwerken in dagelijkse toepassingen.
+In deze fase worden alle meetgegevens verwerkt en geanalyseerd. Deze analyse houdt rekening met netwerkparameters zoals latency, jitter, packet loss en throughput. De ruwe data wordt omgezet naar visuele representaties, waaronder tabellen, boxplots en vergelijkende grafieken.
+
+Naast de kwantitatieve analyse worden ook observaties tijdens de functionele testen geregistreerd, zoals storingen, time-outs of afwijkend gedrag. Deze combinatie van meetdata en testobservaties vormt de basis voor de latere evaluatie van de netwerktechnologieën
 
 
 
