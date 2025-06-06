@@ -9,78 +9,87 @@
 % Info over de opleiding
 \course{Bachelorproef}
 \studyprogramme{toegepaste informatica}
-\academicyear{2022-2023}
+\academicyear{2024-2025}
 \institution{Hogeschool Gent, Valentin Vaerwyckweg 1, 9000 Gent}
 
 % Info over de bachelorproef
-\title{Titel van uw bachelorproef}
-\subtitle{Ondertitel (eventueel)}
-\author{Voornaam Naam}
-\email{voornaam.familienaam@student.hogent.be}
-\supervisor{Voornaam Naam}
-\cosupervisor{Voornaam Naam (Bedrijf)}
+\title{De impact van mobiele netwerken op facilitair beheer: een vergelijkende studie van 4G en privaat 5G voor HOGENT}
+%\subtitle{Ondertitel (eventueel)}
+\author{Jan De Somviele}
+\email{jan.desomviele@student.hogent.be}
+\supervisor{Lena De Mol, Chantal Teerlinck}
+\cosupervisor{Giselle Vercauteren (HOGENT)}
 
 % Indien ingevuld, wordt deze informatie toegevoegd aan het einde van de
 % abstract. Zet in commentaar als je dit niet wilt.
 \specialisation{Systeem- en Netwerkbeheer}
-\keywords{Lambda-calculus, Scheme}
-\projectrepo{https://github.com/user/repo}
+\keywords{5G, 4G, gebouwbeheer}
+\projectrepo{https://github.com/JanDeSomviele/Bachelorproef2025}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-It's only a model.
-You don't vote for kings. Who's that then? We found them. Ni! Ni! Ni! Ni!
-The nose? On second thoughts, let's not go there. It is a silly place. Bloody Peasant! And the hat. She's a witch! Where'd you get the coconuts?
+Deze poster onderzoekt de prestaties en betrouwbaarheid van 4G- en privaat 5G-netwerken in de context van gebouwbeheersystemen zoals verlichting en HVAC. Via netwerkmetingen en functionele testen worden de praktische implicaties en geschiktheid van mobiele netwerken binnen smart buildings geëvalueerd.
 \end{abstract}
 
 \begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
 
 \section{Introductie}
 
-Be quiet! Found them? In Mercia?! The coconut's tropical! But you are dressed as one… Well, what do you want? Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.
+In deze bachelorproef werd onderzocht hoe 4G en privaat 5G-netwerken presteren binnen het kader van een gebouwbeheersysteem (GBS), met toepassingen zoals verlichting en HVAC. De centrale onderzoeksvraag luidde: \textit{Wat is het verschil tussen 4G en privaat 5G in verband met prestaties en betrouwbaarheid van toepassingen binnen een GBS?}
 
-Well, what do you want? It's only a model. Camelot! We found them. We shall say `Ni' again to you, if you do not appease us.
+Om de testen uit te voeren werden 2 opstellingen gebruikt. De eerste opstelling gebruikt een rasberry pi in plaats van een AS-P controller. De tweedde opstelling maakt gebruik van een Philips hue Bridge en lamp om een use case van verlichting te testen. %TO DO: anders verwoorden
 
-The nose? Shut up! Burn her! I am your king. You don't vote for kings.
-
-You can't expect to wield supreme power just `cause some watery tart threw a sword at you! Well, we did do the nose. I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
-
-Why do you think that she is a witch? We want a shrubbery!! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
+\begin{center}
+    \captionsetup{type=figure}
+    \includegraphics[width=0.45\textwidth]{../graphics/beideOpstellingen.jpg}
+    \captionof{figure}{Opstelling A: , Opstelling B:}
+\end{center}
 
 \section{Experimenten}
 
-A newt? Camelot! Why? No, no, no! Yes, yes. A bit. But she's got a wart.
-
-Shut up! I dunno. Must be a king. Who's that then? Look, my liege! On second thoughts, let's not go there. It is a silly place.
-
-Shut up! Will you shut up?! No, no, no! Yes, yes. A bit. But she's got a wart. He hasn't got shit all over him. It's only a model. It's only a model.
-
-Bring her forward! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave 
-
-\section{Sectie met figuur}
-
-De {\LaTeX} figure-omgeving bepaalt zelf waar een afbeelding komt en dat is meestal niet op de plek in de tekst waar de figure-omgeving gedefinieerd wordt. Als je wilt forceren dat afbeeldingen toch in de flow van de tekst blijven, dan kan je dat zoals hieronder:
-
 \begin{center}
-  \captionsetup{type=figure}
-  \includegraphics[width=1.0\linewidth]{grail}
-  \captionof{figure}{He hasn't got shit all over him. The nose? Where'd you get the coconuts? What do you mean? We shall say `Ni' again to you, if you do not appease us}
+    \captionsetup{type=figure}
+    \includegraphics[width=0.45\textwidth]{../graphics/Latency-Jitter-grafiek.png}
+    \captionof{figure}{Grafiek 1: , Grafiek 2:}
 \end{center}
 
-Let er wel op dat dit tot problemen met bladschikking kan leiden.
+\begin{multicols}{2}
+\subsection*{Latency}
+latency + rtt uitleg. ping test 250 x 4 uitgevoerd per netwerk. grafiek 1 resultaten + uitleg
+\subsection*{Jitter}
+Jitter uitleg. iperf3-udp test 4x 2 min + 1,5,50 Mbit per netwerk met pc als iperf server. grafiek 2 + uitleg.
+\end{multicols}
+\subsection*{Packet loss}
+ping test van latency + UDP iperf test van jitter. resultaten = geen packet loss bij elk netwerk.
 
+\begin{center}
+    \captionsetup{type=figure}
+    \includegraphics[width=0.45\textwidth]{../graphics/bandbreedteLichtHttp.png}
+    \captionof{figure}{Tabel 1: bandbreedte , Tabel 2: licht, Grafiek 3: Download http test}
+\end{center}
+
+\begin{multicols}{2}
+\subsection*{Bandbreedte}
+iperf TCP test 4x2min per netwerk. uitleg resultaten
+
+\subsection*{licht}
+licht opstelling b. test 200 aan/uit x2 per netwerk. tabel = gem waarden + uitleg resultaten. 
+\end{multicols}
+
+\subsection*{http}
+http = node red test van een curl naar een http endpoint op pc. grafiek is van de download van de test, uitleg resultaten.
 \section{Conclusies}
 
-Don't underestimate the Force. Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.
+5G bleek uit te blinken in throughput (tot 900 Mbit/s) en had bij lichte belasting zeer snelle reacties. Echter, 4G bood meer constante prestaties qua latency en betrouwbaarheid. In functionele testen (zoals lichtbediening) bleek 4G consistenter, terwijl 5G gevoeliger was voor fluctuaties. Wi-Fi presteerde wisselvalliger.
+
+Mobiele netwerken zijn technisch geschikt voor GBS-toepassingen, mits rekening wordt gehouden met latentie, jitter en redundantie. Private 5G biedt bijkomende voordelen zoals QoS en interne netwerkcontrole.
 
 \section{Toekomstig onderzoek}
 
-I care. So, what do you think of her, Han? No! Alderaan is peaceful. We have no weapons. You can't possibly… I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
-
-Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You are a part of the Rebel Alliance and a traitor! Take her away! 
+Een herhaling van de testen in een private 5G-opstelling met SLA-garanties zou zinvol zijn. Verder onderzoek kan zich ook richten op schaalbaarheid bij honderden apparaten, energieverbruik van mobiele modules en de impact van netwerkcongestie of roaming binnen grote gebouwen.
 
 \end{multicols}
 \end{document}
