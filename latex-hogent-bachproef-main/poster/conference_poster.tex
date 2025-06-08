@@ -38,16 +38,14 @@ Deze poster onderzoekt de prestaties en betrouwbaarheid van 4G- en privaat 5G-ne
 
 \section{Introductie}
 
-In deze bachelorproef werd onderzocht hoe 4G en privaat 5G-netwerken presteren binnen het kader van een gebouwbeheersysteem (GBS), met toepassingen zoals verlichting en HVAC. De centrale onderzoeksvraag luidde: \textit{Wat is het verschil tussen 4G en privaat 5G in verband met prestaties en betrouwbaarheid van toepassingen binnen een GBS?}
-
-Om de testen uit te voeren werden 2 opstellingen gebruikt. De eerste opstelling gebruikt een rasberry pi in plaats van een AS-P controller. De tweedde opstelling maakt gebruik van een Philips hue Bridge en lamp om een use case van verlichting te testen. %TO DO: anders verwoorden
+In deze bachelorproef werd onderzocht hoe 4G en privaat 5G-netwerken presteren binnen een gebouwbeheersysteem (GBS), met toepassingen zoals verlichting en HVAC. De centrale onderzoeksvraag luidde: \textit{Wat is het verschil tussen 4G en privaat 5G in verband met prestaties en betrouwbaarheid van toepassingen binnen een GBS?}
 
 \begin{center}
     \captionsetup{type=figure}
     \includegraphics[width=0.45\textwidth]{../graphics/beideOpstellingen.jpg}
     \captionof{figure}{Opstelling A: , Opstelling B:}
 \end{center}
-
+De opstelling heeft twee configuraties: beide hebben een pc bekabeld verbonden met een RUTX50-router die wisselend wifi, 4G of privaat 5G levert. Opstelling A heeft een Raspberry Pi die fungeert als meetnode en in opstelling B wordt deze vervangen door een Philips Hue Bridge en een Philips Hue smartlight.
 \section{Experimenten}
 
 \begin{center}
@@ -58,38 +56,44 @@ Om de testen uit te voeren werden 2 opstellingen gebruikt. De eerste opstelling 
 
 \begin{multicols}{2}
 \subsection*{Latency}
-latency + rtt uitleg. ping test 250 x 4 uitgevoerd per netwerk. grafiek 1 resultaten + uitleg
+
+Latency is de tijd die een datapakket nodig heeft om heen en terug te reizen tussen twee punten, gemeten als round-trip time (RTT). In deze test werd met het commando 'ping -c 250' naar een extern IP gekeken naar de snelheid en stabiliteit van de netwerken. Wi-Fi had de laagste gemiddelde latency (13,27 ms), gevolgd door 4G (18,17 ms), terwijl 5G ondanks een lage minimumwaarde (10,85 ms) last had van grote pieken tot 230,92 ms. Dit kan wijzen op fluctuaties in de testomgeving of instabiliteit van het privaat 5G-netwerk.
 \subsection*{Jitter}
-Jitter uitleg. iperf3-udp test 4x 2 min + 1,5,50 Mbit per netwerk met pc als iperf server. grafiek 2 + uitleg.
+
+Jitter geeft de variatie in vertraging tussen opeenvolgende datapakketten weer. Dit is belangrijk voor betrouwbare real-time toepassingen zoals HVAC en lichtsturing. Met iperf3 werden drie UDP-tests uitgevoerd per netwerk (1, 5 en 50 Mbit/s), waarbij jitter werd gemeten. Bij 1 Mbit/s had wifi de hoogste jitter (0,799 ms), terwijl 4G en 5G stabieler waren. Bij hogere snelheden daalden de jitterwaarden en stabiliseerden alle netwerken rond 0,15–0,20 ms.
 \end{multicols}
+
 \subsection*{Packet loss}
-ping test van latency + UDP iperf test van jitter. resultaten = geen packet loss bij elk netwerk.
+Packet loss werd getest met zowel de latency ping- als de jitter iperf3-test en bleek in alle netwerken nul procent te bedragen. Dit wijst op een stabiele en betrouwbare dataverbinding, zelfs bij hoge verzendbelasting. Voor kritieke toepassingen wordt aangeraden om packet loss ook onder realistischere omstandigheden verder te evalueren.
 
 \begin{center}
     \captionsetup{type=figure}
-    \includegraphics[width=0.45\textwidth]{../graphics/bandbreedteLichtHttp.png}
-    \captionof{figure}{Tabel 1: bandbreedte , Tabel 2: licht, Grafiek 3: Download http test}
+    \includegraphics[width=0.45\textwidth]{../graphics/bandbreedteLicht.png}
+    \captionof{figure}{Tabel 1: bandbreedte , Tabel 2: licht}
 \end{center}
 
 \begin{multicols}{2}
 \subsection*{Bandbreedte}
-iperf TCP test 4x2min per netwerk. uitleg resultaten
+De iperf3 TCP throughput-test meet hoeveel data per seconde succesvol wordt verzonden tussen de Rasberry Pi en de pc. Wifi en 4G presteren beide rond de 94 Mbit/s. 5G behaalt een veel hogere gemiddelde bitrate van 931 Mbit/s. Dit toont de grotere datacapaciteit van 5G. 
 
 \subsection*{licht}
-licht opstelling b. test 200 aan/uit x2 per netwerk. tabel = gem waarden + uitleg resultaten. 
+Bij deze test werd opstelling B gebruikt. De reactietijd tussen het versturen van een commando en het schakelen van een slimme lamp over wifi, 4G en 5G werd gemeten. Alle netwerken behaalden 100\% succesratio, maar 5G gaf de snelste reactie (gem. 90,63 ms), gevolgd door 4G en wifi. 
 \end{multicols}
-
+\begin{center}
+    \captionsetup{type=figure}
+    \includegraphics[width=0.45\textwidth]{../graphics/http.png}
+    \captionof{figure}{Grafiek 1: spreidingsgrafiek download speed , Grafiek 2: gem snelheiden van http test}
+\end{center}
 \subsection*{http}
-http = node red test van een curl naar een http endpoint op pc. grafiek is van de download van de test, uitleg resultaten.
+De Node-RED test simuleerde periodiek HTTP-verkeer om de prestaties van wifi, 4G en 5G te vergelijken bij IoT-toepassingen. Wifi had de laagste doorvoersnelheid en meer variatie, terwijl 4G het snelst en meest consistent presteerde. 5G scoorde ook goed, maar toonde iets meer schommelingen. Alle netwerken waren echter voldoende snel en stabiel voor standaard IoT-gebruik zoals statusupdates en eenvoudige opdrachten.
+
+
 \section{Conclusies}
-
-5G bleek uit te blinken in throughput (tot 900 Mbit/s) en had bij lichte belasting zeer snelle reacties. Echter, 4G bood meer constante prestaties qua latency en betrouwbaarheid. In functionele testen (zoals lichtbediening) bleek 4G consistenter, terwijl 5G gevoeliger was voor fluctuaties. Wi-Fi presteerde wisselvalliger.
-
-Mobiele netwerken zijn technisch geschikt voor GBS-toepassingen, mits rekening wordt gehouden met latentie, jitter en redundantie. Private 5G biedt bijkomende voordelen zoals QoS en interne netwerkcontrole.
+Uit de testen blijkt dat 4G de meest stabiele en betrouwbare prestaties levert, terwijl 5G uitblinkt in snelheid maar gevoelig is voor schommelingen in latency en jitter. Wifi scoorde goed qua latency, maar bleek minder betrouwbaar bij functionele opdrachten. 5G toont potentieel voor veeleisende toepassingen, mits gebruik in een gecontroleerde (private) omgeving.
 
 \section{Toekomstig onderzoek}
 
-Een herhaling van de testen in een private 5G-opstelling met SLA-garanties zou zinvol zijn. Verder onderzoek kan zich ook richten op schaalbaarheid bij honderden apparaten, energieverbruik van mobiele modules en de impact van netwerkcongestie of roaming binnen grote gebouwen.
+Toekomstig onderzoek kan zich richt op testen binnen een private 5G-omgeving en langdurige metingen onder reële omstandigheden. Daarbij wordt gekeken naar schaalbaarheid, energieverbruik, roaming, en beveiligingsrisico’s. Dit moet inzicht geven in de praktische inzetbaarheid van mobiele netwerken voor grootschalige gebouwtoepassingen.\newline\newline\newline\newline\newline\newline\newline
 
 \end{multicols}
 \end{document}
